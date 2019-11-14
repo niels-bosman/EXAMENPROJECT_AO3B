@@ -25,7 +25,7 @@ class CreateUsersTable extends Migration
             $table->string('zipcode');
             $table->boolean('blocked')->default(0);
             $table->boolean('activated')->default(0);
-            $table->string('access_token');
+            $table->string('access_token')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
             $table->timestamps();
