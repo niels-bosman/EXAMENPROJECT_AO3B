@@ -1,0 +1,17 @@
+@import "fonts";
+@import "content";
+@import "header";
+@import "footer";
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #f5f5f5;
+}
+
+a {
+    color: black;
+    &:hover {
+        text-decoration: none;
+        color: black;
+    }
+}
