@@ -7,9 +7,5 @@
 @endsection
 
 @section('content')
-    <h1>Hier komt de nieuwe applicatie</h1>
-@endsection
-
-@section('footer')
-
+<h1>The account you have created has not yet been activated!</h1>
 @endsection

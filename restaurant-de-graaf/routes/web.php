@@ -14,3 +14,7 @@
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::get('/account_not_activated', function () {
+    return view('account_not_activated');
+});
