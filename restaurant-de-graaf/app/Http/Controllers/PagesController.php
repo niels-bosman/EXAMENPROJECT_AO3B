@@ -15,4 +15,9 @@ class PagesController extends Controller
     {
         return view('account_not_activated');
     }
+
+    public function account_blocked()
+    {
+        return view('account_blocked');
+    }
 }
