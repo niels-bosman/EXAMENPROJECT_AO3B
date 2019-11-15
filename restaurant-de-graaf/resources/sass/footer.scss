@@ -1,6 +1,7 @@
 .footer {
     background-color: black;
-    padding: 50px 0;
+    padding: 75px 0;
+    position: relative;
 
     &__menu {
         list-style: none;
@@ -19,6 +20,24 @@
 
         &-item {
             color: white;
+            transition: .2s ease;
+            &:hover {
+                color: cornflowerblue;
+            }
+        }
+    }
+
+    &__disclaimer {
+        padding: 5px 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+
+        &-text {
+            text-align: center;
+            margin: 0;
         }
     }
 }
