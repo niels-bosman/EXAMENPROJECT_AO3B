@@ -20,6 +20,6 @@
         </div>
     </div>
     <div class="footer__disclaimer">
-        <p class="footer__disclaimer-text">Copright &copy; Restaurant de Graaf <?= date('Y'); ?></p>
+        <p class="footer__disclaimer-text">Copyright &copy; Restaurant de Graaf <?= date('Y'); ?></p>
     </div>
 </div>
