@@ -24,8 +24,9 @@ class CreateUsersTable extends Migration
             $table->string('city')->nullable();
             $table->string('zipcode')->nullable();
             $table->boolean('blocked')->default(0);
-            $table->boolean('activated')->default(0);
             $table->string('access_token')->unique()->nullable();
+            $table->smallInteger('wrong_count')->nullable(false);
+            $table->smallInteger('auth_level')->nullable(false);
             $table->timestamp('access_token_expires')->nullable();
             $table->timestamp('email_verified_at')->nullable();
             $table->rememberToken();
