@@ -14,19 +14,14 @@
 </head>
 
 <body>
-    <nav class="navbar navbar-light bg-light">
-        <span class="navbar-brand mb-0 h1">Restaurant de Graaf</span>
+@yield('header')
 
-        @yield('header')
-    </nav>
 
-    <div class="container">
-        @yield('content')
-    </div>
+<div class="container">
+    @yield('content')
+</div>
 
-    <div class="fixed-bottom">
-        @yield('footer')
-    </div>
+@yield('footer')
 </body>
 
 </html>
