@@ -2,6 +2,11 @@
     background: white;
     padding: 15px 0;
     box-shadow: 0 1px 1px rgba(0, 0, 0, .1);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 99999;
 
     &__title {
         font-size: 22px;
@@ -36,7 +41,7 @@
         &-item {
             transition: .2s ease;
             &:hover {
-                color: cornflowerblue;
+                color: $color-main;
             }
         }
     }

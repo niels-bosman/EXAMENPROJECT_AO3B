@@ -1,0 +1,14 @@
+.button {
+    &--primary {
+        background: $color-main;
+        color: white;
+        padding: 7px 10px;
+        border-radius: 4px;
+        transition: .2s ease;
+
+        &:hover {
+            background: darken($color-main, 5);
+            color: white;
+        }
+    }
+}

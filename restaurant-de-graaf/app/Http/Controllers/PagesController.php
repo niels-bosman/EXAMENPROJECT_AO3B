@@ -8,11 +8,16 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('welcome');
+        return view('home');
     }
 
     public function account_not_activated()
     {
         return view('account_not_activated');
+    }
+
+    public function account_blocked()
+    {
+        return view('account_blocked');
     }
 }

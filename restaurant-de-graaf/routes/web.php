@@ -12,4 +12,4 @@ Route::delete('/account/{user}', 'UserController@delete');
 Route::get('/account/login', 'UserController@login');
 Route::post('/account/login', 'UserController@checkAccountActivation');
 
-
+Route::get('/account_blocked', 'PagesController@account_blocked');
