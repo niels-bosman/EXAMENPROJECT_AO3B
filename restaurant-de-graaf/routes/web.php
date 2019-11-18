@@ -18,7 +18,6 @@ Route::get('/user/{user}/account_not_activated', 'UserController@account_not_act
 Route::get('/user/{user}/account_blocked', 'UserController@account_blocked');
 
 Route::get('/account_not_activated', 'PagesController@account_not_activated');
-
 Route::get('/account_blocked', 'PagesController@account_blocked');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
