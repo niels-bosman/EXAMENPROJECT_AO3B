@@ -20,7 +20,7 @@
                             @auth
                                 <a class="header__menu-item" href="{{ route('logout') }}">Uiloggen</a>
                             @else
-                                <a class="header__menu-item" href="{{ route('login') }}">Inloggen</a>
+                                <a class="header__menu-item  @if (\Request::is('login')) header__menu-item--active @endif" href="{{ route('login') }}">Inloggen</a>
                             @endauth
                         @endif
                     </li>
