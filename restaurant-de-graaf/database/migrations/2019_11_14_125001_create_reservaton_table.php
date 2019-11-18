@@ -18,8 +18,9 @@ class CreateReservatonTable extends Migration
             $table->unsignedBigInteger('UserID')->nullable(false);
             $table->dateTime('date');
             $table->unsignedInteger('duration')->comment("Geeft aan hoe lang deze reservering duurt in minuten");
-            $table->string('comment')->nullable(true);
-            $table->double('payed_price')->nullable();;
+            $table->text('comment')->nullable(true);
+            $table->double('payed_price')->nullable();
+            $table->unsignedBigInteger('guest_amount')->nullable(false);
             $table->timestamps();
 
             $table->foreign('UserID')->references('id')->on('users');
