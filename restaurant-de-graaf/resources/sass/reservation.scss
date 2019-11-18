@@ -1,0 +1,24 @@
+.reservation {
+    padding: 100px 15px;
+
+    &__heading {
+        margin-bottom: 50px;
+    }
+
+    &__field {
+        margin-bottom: 25px;
+
+        .button {
+            margin: 0 auto;
+            display: table;
+        }
+    }
+
+    &__fields {
+        text-align: center;
+        input {
+            border: solid 1px #888888;
+            border-radius: 4px;
+        }
+    }
+}
