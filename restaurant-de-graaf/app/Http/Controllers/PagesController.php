@@ -8,16 +8,58 @@ class PagesController extends Controller
 {
     public function home()
     {
-        return view('home');
+        return view('/home');
     }
 
-    public function account_not_activated()
+    public function login()
     {
-        return view('account_not_activated');
+        return view('/login');
     }
 
-    public function account_blocked()
+    public function checkLogin()
     {
-        return view('account_blocked');
+        // needs to change
+        return view('/login');
+    }
+
+    public function create()
+    {
+        return view('/registration');
+    }
+
+    public function createAccount()
+    {
+        // needs to change
+        return view('/registration');
+    }
+
+    public function menu()
+    {
+        return view('/menu');
+    }
+
+    public function reservation()
+    {
+        return view('/reservation');
+    }
+
+    public function contact()
+    {
+        return view('/contact');
+    }
+
+    public function faq()
+    {
+        return view('/faq');
+    }
+
+    public function service_condition()
+    {
+        return view('/service_condition');
+    }
+
+    public function forgot_password()
+    {
+        return view('/forgot_password');
     }
 }
