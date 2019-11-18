@@ -20,6 +20,8 @@ Route::get('/user/{user}/account_blocked', 'UserController@account_blocked');
 Route::get('/account_not_activated', 'PagesController@account_not_activated');
 Route::get('/account_blocked', 'PagesController@account_blocked');
 
+Route::post('/reserveren', 'ReserveringController@post')->middleware('auth');
+
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
 });
