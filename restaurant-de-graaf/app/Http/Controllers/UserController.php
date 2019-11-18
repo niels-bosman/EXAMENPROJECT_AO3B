@@ -6,82 +6,70 @@ use App\User;
 
 class UserController extends Controller
 {
-    public function home() {
-        if(!isset($_SESSION['activated']))
-        {
-            return view('account');
-        }
-        else
-        {
-            return view('account.login');
-        }
-    }
-
-    public function checkAccountActivation(User $user)
+    public function home()
     {
-        $user = User::all()[0];
-
-        if($user->activated)
-        {
-            return redirect('account');
-        }
-        else
-        {
-            return view('account.account_not_activated');
-        }
-    }
-
-    public function checklogin(User $user)
-    {
-        if(!$user->email == $_POST['email'] && !$user->password == $_POST['password'])
-        {
-            return redirect('account');
-        }
-        else
-        {
-            return view('account.login');
-        }
-    }
-
-    public function login()
-    {
-        return view('account.login');
-    }
-
-    public function create()
-    {
-        $user = new User();
-
-        $user->name = request('name');
-        $user->email = request('email');
-        $user->tel_number = request('tel_number');
-
-        $user->save();
-
-        return redirect('/account/account_not_activated');
+        // needs to change
+        return view('/user/not_admin');
     }
 
     public function show($id)
     {
-        $id = User::findOrFail($id);
+        $user = User::where('id', $id)->firstOrFail();
 
-        return view('account.{$id}');
+        return view('/user/user', [
+            'user' => $user
+        ]);
     }
 
     public function edit($id)
     {
-        $id = User::findOrFail($id);
 
-        return view('account.{$id}/edit');
+        $user = User::where('id', $id)->firstOrFail();
+
+        return view('/user/edit', [
+            'user' => $user
+        ]);
     }
 
-    public function recoverPassword()
+    public function update($id)
     {
 
+        // needs to change
+
+        return redirect('/user/' . $id);
     }
 
-    public function delete()
+    public function account_terminate($id)
     {
+        $user = User::where('id', $id)->firstOrFail();
 
+        return view('/user/delete', [
+            'user' => $user
+        ]);
+    }
+
+    public function confirmAccount_terminate($id)
+    {
+        $user = User::where('id', $id)->firstOrFail();
+
+        return redirect('/user');
+    }
+
+    public function account_not_activated($id)
+    {
+        $user = User::where('id', $id)->firstOrFail();
+
+        return view('/user/account_not_activated', [
+            'user' => $user
+        ]);
+    }
+
+    public function account_blocked($id)
+    {
+        $user = User::where('id', $id)->firstOrFail();
+
+        return view('/user/account_blocked', [
+            'user' => $user
+        ]);
     }
 }
