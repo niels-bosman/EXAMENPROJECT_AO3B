@@ -15,7 +15,15 @@
             </div>
             <div class="col-md-2 header-wrap">
                 <ul class="header__menu">
-                    <li><a class="header__menu-item" href="/login">Inloggen</a></li>
+                    <li>
+                        @if (Route::has('login'))
+                            @auth
+                                <a class="header__menu-item" href="{{ route('logout') }}">Uiloggen</a>
+                            @else
+                                <a class="header__menu-item" href="{{ route('login') }}">Inloggen</a>
+                            @endauth
+                        @endif
+                    </li>
                 </ul>
             </div>
         </div>
