@@ -3,9 +3,12 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\Authenticatable as AuthContract;
 
-class User extends Model
+class User extends Model implements AuthContract
 {
+    use Authenticatable;
 
     /**
      * The attributes that are mass assignable.
