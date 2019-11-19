@@ -24,9 +24,12 @@ body {
     margin-top: 78px;
 }
 
+p, span, label, .btn-link {
+    font-family: 'Roboto', sans-serif;
+}
+
 ::selection {
-    color: black;
-    background: #e9e9e9;
+    background: rgba($color-main, .4);
 }
 
 a {

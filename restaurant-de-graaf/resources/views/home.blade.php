@@ -3,7 +3,7 @@
 @section('title', 'Home')
 
 @section('content')
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');"></div>
+    <div class="hero" style="background-image: url('https://images.pexels.com/photos/1581554/pexels-photo-1581554.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');"></div>
     <div class="content">
         <h1 class="content__title">Reserveer nu</h1>
         <p class="content__paragraph">Reserveer voor lunch of diner, hiervoor heb je een account nodig zodat je altijd gemakkelijk je reserveringen en bestellingen in kan zien!</p>
