@@ -2,7 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\User;
+use Illuminate\Support\Facades\Auth;
 
 class PagesController extends Controller
 {
@@ -40,7 +41,7 @@ class PagesController extends Controller
 
     public function reservation()
     {
-        return view('/reservation');
+        return view(User::check_account('/reservation'));
     }
 
     public function contact()
@@ -60,6 +61,30 @@ class PagesController extends Controller
 
     public function forgot_password()
     {
-        return view('/forgot_password');
+        if (User::check_logged_in()) {
+            return view('profiel');
+        } else {
+            return view('/forgot_password');
+        }
+    }
+
+    public function account_terminate()
+    {
+        return view(User::check_account('/profiel/delete'));
+    }
+
+    public function confirmAccount_terminate()
+    {
+        return view(User::check_account('/'));
+    }
+
+    public function account_not_activated()
+    {
+        return view('/account_not_activated');
+    }
+
+    public function account_blocked()
+    {
+        return view('/account_blocked');
     }
 }

@@ -7,5 +7,5 @@
 @endsection
 
 @section('content')
-    <h1>Welkom! {{ $user->name }}</h1>
+    <h1>Welkom {{ Auth::user()->name }}</h1>
 @endsection
