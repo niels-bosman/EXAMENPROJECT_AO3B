@@ -1,0 +1,49 @@
+.footer {
+    background-color: #202020;
+    padding: 75px 0;
+    position: relative;
+
+    &__menu {
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        padding: 0;
+
+        &-title {
+            color: white;
+            margin-bottom: 25px;
+        }
+
+        li {
+            margin-bottom: 10px;
+        }
+
+        &-item {
+            color: white;
+            transition: .2s ease;
+            &:hover {
+                color: $color-main;
+            }
+        }
+
+        &-socials {
+            padding: 0;
+            color: white;
+            font-size: 26px;
+        }
+    }
+
+    &__disclaimer {
+        padding: 5px 0;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background-color: white;
+
+        &-text {
+            text-align: center;
+            margin: 0;
+        }
+    }
+}
