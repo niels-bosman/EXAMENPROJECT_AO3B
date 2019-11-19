@@ -8,6 +8,19 @@
 
 @section('content')
     <div class="reservation container">
+        @if(isset($successful))
+            @if($successful == true)
+                <div class="alert alert-success reservation__alert" role="alert">
+                    Je reservering is succesvol geplaatst! Ga naar je profiel voor een overzicht van je reserveringen.
+                </div>
+            @endif
+
+            @if($successful == false)
+                    <div class="alert alert-warning reservation__alert" role="alert">
+                        Oeps! Er zijn geen tafels meer beschikbaar voor je gekozen datum en tijd. Misschien er nog op een ander moment een plek beschikbaar is.
+                    </div>
+            @endif
+        @endif
         <h1 class="reservation__heading">Reserveren</h1>
         <div class="reservation__fields">
             <form action="/reserveren" method="POST">
@@ -44,8 +57,9 @@
                         <label for="comment">Heeft u nog een opmerking? (dieetwensen etc.)</label>
                     </div>
                     <div class="col-md-12">
-                        <textarea id="comment" name="comment" required></textarea>
+                        <textarea id="comment" name="comment"></textarea>
                     </div>
+
                 </div>
                 <div class="row reservation__field">
                     <div class="col-md-12">
