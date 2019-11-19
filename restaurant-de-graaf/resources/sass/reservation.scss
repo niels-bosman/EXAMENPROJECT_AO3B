@@ -6,7 +6,7 @@
     }
 
     &__field {
-        margin-bottom: 25px;
+        margin-bottom: 35px;
 
         .button {
             margin: 0 auto;
@@ -19,7 +19,13 @@
         input {
             border: solid 1px #a1a1a1;
             border-radius: 4px;
-            min-width: 200px;
+            min-width: 250px;
+        }
+
+        textarea {
+            min-height: 100px;
+            min-width: 350px;
+            border-radius: 4px;
         }
     }
 }

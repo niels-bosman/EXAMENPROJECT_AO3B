@@ -13,13 +13,13 @@ class CreateProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('product', function (Blueprint $table) {
+        Schema::create('products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string("name")->nullable(false);
             $table->unsignedBigInteger('subtype')->nullable(false);
             $table->double('price')->nullable(false);
 
-            $table->foreign('subtype')->references('id')->on('subtype');
+            $table->foreign('subtype')->references('id')->on('subtypes');
             $table->timestamps();
         });
     }

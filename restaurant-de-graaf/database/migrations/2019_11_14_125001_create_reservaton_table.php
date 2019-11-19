@@ -13,7 +13,7 @@ class CreateReservatonTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservation', function (Blueprint $table) {
+        Schema::create('reservations', function (Blueprint $table) {
             $table->string('reservation_code')->unique();
             $table->unsignedBigInteger('UserID')->nullable(false);
             $table->dateTime('date');
