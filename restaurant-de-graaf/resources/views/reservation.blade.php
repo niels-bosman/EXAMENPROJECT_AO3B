@@ -8,7 +8,7 @@
 
 @section('content')
     <div class="reservation container">
-        <h1 class="reservation__heading">Reserveer nu</h1>
+        <h1 class="reservation__heading">Reserveren</h1>
         <div class="reservation__fields">
             <form action="/reserveren" method="POST">
                 @csrf
@@ -17,7 +17,7 @@
                         <label for="date">Op welke datum wilt u reserveren?</label>
                     </div>
                     <div class="col-md-12">
-                        <input id="date" type="date" required>
+                        <input id="date" name="date" type="date" required>
                     </div>
                 </div>
 
@@ -26,7 +26,7 @@
                         <label for="time">Hoe laat wilt u reserveren?</label>
                     </div>
                     <div class="col-md-12">
-                        <input id="time" type="time" required>
+                        <input id="time" name="time" type="time" required>
                     </div>
                 </div>
 
@@ -35,7 +35,7 @@
                         <label for="number">Met hoe veel personen komt u?</label>
                     </div>
                     <div class="col-md-12">
-                        <input id="number" type="number" required>
+                        <input id="number" name="persons" min="1" max="8" type="number" required>
                     </div>
                 </div>
                 <div class="row reservation__field">
