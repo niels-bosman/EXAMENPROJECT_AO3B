@@ -7,7 +7,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
 
-class User extends Authenticatable
+class User extends Authenticatable implements MustVerifyEmail
 {
     use Notifiable;
 
@@ -45,9 +45,9 @@ class User extends Authenticatable
                 if (Auth::user()->blocked == "0") {
                     return $route;
                 }
-                return '/account_blocked';
+                return '/profiel/account_blocked';
             }
-            return '/account_not_activated';
+            return '/profiel/account_not_activated';
         } else {
             return '/auth/login';
         }

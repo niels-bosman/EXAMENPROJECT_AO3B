@@ -19,7 +19,7 @@
                     <li><a class="footer__menu-item" href="{{ url('/profiel') }}">Profiel</a></li>
                     @else
                     <li><a class="footer__menu-item" href="{{ url('/login') }}">Inloggen</a></li>
-                    <li><a class="footer__menu-item" href="{{ url('/registreren') }}">Registreren</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/registreer') }}">Registreren</a></li>
                     <li><a class="footer__menu-item" href="{{ url('/wachtwoord-vergeten') }}">Wachtwoord vergeten</a></li>
                     @endauth
                     @endif

@@ -7,12 +7,14 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/faq', 'PagesController@faq');
 Route::get('/servicevoorwaarden', 'PagesController@service_condition');
 Route::get('/wachtwoord-vergeten', 'PagesController@forgot_password');
+Route::get('/registreer', 'PagesController@create');
 
 Route::get('/profiel', 'UserController@home');
 Route::get('/profiel/edit', 'UserController@edit');
 Route::post('/profiel/edit', 'UserController@update');
 Route::get('/profiel/delete', 'UserController@account_terminate');
 Route::post('/profiel/delete', 'UserController@confirmAccount_terminate');
+Route::get('/profiel/account_geactiveerd', 'UserController@account_activated');
 Route::get('/account_not_activated', 'UserController@account_not_activated');
 Route::get('/account_blocked', 'UserController@account_blocked');
 
@@ -24,4 +26,4 @@ Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
 });
 
-Auth::routes();
+Auth::routes(['verify' => true]);
