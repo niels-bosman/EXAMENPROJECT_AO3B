@@ -107,6 +107,10 @@
   color: #1693A6;
 }
 
+.header__menu-item--active {
+  font-weight: 900;
+}
+
 .content {
   padding: 100px 15px;
 }
@@ -145,11 +149,20 @@
   border-radius: 4px;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
+  border: none;
 }
 
 .button--primary:hover {
   background: #137f8f;
   color: white;
+}
+
+.btn-link {
+  color: #1693A6;
+}
+
+.btn-link:hover {
+  color: #1693A6;
 }
 
 .menu {
@@ -175,6 +188,14 @@
 .menu__button {
   margin-top: 20px;
   display: table;
+}
+
+.login {
+  padding: 100px 15px;
+}
+
+.login__heading {
+  margin-bottom: 50px;
 }
 
 h1,

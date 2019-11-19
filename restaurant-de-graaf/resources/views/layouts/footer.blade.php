@@ -4,19 +4,26 @@
             <div class="col-md-4">
                 <h3 class="footer__menu-title">Pagina's</h3>
                 <ul class="footer__menu">
-                    <li><a class="footer__menu-item" href="#">Reserveren</a></li>
-                    <li><a class="footer__menu-item" href="#">Menu</a></li>
-                    <li><a class="footer__menu-item" href="#">Contact</a></li>
-                    <li><a class="footer__menu-item" href="#">F.A.Q.</a></li>
-                    <li><a class="footer__menu-item" href="#">Servicevoorwaarden</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/reserveren') }}">Reserveren</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/menu') }}">Menu</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/contact') }}">Contact</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/faq') }}">F.A.Q.</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/servicevoorwaarden') }}">Servicevoorwaarden</a></li>
                 </ul>
             </div>
             <div class="col-md-4">
                 <h3 class="footer__menu-title">Account</h3>
                 <ul class="footer__menu">
-                    <li><a class="footer__menu-item" href="#">Inloggen</a></li>
-                    <li><a class="footer__menu-item" href="#">Registreren</a></li>
-                    <li><a class="footer__menu-item" href="#">Wachtwoord vergeten</a></li>
+                    @if (Route::has('login'))
+                    @auth
+                    <li><a class="footer__menu-item" href="{{ url('/profiel') }}">Profiel</a></li>
+                    @else
+                    <li><a class="footer__menu-item" href="{{ url('/login') }}">Inloggen</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/registreren') }}">Registreren</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/wachtwoord-vergeten') }}">Wachtwoord vergeten</a></li>
+                    @endauth
+                    @endif
+
                 </ul>
             </div>
             <div class="col-md-4">
