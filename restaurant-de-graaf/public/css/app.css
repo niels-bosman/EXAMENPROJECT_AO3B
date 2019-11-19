@@ -222,7 +222,9 @@
 .reservation__fields input {
   border: solid 1px #a1a1a1;
   border-radius: 4px;
-  min-width: 250px;
+  min-width: 200px;
+  min-height: 35px;
+  text-align: center;
 }
 
 .reservation__fields textarea {
