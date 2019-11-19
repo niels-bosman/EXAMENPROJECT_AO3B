@@ -18,7 +18,7 @@
                     <li>
                         @if (Route::has('login'))
                             @auth
-                                <a class="header__menu-item" href="{{ route('logout') }}">Uiloggen</a>
+                                <a class="header__menu-item" href="{{ route('logout') }}">Uitloggen</a>
                             @else
                                 <a class="header__menu-item  @if (\Request::is('login')) header__menu-item--active @endif" href="{{ route('login') }}">Inloggen</a>
                             @endauth
