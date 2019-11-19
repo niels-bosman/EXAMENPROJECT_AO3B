@@ -13,13 +13,13 @@ class CreateReservationProductTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservation_product', function (Blueprint $table) {
+        Schema::create('reservation_products', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('reservation_code')->nullable(false);
             $table->unsignedBigInteger('product_id')->nullable(false);
 
-            $table->foreign('reservation_code')->references('reservation_code')->on('reservation');
-            $table->foreign('product_id')->references('id')->on('product');
+            $table->foreign('reservation_code')->references('reservation_code')->on('reservations');
+            $table->foreign('product_id')->references('id')->on('products');
             $table->timestamps();
         });
     }
