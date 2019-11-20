@@ -5,6 +5,7 @@
         padding: 7px 10px;
         border-radius: 4px;
         transition: .2s ease;
+        border: none;
 
         &:hover {
             background: darken($color-main, 5);
@@ -22,6 +23,16 @@
         &:hover {
             background: darken($color-danger, 5);
             color: white;
+        }
+    }
+}
+
+.btn {
+    &-link {
+        color: $color-main;
+
+        &:hover {
+            color: $color-main;
         }
     }
 }

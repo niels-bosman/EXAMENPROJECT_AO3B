@@ -52,8 +52,13 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-            'tel_number' => ['required', 'string', 'max:255']
-        ]);
+            'tel_number' => ['required', 'string', 'max:255'],
+            'no_robot' => ['required']
+        ],
+        [
+            'no_robot.required' => 'je moet het vakje eerst aanvinken voordat je verder kan'
+        ]
+        );
     }
 
     /**

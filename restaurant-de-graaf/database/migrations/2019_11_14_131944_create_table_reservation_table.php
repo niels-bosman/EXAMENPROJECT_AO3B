@@ -13,13 +13,13 @@ class CreateTableReservationTable extends Migration
      */
     public function up()
     {
-        Schema::create('table_reservation', function (Blueprint $table) {
+        Schema::create('table_reservations', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->BigInteger('table_id')->nullable(false);
             $table->string('reservation_code')->nullable(false);
 
-            $table->foreign('table_id')->references('table_id')->on('table');
-            $table->foreign('reservation_code')->references('reservation_code')->on('reservation');
+            $table->foreign('table_id')->references('table_id')->on('tables');
+            $table->foreign('reservation_code')->references('reservation_code')->on('reservations');
             $table->timestamps();
         });
     }

@@ -1,6 +1,7 @@
 .hero {
     height: 300px;
-    background: center no-repeat;
+    background: no-repeat;
+    background-position: 0% 60%;
     position: relative;
 
     &:after {

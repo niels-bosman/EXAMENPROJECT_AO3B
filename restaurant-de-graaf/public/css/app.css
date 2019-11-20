@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,800,900&display=swap);.footer {
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,800,900&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,500&display=swap);.footer {
   background-color: #202020;
   padding: 75px 0;
   position: relative;
@@ -107,6 +107,10 @@
   color: #1693A6;
 }
 
+.header__menu-item--active {
+  color: #1693A6;
+}
+
 .content {
   padding: 100px 15px;
 }
@@ -124,7 +128,8 @@
 
 .hero {
   height: 300px;
-  background: center no-repeat;
+  background: no-repeat;
+  background-position: 0% 60%;
   position: relative;
 }
 
@@ -145,11 +150,20 @@
   border-radius: 4px;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
+  border: none;
 }
 
 .button--primary:hover {
   background: #137f8f;
   color: white;
+}
+
+.btn-link {
+  color: #1693A6;
+}
+
+.btn-link:hover {
+  color: #1693A6;
 }
 
 .menu {
@@ -165,8 +179,9 @@
 
 .menu__img {
   width: 100%;
-  height: 300px;
-  border-radius: 20px;
+  height: 200px;
+  max-width: 400px;
+  border-radius: 10px;
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
@@ -177,9 +192,68 @@
   display: table;
 }
 
+.login {
+  padding: 100px 15px;
+}
+
+.login__heading {
+  margin-bottom: 50px;
+}
+
+.reservation {
+  padding: 100px 15px;
+}
+
+.reservation__heading {
+  margin-bottom: 50px;
+}
+
+.reservation__field {
+  margin-bottom: 35px;
+}
+
+.reservation__field .button {
+  margin: 0 auto;
+  display: table;
+}
+
+.reservation__alert {
+  position: fixed;
+  max-width: 700px;
+  bottom: 50px;
+  text-align: center;
+  left: 50%;
+  -webkit-transform: translateX(-50%);
+          transform: translateX(-50%);
+  z-index: 999;
+}
+
+.reservation__fields {
+  text-align: center;
+}
+
+.reservation__fields input {
+  border: solid 1px #a1a1a1;
+  border-radius: 4px;
+  min-width: 200px;
+  min-height: 35px;
+  text-align: center;
+}
+
+.reservation__fields textarea {
+  min-height: 100px;
+  min-width: 350px;
+  border-radius: 4px;
+}
+
 h1,
 p {
   text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: 700;
 }
 
 body {
@@ -188,14 +262,19 @@ body {
   margin-top: 78px;
 }
 
+p,
+span,
+label,
+.btn-link {
+  font-family: "Roboto", sans-serif;
+}
+
 ::-moz-selection {
-  color: black;
-  background: #e9e9e9;
+  background: rgba(22, 147, 166, 0.4);
 }
 
 ::selection {
-  color: black;
-  background: #e9e9e9;
+  background: rgba(22, 147, 166, 0.4);
 }
 
 a {

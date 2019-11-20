@@ -13,7 +13,7 @@ class CreateTableTable extends Migration
      */
     public function up()
     {
-        Schema::create('table', function (Blueprint $table) {
+        Schema::create('tables', function (Blueprint $table) {
             $table->bigInteger('table_id')->primary();
             $table->unsignedInteger('seats')->nullable(false);
             $table->boolean('reservable')->default(true);
