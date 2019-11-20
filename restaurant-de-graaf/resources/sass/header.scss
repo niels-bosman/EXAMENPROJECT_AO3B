@@ -29,6 +29,12 @@
         margin: 0;
         padding: 0;
 
+        &--right {
+            li {
+                padding-right: 20px !important;
+            }
+        }
+
         li {
             font-weight: 500;
             padding-right: 50px;
