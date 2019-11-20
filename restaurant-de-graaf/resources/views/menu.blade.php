@@ -27,10 +27,10 @@ use App\Product;
                             <div class="menukaart__product-row">
                                 <article class="menukaart__product">
                                     <div class="menukaart__product-name">
-                                        {{$product->name}}
+                                        <span>{{$product->name}}</span>
                                     </div>
                                     <div class="menukaart__product-price">
-                                        &euro; {{$product->price}}
+                                        <span>&euro; {{$product->price}}</span>
                                     </div>
                                 </article>
                                 <hr>
