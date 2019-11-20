@@ -7,7 +7,7 @@
                 </div>
             </div>
             <div class="col-md-6 header-wrap">
-                <ul class="header__menu header__menu--right">
+                <ul class="header__menu">
                     <li>
                         <a class="header__menu-item @if (\Request::is('reserveren')) header__menu-item--active @endif" href="/reserveren">Reserveren</a>
                     </li>
