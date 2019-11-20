@@ -4,7 +4,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Password Reset Language Lines
+    | Password Reminder Language Lines
     |--------------------------------------------------------------------------
     |
     | The following language lines are the default lines which match reasons
@@ -12,11 +12,10 @@ return [
     | has failed, such as for an invalid token or invalid new password.
     |
     */
-
-    'reset' => 'Your password has been reset!',
-    'sent' => 'We have e-mailed your password reset link!',
-    'token' => 'This password reset token is invalid.',
-    'user' => "We can't find a user with that e-mail address.",
-    'throttled' => 'Please wait before retrying.',
-
+    'password'  => 'Wachtwoord moet minimaal acht tekens lang zijn en de wachtwoorden moeten overeenkomen.',
+    'reset'     => 'Het wachtwoord van uw account is gewijzigd.',
+    'sent'      => 'We hebben een e-mail verstuurd met instructies om een nieuw wachtwoord in te stellen.',
+    'throttled' => 'Gelieve even te wachten voor u het opnieuw probeert.',
+    'token'     => 'Dit wachtwoordhersteltoken is niet geldig.',
+    'user'      => 'Geen gebruiker bekend met het e-mailadres.',
 ];

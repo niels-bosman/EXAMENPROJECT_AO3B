@@ -1,0 +1,21 @@
+.content {
+    padding: 100px 15px;
+
+    &__title {
+
+    }
+
+    &__paragraph {
+        max-width: 500px;
+        text-align: center;
+        margin: 0 auto 20px auto    ;
+
+    }
+
+    &__button {
+        &--center {
+            margin: 0 auto;
+            display: table;
+        }
+    }
+}

@@ -1,1 +1,56 @@
-//
+$color-main: #1693A6;
+$color-danger: #cd0613;
+
+@import "footer";
+@import "header";
+@import "content";
+@import "fonts";
+@import "hero";
+@import "button";
+@import "menu";
+@import "login";
+@import "reservation";
+@import "profiel";
+
+h1, p {
+    text-align: center;
+}
+
+h1, h2 {
+    font-weight: 700;
+}
+
+body {
+    font-family: 'Roboto Slab', serif;
+    background-color: #f5f5f5;
+    margin-top: 78px;
+}
+
+p, span, label, .btn-link, input {
+    font-family: 'Roboto', sans-serif;
+}
+
+::selection {
+    background: rgba($color-main, .4);
+}
+
+a {
+    color: black;
+
+    &:hover {
+        text-decoration: none;
+        color: black;
+    }
+}
+
+.body {
+    min-height: calc(100vh - 477px);
+}
+
+.invalid-feedback {
+    display: block !important;
+}
+
+label {
+    margin: 0 0 5px 0;
+}

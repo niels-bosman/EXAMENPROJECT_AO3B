@@ -1,0 +1,16 @@
+.hero {
+    height: 300px;
+    background: no-repeat;
+    background-position: 0% 60%;
+    position: relative;
+
+    &:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(black, .4);
+    }
+}

@@ -1,0 +1,39 @@
+.button {
+    &--primary {
+        background: $color-main;
+        color: white;
+        padding: 7px 10px;
+        border-radius: 4px;
+        transition: .2s ease;
+        border: none;
+
+        &:hover {
+            background: darken($color-main, 5);
+            color: white;
+        }
+    }
+
+    &--danger {
+        background: $color-danger;
+        color: white;
+        padding: 7px 10px;
+        border-radius: 4px;
+        transition: .2s ease;
+        border: none;
+
+        &:hover {
+            background: darken($color-danger, 5);
+            color: white;
+        }
+    }
+}
+
+.btn {
+    &-link {
+        color: $color-main;
+
+        &:hover {
+            color: $color-main;
+        }
+    }
+}

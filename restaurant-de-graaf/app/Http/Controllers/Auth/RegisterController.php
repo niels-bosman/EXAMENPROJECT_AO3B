@@ -52,7 +52,13 @@ class RegisterController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
-        ]);
+            'tel_number' => ['required', 'string', 'max:255'],
+            'no_robot' => ['required']
+        ],
+        [
+            'no_robot.required' => 'je moet het vakje eerst aanvinken voordat je verder kan'
+        ]
+        );
     }
 
     /**
@@ -67,6 +73,11 @@ class RegisterController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'tel_number' => $data['tel_number'],
+            'street' => $data['street'],
+            'house_number' => $data['house_number'],
+            'city' => $data['city'],
+            'zipcode' => $data['zipcode'],
         ]);
     }
 }
