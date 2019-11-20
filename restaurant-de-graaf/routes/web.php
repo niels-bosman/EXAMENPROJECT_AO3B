@@ -1,7 +1,7 @@
 <?php
 
 Route::get('/', 'PagesController@home');
-Route::get('/menu', 'PagesController@menu');
+Route::get('/menu', 'MenuController@get');
 Route::get('/reserveren', 'PagesController@reservation')->middleware('auth');
 Route::post('/reserveren', 'ReserveringController@post')->middleware('auth');
 Route::get('/contact', 'PagesController@contact');
