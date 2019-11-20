@@ -1,7 +1,8 @@
 <?php
 
 Route::get('/', 'PagesController@home');
-Route::get('/menu', 'PagesController@menu');
+Route::get('/home', 'PagesController@home');
+Route::get('/menu', 'MenuController@get');
 Route::get('/reserveren', 'PagesController@reservation')->middleware('auth');
 Route::post('/reserveren', 'ReserveringController@post')->middleware('auth');
 Route::get('/contact', 'PagesController@contact');
@@ -24,10 +25,6 @@ Route::get('/account_blocked', 'PagesController@account_blocked');
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
 });
-
-//Route::get('/profile', function() {
-//    return view('profile');
-//});
 
 Route::get('/profiel', 'ProfileController@Get');
 Route::put('/profiel', 'ProfileController@Put');

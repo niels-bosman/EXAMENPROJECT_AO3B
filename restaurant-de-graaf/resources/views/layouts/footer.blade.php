@@ -15,7 +15,7 @@
                 <h3 class="footer__menu-title">Account</h3>
                 <ul class="footer__menu">
                     <li><a class="footer__menu-item" href="/login">Inloggen</a></li>
-                    <li><a class="footer__menu-item" href="/registreren">Registreren</a></li>
+                    <li><a class="footer__menu-item" href="/register">Registreren</a></li>
                     <li><a class="footer__menu-item" href="/wachtwoord-vergeten">Wachtwoord vergeten</a></li>
                 </ul>
             </div>
@@ -33,3 +33,4 @@
         <p class="footer__disclaimer-text">Copyright &copy; Restaurant de Graaf <?= date('Y'); ?></p>
     </div>
 </div>
+<script type="text/javascript" src="/js/app.js"></script>

@@ -93,6 +93,10 @@
   padding-right: 20px !important;
 }
 
+.header__menu--right li:last-child {
+  padding: 0 !important;
+}
+
 .header__menu li {
   font-weight: 500;
   padding-right: 50px;
@@ -150,7 +154,7 @@
 .button--primary {
   background: #1693A6;
   color: white;
-  padding: 7px 10px;
+  padding: 7px 15px;
   border-radius: 4px;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
@@ -165,7 +169,7 @@
 .button--danger {
   background: #cd0613;
   color: white;
-  padding: 7px 10px;
+  padding: 7px 15px;
   border-radius: 4px;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
@@ -211,6 +215,48 @@
   display: table;
 }
 
+.menukaart {
+  padding: 100px 15px;
+}
+
+.menukaart__heading {
+  margin-bottom: 50px;
+}
+
+.menukaart__type {
+  color: #1693A6;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menukaart__subtype {
+  text-align: left;
+  width: 700px;
+  font-weight: 700;
+  margin: 0 auto 30px auto;
+}
+
+.menukaart__single-product {
+  margin-bottom: 50px;
+}
+
+.menukaart__product {
+  max-width: 700px;
+  margin: 10px auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.menukaart__product-row hr {
+  max-width: 700px;
+}
+
+.menukaart__product-row:last-child hr {
+  display: none;
+}
+
 .login {
   padding: 100px 15px;
 }
@@ -238,13 +284,19 @@
 
 .reservation__alert {
   position: fixed;
-  max-width: 700px;
-  bottom: 50px;
   text-align: center;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
   z-index: 999;
+  border-radius: 0;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.reservation__alert--dismissed {
+  bottom: -60px;
 }
 
 .reservation__fields {

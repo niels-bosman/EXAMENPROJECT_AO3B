@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Profiel')
+@section('title', 'Profiel | Restaurant de Graaf')
 
 @section('content')
     <div class="profiel container">
@@ -31,7 +31,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 profiel__input">
-                        <label for="input-tel_number">Tel: </label>
+                        <label for="input-tel_number">Telefoonnummer: </label>
                         <input type="tel" id="input-tel_number" class="form-control" name="tel_number" required="required" value="{{$user->tel_number}}">
                         @error('tel_number')
                         <span class="invalid-feedback" role="alert">
@@ -51,7 +51,7 @@
                 </div>
                 <div class="row">
                     <div class="col-md-6 profiel__input">
-                        <label for="input-email">Email: </label>
+                        <label for="input-email">Emailadres: </label>
                         <input type="email" id="input-email" class="form-control" name="email" required="required" value="{{$user->email}}">
                         @error('email')
                         <span class="invalid-feedback" role="alert">
@@ -88,7 +88,10 @@
             @if(isset($putSucces))
                 @if($putSucces == true)
                     <div class="alert alert-success reservation__alert" role="alert">
-                        Je NAW gegevens zijn gewijzigd.
+                        Je gegevens zijn succesvol gewijzigd!
+                        <button type="button" class="close reservation__alert-close">
+                            <span>&times;</span>
+                        </button>
                     </div>
                 @endif
             @endif

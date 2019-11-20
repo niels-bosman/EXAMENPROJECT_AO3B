@@ -33,11 +33,6 @@ class PagesController extends Controller
         return view('/registration');
     }
 
-    public function menu()
-    {
-        return view('/menu');
-    }
-
     public function reservation()
     {
         return view('/reservation');

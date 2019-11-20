@@ -34,10 +34,10 @@ class ProfileController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'tel_number' => ['required', 'string', 'max:255'],
-            'street' => ['string', 'max:255'],
-            'house_number' => ['string', 'max:255'],
-            'city' => ['string', 'max:255'],
-            'zipcode' => ['string', 'max:255']
+            'street' => ['max:255'],
+            'house_number' => ['max:255'],
+            'city' => ['max:255'],
+            'zipcode' => ['max:255']
         ]);
 
         $user = User::find(auth()->user()->id);
