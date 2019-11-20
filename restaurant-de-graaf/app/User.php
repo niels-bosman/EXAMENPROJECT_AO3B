@@ -6,9 +6,13 @@ use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Contracts\Auth\Authenticatable as AuthContract;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Authenticatable implements MustVerifyEmail
+class User extends Authenticatable implements AuthContract, CanResetPasswordContract, MustVerifyEmail
 {
+    use CanResetPassword;
     use Notifiable;
 
     /**

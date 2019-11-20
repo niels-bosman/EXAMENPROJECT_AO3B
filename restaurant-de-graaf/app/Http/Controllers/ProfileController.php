@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Reservation;
+use App\TableReservation;
 use App\User;
 use Illuminate\Http\Request;
 
@@ -10,7 +12,15 @@ class ProfileController extends Controller
     public function home()
     {
         $user = auth()->user();
-        return view(User::check_account('/profiel/profiel'), compact('user'));
+        $reservations = Reservation::where('UserID', $user->id)->get();
+        $numbers = "";
+        foreach ($reservations as $reservation)
+        {
+            $numbers .= $reservation->reservation_code . ', ';
+        }
+        $numbers = substr($numbers, 0, strlen($numbers) - 2);
+        $tables_reservations = TableReservation::where('reservation_code', $numbers)->get();
+        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
     }
 
     public function update(Request $request)
