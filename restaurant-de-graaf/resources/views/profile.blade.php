@@ -93,6 +93,19 @@
                 @endif
             @endif
         </div>
-        <div id="registraties"></div>
+        <div id="registraties">
+            <h2>Reserveringen</h2>
+            <div class="card">
+                <h3>20200107051</h3>
+                <div class="row">
+                    <div class="col-md-3"><b>Datum:</b> Dinsdag 7 Januari 2020</div>
+                    <div class="col-md-2"><b>Tafelnummers:</b> 7</div>
+                    <div class="col-md-1"><b>Tijd:</b> 18:00</div>
+                    <div class="col-md-1"><b>Duur:</b> 2 uur</div>
+                    <div class="col-md-2"><b>Personen:</b> 3</div>
+                    <div class="col-md-3 float-right"><a href="#">Nota downloaden</a></div>
+                </div>
+            </div>
+        </div>
     </div>
 @endsection
