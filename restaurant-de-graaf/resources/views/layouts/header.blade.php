@@ -25,7 +25,7 @@
                     @if (Route::has('login'))
                         @auth
                             <li>
-                                <a class="header__menu-item" href="/profiel">Profiel</a>
+                                <a class="header__menu-item @if (\Request::is('profiel')) header__menu-item--active @endif" href="/profiel">Profiel</a>
                             </li>
                             <li>
                                 <a class="header__menu-item" href="{{ route('logout') }}">Uitloggen</a>
