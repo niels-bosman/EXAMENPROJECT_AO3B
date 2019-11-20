@@ -6,7 +6,7 @@
                     <a class="header__menu-item" href="/">Restaurant <br> de Graaf</a>
                 </div>
             </div>
-            <div class="col-md-7 header-wrap">
+            <div class="col-md-6 header-wrap">
                 <ul class="header__menu">
                     <li>
                         <a class="header__menu-item @if (\Request::is('reserveren')) header__menu-item--active @endif" href="/reserveren">Reserveren</a>
@@ -19,17 +19,24 @@
                     </li>
                 </ul>
             </div>
-            <div class="col-md-2 header-wrap">
-                <ul class="header__menu">
-                    <li>
-                        @if (Route::has('login'))
-                            @auth
+            <div class="col-md-3 header-wrap">
+                <ul class="header__menu header__menu--right">
+
+                    @if (Route::has('login'))
+                        @auth
+                            <li>
+                                <a class="header__menu-item" href="/profiel">Profiel</a>
+                            </li>
+                            <li>
                                 <a class="header__menu-item" href="{{ route('logout') }}">Uitloggen</a>
-                            @else
+                            </li>
+                        @else
+                            <li>
                                 <a class="header__menu-item  @if (\Request::is('login')) header__menu-item--active @endif" href="{{ route('login') }}">Inloggen</a>
-                            @endauth
-                        @endif
-                    </li>
+                            </li>
+                        @endauth
+                    @endif
+
                 </ul>
             </div>
         </div>

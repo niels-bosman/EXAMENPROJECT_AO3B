@@ -29,7 +29,7 @@ Route::get('logout', 'Auth\LoginController@logout', function () {
 //    return view('profile');
 //});
 
-Route::get('/profile', 'ProfileController@Get');
-Route::put('/profile', 'ProfileController@Put');
+Route::get('/profiel', 'ProfileController@Get');
+Route::put('/profiel', 'ProfileController@Put');
 
 Auth::routes();
