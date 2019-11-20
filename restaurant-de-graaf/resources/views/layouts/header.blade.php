@@ -34,6 +34,9 @@
                             <li>
                                 <a class="header__menu-item  @if (\Request::is('login')) header__menu-item--active @endif" href="{{ route('login') }}">Inloggen</a>
                             </li>
+                            <li>
+                                <a class="header__menu-item  @if (\Request::is('register')) header__menu-item--active @endif" href="{{ route('register') }}">Registreren</a>
+                            </li>
                         @endauth
                     @endif
 
