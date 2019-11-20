@@ -40,6 +40,7 @@ class LoginController extends Controller
     }
 
     public $maxAttempts = 2;
+
     protected function hasTooManyLoginAttempts(Request $request)
     {
         if ($this->limiter()->tooManyAttempts($this->throttleKey($request), $this->maxAttempts()))
