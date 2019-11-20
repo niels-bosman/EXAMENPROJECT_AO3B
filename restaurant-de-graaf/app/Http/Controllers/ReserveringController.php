@@ -14,7 +14,7 @@ class ReserveringController extends Controller {
         $date = date('Y-m-d H:i:s', $timestamp);
         $persons = \request('persons');
 
-        $available_tables = Table::where('reservable', 1)->where('seats', '>=', $persons)->get();
+        $available_tables = Table::where('reservable', 1)->where('minimum_guests', '<=', $persons)->where('seats', '>=', $persons)->get();
 
         // Loop through tables
         foreach ($available_tables as $available_table) {
