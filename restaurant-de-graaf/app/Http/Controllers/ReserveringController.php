@@ -70,6 +70,4 @@ class ReserveringController extends Controller {
             return view('/reservation', ['successful' => false]);
         }
     }
-
-    public function get()
 }

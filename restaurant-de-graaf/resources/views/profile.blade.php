@@ -95,17 +95,49 @@
         </div>
         <div id="registraties">
             <h2>Reserveringen</h2>
-            <div class="card">
-                <h3>20200107051</h3>
-                <div class="row">
-                    <div class="col-md-3"><b>Datum:</b> Dinsdag 7 Januari 2020</div>
-                    <div class="col-md-2"><b>Tafelnummers:</b> 7</div>
-                    <div class="col-md-1"><b>Tijd:</b> 18:00</div>
-                    <div class="col-md-1"><b>Duur:</b> 2 uur</div>
-                    <div class="col-md-2"><b>Personen:</b> 3</div>
-                    <div class="col-md-3 float-right"><a href="#">Nota downloaden</a></div>
+            @foreach($reservations as $reservation)
+                <div class="card">
+                    <h3>{{$reservation->reservation_code}}</h3>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-2"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
+                                <div class="col-md-3">
+                                    <b>Tafelnummers:</b>
+                                    @foreach($tables_reservations as $table)
+                                        @if($table->reservation_code == $reservation->reservation_code)
+                                            {{$loop->first ? '' : ', '}}
+                                            {{$table->table_id}}
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <div class="col-md-3"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
+                                <div class="col-md-2"><b>Duur:</b> {{$reservation->duration}} minuten</div>
+                                <div class="col-md-2"><b>Personen:</b> {{$reservation->guest_amount}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 float-right">
+                            @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s")))
+                                <a href="#">Nota downloaden</a>
+                            @else
+                                <a href="/"><button type="button" class="button button--danger float-right">Annuleren</button></a>
+                            @endif
+                        </div>
+                    </div>
                 </div>
-            </div>
+            @endforeach
+
+{{--            <div class="card">--}}
+{{--                <h3>20200107051</h3>--}}
+{{--                <div class="row">--}}
+{{--                    <div class="col-md-3"><b>Datum:</b> Dinsdag 7 Januari 2020</div>--}}
+{{--                    <div class="col-md-2"><b>Tafelnummers:</b> 7</div>--}}
+{{--                    <div class="col-md-1"><b>Tijd:</b> 18:00</div>--}}
+{{--                    <div class="col-md-1"><b>Duur:</b> 2 uur</div>--}}
+{{--                    <div class="col-md-2"><b>Personen:</b> 3</div>--}}
+{{--                    <div class="col-md-3 float-right"><a href="#">Nota downloaden</a></div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
         </div>
     </div>
 @endsection
