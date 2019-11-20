@@ -10,8 +10,11 @@ Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
 });
 
-Route::get('/profile', function() {
-    return view('profile');
-});
+//Route::get('/profile', function() {
+//    return view('profile');
+//});
+
+Route::get('/profile', 'ProfileController@Get');
+Route::put('/profile', 'ProfileController@Put');
 
 Auth::routes();

@@ -1,4 +1,5 @@
 $color-main: #1693A6;
+$color-danger: #cd0613;
 
 @import "footer";
 @import "header";
@@ -7,6 +8,7 @@ $color-main: #1693A6;
 @import "hero";
 @import "button";
 @import "menu";
+@import "profiel";
 
 h1, p {
     text-align: center;
@@ -34,4 +36,8 @@ a {
 
 .body {
     min-height: calc(100vh - 477px);
+}
+
+.invalid-feedback {
+    display: block !important;
 }

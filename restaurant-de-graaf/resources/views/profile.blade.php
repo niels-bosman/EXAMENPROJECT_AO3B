@@ -3,24 +3,98 @@
 @section('title', 'Profiel')
 
 @section('content')
-    <div class="hero" style="background-image: url('https://images.pexels.com/photos/696218/pexels-photo-696218.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260');"></div>
-    <div class="content">
-        <h1 class="content__title">Profiel!</h1>
-        <p class="content__paragraph">Reserveer voor lunch of diner, hiervoor heb je een account nodig zodat je altijd gemakkelijk je reserveringen en bestellingen in kan zien!</p>
-        <a class="content__button--center button--primary" href="">Reserveer nu</a>
-    </div>
-    <div class="menu">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <h2>Onze gerechten</h2>
-                    <p>Onze maaltijden zijn gemaakt met de hoogste kwaliteit en zorg. Elk seizoen wordt het menu anders en kun je lekker afwisselen met de maaltijden, daarmee kun je de kinderen steeds opnieuw verrassen. </p>
-                    <a class="menu__button button--primary" href="">Bekijk ons menu</a>
+    <div class="profiel container">
+        <h1 class="profiel__heading">Profiel</h1>
+        <div class="card profiel__card">
+            <form method="post">
+                @csrf
+                <input type="hidden" name="_method" value="PUT">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="input-name">Naam: </label>
+                        <input type="text" id="input-name" class="form-control" name="name" required="required" value="{{$user->name}}">
+                        @error('name')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input-street">Straatnaam: </label>
+                        <input type="text" id="input-street" class="form-control" name="street" value="{{$user->street}}">
+                        @error('street')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
                 </div>
-                <div class="col-md-6">
-                    <img class="menu__img" src="https://images.pexels.com/photos/1267320/pexels-photo-1267320.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="">
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="input-tel_number">Tel: </label>
+                        <input type="tel" id="input-tel_number" class="form-control" name="tel_number" required="required" value="{{$user->tel_number}}">
+                        @error('tel_number')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input-house_number">Huisnummer: </label>
+                        <input type="number" id="input-house_number" class="form-control" name="house_number" value="{{$user->house_number}}">
+                        @error('house_number')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
                 </div>
-            </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <label for="input-email">Email: </label>
+                        <input type="email" id="input-email" class="form-control" name="email" required="required" value="{{$user->email}}">
+                        @error('email')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6">
+                        <label for="input-city">Woonplaats: </label>
+                        <input type="text" id="input-city" class="form-control" name="city" value="{{$user->city}}">
+                        @error('city')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 offset-md-5">
+                        <label for="input-zipcode">Postcode: </label>
+                        <input type="text" id="input-zipcode" class="form-control" name="zipcode" value="{{$user->zipcode}}">
+                        @error('zipcode')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-4 offset-md-8">
+                        <a href="/"><button type="button" class="button button--danger">account opzeggen</button></a>
+                        <button type="submit" class="button float-right button--primary">Wijzigen</button>
+                    </div>
+                </div>
+            </form>
+            @if(isset($putSucces))
+                @if($putSucces == true)
+                    <div class="alert alert-success reservation__alert" role="alert">
+                        Je NAW gegevens zijn gewijzigd.
+                    </div>
+                @endif
+            @endif
         </div>
+        <div id="registraties"></div>
     </div>
 @endsection
