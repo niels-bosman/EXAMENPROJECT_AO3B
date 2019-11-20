@@ -7,28 +7,13 @@ use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function Get()
+    public function home()
     {
         $user = auth()->user();
-        return view('profile', compact('user'));
+        return view(User::check_account('/profiel/profiel'), compact('user'));
     }
 
-    public function Put(Request $request)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
@@ -53,6 +38,11 @@ class ProfileController extends Controller
 
         $putSucces = true;
 
-        return view('profile', compact('user', 'putSucces'));
+        return view(User::check_account('/profiel/profiel'), compact('user', 'putSucces'));
+    }
+
+    public function account_activated()
+    {
+        return view(User::check_account('/profiel/account_activated'));
     }
 }
