@@ -1,6 +1,6 @@
 @extends('../layouts.app')
 
-@section('title', 'Service Voorwaarde')
+@section('title', 'Servicevoorwaarden | Restaurant de Graaf')
 
 @section('header')
 
