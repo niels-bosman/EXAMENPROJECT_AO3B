@@ -284,13 +284,19 @@
 
 .reservation__alert {
   position: fixed;
-  max-width: 700px;
-  bottom: 50px;
   text-align: center;
-  left: 50%;
-  -webkit-transform: translateX(-50%);
-          transform: translateX(-50%);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
   z-index: 999;
+  border-radius: 0;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.reservation__alert--dismissed {
+  bottom: -60px;
 }
 
 .reservation__fields {

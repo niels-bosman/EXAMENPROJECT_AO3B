@@ -12,12 +12,18 @@
             @if($successful == true)
                 <div class="alert alert-success reservation__alert" role="alert">
                     Je reservering is succesvol geplaatst! Ga naar je profiel voor een overzicht van je reserveringen.
+                    <button type="button" class="close reservation__alert-close">
+                        <span>&times;</span>
+                    </button>
                 </div>
             @endif
 
             @if($successful == false)
                     <div class="alert alert-warning reservation__alert" role="alert">
                         Oeps! Er zijn geen tafels meer beschikbaar voor je gekozen datum en tijd. Misschien er nog op een ander moment een plek beschikbaar is.
+                        <button type="button" class="close reservation__alert-close">
+                            <span>&times;</span>
+                        </button>
                     </div>
             @endif
         @endif
