@@ -12,6 +12,19 @@
             color: white;
         }
     }
+
+    &--danger {
+        background: $color-danger;
+        color: white;
+        padding: 7px 10px;
+        border-radius: 4px;
+        transition: .2s ease;
+
+        &:hover {
+            background: darken($color-danger, 5);
+            color: white;
+        }
+    }
 }
 
 .btn {
