@@ -9,7 +9,11 @@ $color-main: #1693A6;
 @import "menu";
 @import "login";
 
-h1, p {
+h1, h3, p {
+    text-align: center;
+}
+
+.text-center {
     text-align: center;
 }
 
