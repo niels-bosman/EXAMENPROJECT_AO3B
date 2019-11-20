@@ -1,0 +1,50 @@
+.reservation {
+    padding: 100px 15px;
+
+    &__heading {
+        margin-bottom: 50px;
+    }
+
+    &__field {
+        margin-bottom: 35px;
+
+        .button {
+            margin: 0 auto;
+            display: table;
+        }
+    }
+
+    &__alert {
+        position: fixed;
+        text-align: center;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        margin-bottom: 0;
+        z-index: 999;
+        border-radius: 0;
+        transition: .2s ease;
+
+        &--dismissed {
+            bottom: -60px;
+        }
+    }
+
+    &__fields {
+        text-align: center;
+
+        input {
+            border: solid 1px #a1a1a1;
+            border-radius: 4px;
+            min-width: 200px;
+            min-height: 35px;
+            text-align: center;
+        }
+
+        textarea {
+            min-height: 100px;
+            min-width: 350px;
+            border-radius: 4px;
+        }
+    }
+}

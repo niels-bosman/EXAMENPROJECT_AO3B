@@ -29,6 +29,16 @@
         margin: 0;
         padding: 0;
 
+        &--right {
+            li {
+                padding-right: 20px !important;
+
+                &:last-child {
+                    padding: 0 !important;
+                }
+            }
+        }
+
         li {
             font-weight: 500;
             padding-right: 50px;
@@ -45,7 +55,7 @@
             }
 
             &--active {
-                font-weight: 900;
+                color: $color-main;
             }
         }
     }

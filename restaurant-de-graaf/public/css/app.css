@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,800,900&display=swap);.footer {
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,500,600,700,800,900&display=swap);@import url(https://fonts.googleapis.com/css?family=Roboto:400,400i,500&display=swap);.footer {
   background-color: #202020;
   padding: 75px 0;
   position: relative;
@@ -89,6 +89,14 @@
   padding: 0;
 }
 
+.header__menu--right li {
+  padding-right: 20px !important;
+}
+
+.header__menu--right li:last-child {
+  padding: 0 !important;
+}
+
 .header__menu li {
   font-weight: 500;
   padding-right: 50px;
@@ -108,7 +116,7 @@
 }
 
 .header__menu-item--active {
-  font-weight: 900;
+  color: #1693A6;
 }
 
 .content {
@@ -126,9 +134,23 @@
   display: table;
 }
 
+.go-back {
+    margin: 20px auto 10px auto;
+    text-align: center;
+    float: left;
+    position: relative;
+    left: -50%;
+}
+
+.button-space {
+    margin: 0 10px 0 10px;
+    height: 10px;
+}
+
 .hero {
   height: 300px;
-  background: center no-repeat;
+  background: no-repeat;
+  background-position: 0% 60%;
   position: relative;
 }
 
@@ -145,7 +167,7 @@
 .button--primary {
   background: #1693A6;
   color: white;
-  padding: 7px 10px;
+  padding: 7px 15px;
   border-radius: 4px;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
@@ -154,6 +176,40 @@
 
 .button--primary:hover {
   background: #137f8f;
+  color: white;
+}
+
+.button--secondary {
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+.button--button-space {
+  margin: 0 10px 0 10px;
+  height: 10px;
+}
+
+.button--go-back {
+  margin: 20px auto 10px auto;
+  text-align: center;
+  float: left;
+  position: relative;
+  left: -50%;
+}
+
+.button--danger {
+  background: #cd0613;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--danger:hover {
+  background: #b40511;
   color: white;
 }
 
@@ -178,8 +234,9 @@
 
 .menu__img {
   width: 100%;
-  height: 300px;
-  border-radius: 20px;
+  height: 200px;
+  max-width: 400px;
+  border-radius: 10px;
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
@@ -190,6 +247,48 @@
   display: table;
 }
 
+.menukaart {
+  padding: 100px 15px;
+}
+
+.menukaart__heading {
+  margin-bottom: 50px;
+}
+
+.menukaart__type {
+  color: #1693A6;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.menukaart__subtype {
+  text-align: left;
+  width: 700px;
+  font-weight: 700;
+  margin: 0 auto 30px auto;
+}
+
+.menukaart__single-product {
+  margin-bottom: 50px;
+}
+
+.menukaart__product {
+  max-width: 700px;
+  margin: 10px auto;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+}
+
+.menukaart__product-row hr {
+  max-width: 700px;
+}
+
+.menukaart__product-row:last-child hr {
+  display: none;
+}
+
 .login {
   padding: 100px 15px;
 }
@@ -198,9 +297,95 @@
   margin-bottom: 50px;
 }
 
+.reservation {
+  padding: 100px 15px;
+}
+
+.reservation__heading {
+  margin-bottom: 50px;
+}
+
+.reservation__field {
+  margin-bottom: 35px;
+}
+
+.reservation__field .button {
+  margin: 0 auto;
+  display: table;
+}
+
+.reservation__alert {
+  position: fixed;
+  text-align: center;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin-bottom: 0;
+  z-index: 999;
+  border-radius: 0;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.reservation__alert--dismissed {
+  bottom: -60px;
+}
+
+.reservation__fields {
+  text-align: center;
+}
+
+.reservation__fields input {
+  border: solid 1px #a1a1a1;
+  border-radius: 4px;
+  min-width: 200px;
+  min-height: 35px;
+  text-align: center;
+}
+
+.reservation__fields textarea {
+  min-height: 100px;
+  min-width: 350px;
+  border-radius: 4px;
+}
+
+label {
+  margin: 10px 0;
+}
+
+.profiel {
+  padding: 100px 15px;
+}
+
+.profiel__heading {
+  margin-bottom: 35px;
+}
+
+.profiel__card {
+  margin-bottom: 35px;
+  padding: 20px;
+}
+
+.profiel__input {
+  margin-bottom: 15px;
+}
+
+.profiel__spacing {
+  margin-top: 35px;
+}
+
+.profiel__spacing button {
+  margin-left: 15px;
+}
+
 h1,
 p {
   text-align: center;
+}
+
+h1,
+h2 {
+  font-weight: 700;
 }
 
 body {
@@ -209,14 +394,20 @@ body {
   margin-top: 78px;
 }
 
+p,
+span,
+label,
+.btn-link,
+input {
+  font-family: "Roboto", sans-serif;
+}
+
 ::-moz-selection {
-  color: black;
-  background: #e9e9e9;
+  background: rgba(22, 147, 166, 0.4);
 }
 
 ::selection {
-  color: black;
-  background: #e9e9e9;
+  background: rgba(22, 147, 166, 0.4);
 }
 
 a {
@@ -230,5 +421,13 @@ a:hover {
 
 .body {
   min-height: calc(100vh - 477px);
+}
+
+.invalid-feedback {
+  display: block !important;
+}
+
+label {
+  margin: 0 0 5px 0;
 }
 

@@ -28,7 +28,7 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/profiel/account_not_activated';
 
     /**
      * Create a new controller instance.
@@ -51,9 +51,18 @@ class RegisterController extends Controller
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
-            'password' => ['required', 'string', 'min:8', 'confirmed'],
+            'password' => ['required', 'string', 'min:8', 'confirmed', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'],
             'tel_number' => ['required', 'string', 'max:255'],
-        ]);
+            'street' => ['max:255'],
+            'house_number' => ['max:255'],
+            'city' => ['max:255'],
+            'zipcode' => ['max:255'],
+            'no_robot' => ['required']
+        ],
+        [
+            'no_robot.required' => 'je moet het vakje eerst aanvinken voordat je verder kan'
+        ]
+        );
     }
 
     /**

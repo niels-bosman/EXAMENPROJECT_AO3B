@@ -1,12 +1,12 @@
 @extends('../layouts.app')
 
-@section('title', 'Reserveren')
+@section('title', 'Contact | Restaurant de Graaf')
 
 @section('header')
 
 @endsection
 
 @section('content')
-    <h1>Reserveer nu!</h1>
+    <h1>Neem contact met ons op!</h1>
     <p>Momenteel nog leeg :/</p>
 @endsection
