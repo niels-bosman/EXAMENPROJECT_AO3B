@@ -24,14 +24,18 @@ use App\Product;
 
                     <div class="menukaart__single-product">
                         @foreach(App\Product::where('subtype', $subtype->id)->get() as $product)
-                            <article class="menukaart__product">
-                                <div class="menukaart__product-name">
-                                    {{$product->name}}
-                                </div>
-                                <div class="menukaart__product-price">
-                                    &euro; {{$product->price}}
-                                </div>
-                            </article>
+                            <div class="menukaart__product-row">
+                                <article class="menukaart__product">
+                                    <div class="menukaart__product-name">
+                                        {{$product->name}}
+                                    </div>
+                                    <div class="menukaart__product-price">
+                                        &euro; {{$product->price}}
+                                    </div>
+                                </article>
+                                <hr>
+                            </div>
+
                         @endforeach
                     </div>
                 @endforeach

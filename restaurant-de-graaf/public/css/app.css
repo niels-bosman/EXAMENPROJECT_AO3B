@@ -230,8 +230,10 @@
 }
 
 .menukaart__subtype {
-  text-align: center;
-  margin-bottom: 10px;
+  text-align: left;
+  width: 500px;
+  font-weight: 700;
+  margin: 0 auto 30px auto;
 }
 
 .menukaart__single-product {
@@ -239,12 +241,20 @@
 }
 
 .menukaart__product {
-  max-width: 300px;
+  max-width: 500px;
   margin: 10px auto;
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: justify;
           justify-content: space-between;
+}
+
+.menukaart__product-row hr {
+  max-width: 500px;
+}
+
+.menukaart__product-row:last-child hr {
+  display: none;
 }
 
 .login {
