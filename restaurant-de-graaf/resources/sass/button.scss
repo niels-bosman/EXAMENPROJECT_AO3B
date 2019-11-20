@@ -13,6 +13,25 @@
         }
     }
 
+    &--secondary {
+        float: left;
+        position: relative;
+        left: 50%;
+    }
+
+    &--button-space {
+        margin: 0 10px 0 10px;
+        height: 10px;
+    }
+
+    &--go-back {
+        margin: 20px auto 10px auto;
+        text-align: center;
+        float: left;
+        position: relative;
+        left: -50%;
+    }
+
     &--danger {
         background: $color-danger;
         color: white;

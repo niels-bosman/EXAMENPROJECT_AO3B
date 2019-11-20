@@ -166,6 +166,25 @@
   color: white;
 }
 
+.button--secondary {
+  float: left;
+  position: relative;
+  left: 50%;
+}
+
+.button--button-space {
+  margin: 0 10px 0 10px;
+  height: 10px;
+}
+
+.button--go-back {
+  margin: 20px auto 10px auto;
+  text-align: center;
+  float: left;
+  position: relative;
+  left: -50%;
+}
+
 .button--danger {
   background: #cd0613;
   color: white;
