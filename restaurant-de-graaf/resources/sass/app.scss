@@ -26,7 +26,7 @@ body {
     margin-top: 78px;
 }
 
-p, span, label, .btn-link {
+p, span, label, .btn-link, input {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -49,4 +49,8 @@ a {
 
 .invalid-feedback {
     display: block !important;
+}
+
+label {
+    margin: 0 0 5px 0;
 }

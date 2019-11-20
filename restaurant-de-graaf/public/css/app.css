@@ -158,6 +158,21 @@
   color: white;
 }
 
+.button--danger {
+  background: #cd0613;
+  color: white;
+  padding: 7px 10px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--danger:hover {
+  background: #b40511;
+  color: white;
+}
+
 .btn-link {
   color: #1693A6;
 }
@@ -246,6 +261,35 @@
   border-radius: 4px;
 }
 
+label {
+  margin: 10px 0;
+}
+
+.profiel {
+  padding: 100px 15px;
+}
+
+.profiel__heading {
+  margin-bottom: 35px;
+}
+
+.profiel__card {
+  margin-bottom: 35px;
+  padding: 20px;
+}
+
+.profiel__input {
+  margin-bottom: 15px;
+}
+
+.profiel__spacing {
+  margin-top: 35px;
+}
+
+.profiel__spacing button {
+  margin-left: 15px;
+}
+
 h1,
 p {
   text-align: center;
@@ -265,7 +309,8 @@ body {
 p,
 span,
 label,
-.btn-link {
+.btn-link,
+input {
   font-family: "Roboto", sans-serif;
 }
 
@@ -288,5 +333,13 @@ a:hover {
 
 .body {
   min-height: calc(100vh - 477px);
+}
+
+.invalid-feedback {
+  display: block !important;
+}
+
+label {
+  margin: 0 0 5px 0;
 }
 

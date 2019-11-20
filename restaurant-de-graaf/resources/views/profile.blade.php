@@ -10,7 +10,7 @@
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-name">Naam: </label>
                         <input type="text" id="input-name" class="form-control" name="name" required="required" value="{{$user->name}}">
                         @error('name')
@@ -19,7 +19,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-street">Straatnaam: </label>
                         <input type="text" id="input-street" class="form-control" name="street" value="{{$user->street}}">
                         @error('street')
@@ -30,7 +30,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-tel_number">Tel: </label>
                         <input type="tel" id="input-tel_number" class="form-control" name="tel_number" required="required" value="{{$user->tel_number}}">
                         @error('tel_number')
@@ -39,7 +39,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-house_number">Huisnummer: </label>
                         <input type="number" id="input-house_number" class="form-control" name="house_number" value="{{$user->house_number}}">
                         @error('house_number')
@@ -50,7 +50,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-email">Email: </label>
                         <input type="email" id="input-email" class="form-control" name="email" required="required" value="{{$user->email}}">
                         @error('email')
@@ -59,7 +59,7 @@
                         </span>
                         @enderror
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-city">Woonplaats: </label>
                         <input type="text" id="input-city" class="form-control" name="city" value="{{$user->city}}">
                         @error('city')
@@ -70,7 +70,7 @@
                     </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6 offset-md-5">
+                    <div class="col-md-6 profiel__input">
                         <label for="input-zipcode">Postcode: </label>
                         <input type="text" id="input-zipcode" class="form-control" name="zipcode" value="{{$user->zipcode}}">
                         @error('zipcode')
@@ -79,11 +79,9 @@
                         </span>
                         @enderror
                     </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-4 offset-md-8">
-                        <a href="/"><button type="button" class="button button--danger">account opzeggen</button></a>
+                    <div class="col-md-6 profiel__spacing">
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
+                        <a href="/"><button type="button" class="button button--danger float-right">Account opzeggen</button></a>
                     </div>
                 </div>
             </form>

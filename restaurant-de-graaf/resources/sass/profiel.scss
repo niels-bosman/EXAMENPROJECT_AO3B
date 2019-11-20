@@ -1,16 +1,28 @@
 label {
-  margin: 10px 0;
+    margin: 10px 0;
 }
 
 .profiel {
-  padding: 100px 15px;
+    padding: 100px 15px;
 
-  &__heading {
-    margin-bottom: 35px;
-  }
+    &__heading {
+        margin-bottom: 35px;
+    }
 
-  &__card {
-    margin-bottom: 35px;
-    padding: 20px
-  }
+    &__card {
+        margin-bottom: 35px;
+        padding: 20px
+    }
+
+    &__input {
+        margin-bottom: 15px;
+    }
+
+    &__spacing {
+        margin-top: 35px;
+
+        button {
+            margin-left: 15px;
+        }
+    }
 }
