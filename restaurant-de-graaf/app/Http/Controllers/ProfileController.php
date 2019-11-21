@@ -48,7 +48,16 @@ class ProfileController extends Controller
 
         $putSucces = true;
 
-        return view(User::check_account('/profiel/profiel'), compact('user', 'putSucces'));
+        $reservations = Reservation::where('UserID', $user->id)->get();
+        $numbers = "";
+        foreach ($reservations as $reservation)
+        {
+            $numbers .= $reservation->reservation_code . ', ';
+        }
+        $numbers = substr($numbers, 0, strlen($numbers) - 2);
+        $tables_reservations = TableReservation::where('reservation_code', $numbers)->get();
+
+        return view(User::check_account('/profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces'));
     }
 
     public function account_activated()
