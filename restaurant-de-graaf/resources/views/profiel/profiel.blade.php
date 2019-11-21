@@ -80,6 +80,19 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="col-md-6 profiel__input">
+                        <label for="input-password">Wachtwoord: </label>
+                        <input type="password" id="input-password" class="form-control" name="password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 profiel__input">
+                        <label for="checkbox">Ik ben geen robot</label>
+                        <input id="checkbox" type="checkbox" required>
+                    </div>
                     <div class="col-md-6 profiel__spacing">
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
             </form>
