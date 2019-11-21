@@ -104,19 +104,23 @@
                     <div class="row">
                         <div class="col-md-10">
                             <div class="row">
-                                <div class="col-md-3"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
-                                <div class="col-md-2">
-                                    <b>Tafelnummers:</b>
+                                <div class="col-md-4"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
+                                <div class="col-md-4">
+                                    <b>Tafelnummer(s):</b>
+
+                                    <?php $count = 0; ?>
+
                                     @foreach($tables_reservations as $table)
                                         @if($table->reservation_code == $reservation->reservation_code)
-                                            {{$loop->first ? '' : ', '}}
+                                            {{$count == 0 ? '' : ', '}}
                                             {{$table->table_id}}
+                                            <?php $count++; ?>
                                         @endif
                                     @endforeach
                                 </div>
-                                <div class="col-md-2"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
-                                <div class="col-md-3"><b>Duur:</b> {{$reservation->duration}} minuten</div>
-                                <div class="col-md-2"><b>Personen:</b> {{$reservation->guest_amount}}</div>
+                                <div class="col-md-4"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
+                                <div class="col-md-4"><b>Duur:</b> {{$reservation->duration}} minuten</div>
+                                <div class="col-md-4"><b>Personen:</b> {{$reservation->guest_amount}}</div>
                             </div>
                         </div>
                         <div class="col-md-2 float-right">
@@ -129,18 +133,6 @@
                     </div>
                 </div>
             @endforeach
-
-{{--            <div class="card">--}}
-{{--                <h3>20200107051</h3>--}}
-{{--                <div class="row">--}}
-{{--                    <div class="col-md-3"><b>Datum:</b> Dinsdag 7 Januari 2020</div>--}}
-{{--                    <div class="col-md-2"><b>Tafelnummers:</b> 7</div>--}}
-{{--                    <div class="col-md-1"><b>Tijd:</b> 18:00</div>--}}
-{{--                    <div class="col-md-1"><b>Duur:</b> 2 uur</div>--}}
-{{--                    <div class="col-md-2"><b>Personen:</b> 3</div>--}}
-{{--                    <div class="col-md-3 float-right"><a href="#">Nota downloaden</a></div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
         </div>
     </div>
 @endsection
