@@ -54,4 +54,19 @@ class ProfileController extends Controller
     {
         return view(User::check_account('/profiel/account_activated'));
     }
+
+    public function account_not_activated()
+    {
+        return view('/profiel/account_not_activated');
+    }
+
+    public function account_blocked()
+    {
+        return view('/profiel/account_blocked');
+    }
+
+    public function account_blocked_password()
+    {
+        return view('/profiel/account_blocked_password');
+    }
 }

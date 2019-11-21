@@ -60,19 +60,4 @@ class PagesController extends Controller
             return view('/auth/passwords/email');
         }
     }
-
-    public function account_not_activated()
-    {
-        return view('/profiel/account_not_activated');
-    }
-
-    public function account_blocked()
-    {
-        return view('/profiel/account_blocked');
-    }
-
-    public function account_blocked_admin()
-    {
-        return view('/profiel/account_blocked_admin');
-    }
 }
