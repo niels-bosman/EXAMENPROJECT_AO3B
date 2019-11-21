@@ -14,6 +14,7 @@ Route::put('/profiel', 'ProfileController@update');
 Route::get('/profiel/account_geactiveerd', 'ProfileController@account_activated');
 Route::get('/profiel/account_not_activated', 'ProfileController@account_not_activated');
 Route::get('/profiel/account_blocked', 'ProfileController@account_blocked');
+Route::get('/profiel/account_blocked_password', 'ProfileController@account_blocked_password');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);

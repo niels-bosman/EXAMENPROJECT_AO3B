@@ -70,4 +70,9 @@ class PagesController extends Controller
     {
         return view('/profiel/account_blocked');
     }
+
+    public function account_blocked_admin()
+    {
+        return view('/profiel/account_blocked_admin');
+    }
 }
