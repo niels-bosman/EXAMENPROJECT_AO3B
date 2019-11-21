@@ -15,10 +15,10 @@ class CreateReservatonTable extends Migration
     {
         Schema::create('reservations', function (Blueprint $table) {
             $table->string('reservation_code')->unique();
-            $table->unsignedBigInteger('UserID')->nullable(false);
+            $table->unsignedBigInteger('UserID')->nullable();
             $table->dateTime('date');
             $table->unsignedInteger('duration')->comment("Geeft aan hoe lang deze reservering duurt in minuten");
-            $table->text('comment')->nullable(true);
+            $table->text('comment')->nullable();
             $table->double('payed_price')->nullable();
             $table->unsignedBigInteger('guest_amount')->nullable(false);
             $table->timestamps();
