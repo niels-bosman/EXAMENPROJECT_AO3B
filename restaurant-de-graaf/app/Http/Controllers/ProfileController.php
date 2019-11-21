@@ -13,13 +13,7 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $reservations = Reservation::where('UserID', $user->id)->get();
-//        $numbers = "";
-//        foreach ($reservations as $reservation)
-//        {
-//            $numbers .= $reservation->reservation_code . ', ';
-//        }
-//        $numbers = substr($numbers, 0, strlen($numbers) - 2);
-//        $tables_reservations = TableReservation::where('reservation_code', $numbers)->get();
+
         $tables_reservations = TableReservation::get();
         return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
     }
@@ -50,13 +44,8 @@ class ProfileController extends Controller
         $putSucces = true;
 
         $reservations = Reservation::where('UserID', $user->id)->get();
-        $numbers = "";
-        foreach ($reservations as $reservation)
-        {
-            $numbers .= $reservation->reservation_code . ', ';
-        }
-        $numbers = substr($numbers, 0, strlen($numbers) - 2);
-        $tables_reservations = TableReservation::where('reservation_code', $numbers)->get();
+
+        $tables_reservations = TableReservation::get();
 
         return view(User::check_account('/profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces'));
     }
