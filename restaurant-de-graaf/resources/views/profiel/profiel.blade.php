@@ -84,7 +84,7 @@
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
             </form>
             <a class="button button--danger float-right profiel__remove-account-button" href="#">Account opzeggen</a>
-            <div class="profiel__remove-modal-background"></div>
+            <div class="profiel__remove-modal-background profiel__remove-modal-disable"></div>
             <form method="post" class="profiel__remove-modal">
                 <div class="modal-header">
                     <h5 class="modal-title">Weet je zeker dat je je account wilt opzeggen? Dit kan niet meer terug gezet worden.</h5>

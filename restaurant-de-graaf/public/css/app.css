@@ -471,6 +471,11 @@ a:hover {
   min-height: calc(100vh - 477px);
 }
 
+.body--noscroll {
+  height: 100vh;
+  overflow: hidden;
+}
+
 .invalid-feedback {
   display: block !important;
 }
