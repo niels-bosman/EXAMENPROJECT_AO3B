@@ -20,6 +20,8 @@ class LoginController extends Controller
     |
     */
 
+    protected $decayMinutes = 0; // Default is 1
+
     use AuthenticatesUsers;
 
     /**
