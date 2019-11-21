@@ -42,29 +42,33 @@ class User extends Authenticatable implements AuthContract, CanResetPasswordCont
         'email_verified_at' => 'datetime',
     ];
 
-    public static function check_account($route) {
+    public static function check_account($route)
+    {
         if (User::check_logged_in()) {
             // Is ingelogged
-            if (User::check_blocked()) {
-                // Is niet geblokkeerd
-                if (User::check_wrong_count()) {
-                    // Heeft niet te vaak ingelogged
-                    return $route;
-                } else {
+            if (User::check_email_verified()) {
+                // Is email verifiëerd
+                if (User::check_blocked()) {
+                    // Is niet geblokkeerd
+                    if (User::check_wrong_count()) {
+                        // Heeft niet te vaak ingelogged
+                        return $route;
+                    }
                     // Te vaak ingelogged
                     return '/profiel/account_blocked_password';
                 }
-            } else {
                 // Geblokkeerd
                 return '/profiel/account_blocked';
             }
-
-        } else {
-            return '/auth/login';
+            // Email nog niet geverifiëerd
+            return '/profiel/account_not_activated';
         }
+        // Nog niet ingelogd
+        return '/auth/login';
     }
 
-    public static function check_logged_in() {
+    public static function check_logged_in()
+    {
         if (!Auth::user() == null) {
             return true;
         } else {
@@ -72,7 +76,8 @@ class User extends Authenticatable implements AuthContract, CanResetPasswordCont
         }
     }
 
-    public static function check_blocked() {
+    public static function check_blocked()
+    {
         if (Auth::user()->blocked == "0") {
             return true;
         } else {
@@ -80,8 +85,18 @@ class User extends Authenticatable implements AuthContract, CanResetPasswordCont
         }
     }
 
-    public static function check_wrong_count() {
+    public static function check_wrong_count()
+    {
         if (Auth::user()->wrong_count == "0") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function check_email_verified()
+    {
+        if (Auth::user()->email_verified_at) {
             return true;
         } else {
             return false;
