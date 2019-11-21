@@ -40,6 +40,16 @@ class ProfileController extends Controller
         $user->city = request('city');
         $user->zipcode = request('zipcode');
 
+        if (strlen(request('password')) !== 0) {
+
+            $this->validate($request, [
+                'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'],
+            ]);
+
+            $user->password = request('password');
+        }
+
+
         $user->save();
 
         $putSucces = true;
