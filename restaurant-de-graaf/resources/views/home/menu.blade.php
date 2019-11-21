@@ -30,7 +30,7 @@ use App\Product;
                                         <span>{{$product->name}}</span>
                                     </div>
                                     <div class="menukaart__product-price">
-                                        <span>&euro; {{$product->price}}</span>
+                                        <span>&euro; {{$product->price}}{{strpos($product->price, '.') ? '' : '.00' }}</span>
                                     </div>
                                 </article>
                                 <hr>
