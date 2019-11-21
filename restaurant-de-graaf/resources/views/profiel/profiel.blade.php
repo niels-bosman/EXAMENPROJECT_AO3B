@@ -99,13 +99,13 @@
         <div id="registraties">
             <h2>Reserveringen</h2>
             @foreach($reservations as $reservation)
-                <div class="card">
+                <div class="card profiel__card profiel__card--less-margin">
                     <h3>{{$reservation->reservation_code}}</h3>
                     <div class="row">
                         <div class="col-md-10">
                             <div class="row">
-                                <div class="col-md-2"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
-                                <div class="col-md-3">
+                                <div class="col-md-3"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
+                                <div class="col-md-2">
                                     <b>Tafelnummers:</b>
                                     @foreach($tables_reservations as $table)
                                         @if($table->reservation_code == $reservation->reservation_code)
@@ -114,8 +114,8 @@
                                         @endif
                                     @endforeach
                                 </div>
-                                <div class="col-md-3"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
-                                <div class="col-md-2"><b>Duur:</b> {{$reservation->duration}} minuten</div>
+                                <div class="col-md-2"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
+                                <div class="col-md-3"><b>Duur:</b> {{$reservation->duration}} minuten</div>
                                 <div class="col-md-2"><b>Personen:</b> {{$reservation->guest_amount}}</div>
                             </div>
                         </div>
