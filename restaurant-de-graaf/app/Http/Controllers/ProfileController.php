@@ -2,33 +2,23 @@
 
 namespace App\Http\Controllers;
 
+use App\Reservation;
+use App\TableReservation;
 use App\User;
 use Illuminate\Http\Request;
 
 class ProfileController extends Controller
 {
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
-    public function __construct()
-    {
-        $this->middleware('auth');
-    }
-
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function Get()
+    public function home()
     {
         $user = auth()->user();
-        return view('profile', compact('user'));
+        $reservations = Reservation::where('UserID', $user->id)->get();
+
+        $tables_reservations = TableReservation::get();
+        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
     }
 
-    public function Put(Request $request)
+    public function update(Request $request)
     {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
@@ -53,6 +43,15 @@ class ProfileController extends Controller
 
         $putSucces = true;
 
-        return view('profile', compact('user', 'putSucces'));
+        $reservations = Reservation::where('UserID', $user->id)->get();
+
+        $tables_reservations = TableReservation::get();
+
+        return view(User::check_account('/profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces'));
+    }
+
+    public function account_activated()
+    {
+        return view(User::check_account('/profiel/account_activated'));
     }
 }

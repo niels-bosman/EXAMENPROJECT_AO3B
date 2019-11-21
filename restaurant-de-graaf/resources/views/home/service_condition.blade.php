@@ -7,6 +7,5 @@
 @endsection
 
 @section('content')
-    <h1>Hier staan de Service Voorwaarde</h1>
-    <p>Momenteel nog leeg :/</p>
+    <h1>Hier staan de Servicevoorwaarden</h1>
 @endsection

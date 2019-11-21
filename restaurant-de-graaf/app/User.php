@@ -2,13 +2,18 @@
 
 namespace App;
 
-use Illuminate\Database\Eloquent\Model;
-use Illuminate\Auth\Authenticatable;
+use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Contracts\Auth\Authenticatable as AuthContract;
+use Illuminate\Auth\Passwords\CanResetPassword;
+use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 
-class User extends Model implements AuthContract
+class User extends Authenticatable implements AuthContract, CanResetPasswordContract, MustVerifyEmail
 {
-    use Authenticatable;
+    use CanResetPassword;
+    use Notifiable;
 
     /**
      * The attributes that are mass assignable.
@@ -36,4 +41,50 @@ class User extends Model implements AuthContract
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function check_account($route) {
+        if (User::check_logged_in()) {
+            // Is ingelogged
+            if (User::check_blocked()) {
+                // Is niet geblokkeerd
+                if (User::check_wrong_count()) {
+                    // Heeft niet te vaak ingelogged
+                    return $route;
+                } else {
+                    // Te vaak ingelogged
+                    return '/profiel/account_blocked_password';
+                }
+            } else {
+                // Geblokkeerd
+                return '/profiel/account_blocked';
+            }
+
+        } else {
+            return '/auth/login';
+        }
+    }
+
+    public static function check_logged_in() {
+        if (!Auth::user() == null) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function check_blocked() {
+        if (Auth::user()->blocked == "0") {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    public static function check_wrong_count() {
+        if (Auth::user()->wrong_count == "0") {
+            return true;
+        } else {
+            return false;
+        }
+    }
 }

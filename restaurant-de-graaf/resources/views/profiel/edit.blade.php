@@ -9,7 +9,7 @@
 @section('content')
     <h1>Edit user</h1>
     <ul style="list-style-type:none">
-    <form action="/user/{{ $user->id }}/edit" method="POST" class="text-center">
+    <form action="/profiel" method="POST" class="text-center">
         {{ csrf_field() }}
         <li>Naam: <input type="text" name="naam" value="{{ $user->name }}"></li>
         <li>Email: <input type="text" name="email" value="{{ $user->email }}"></li>

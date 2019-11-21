@@ -65,9 +65,9 @@ class ReserveringController extends Controller {
 
                 DB::table('table_reservations')->insert($data);
             }
-            return view('/reservation', ['successful' => true]);
+            return view('/home/reservation', ['successful' => true]);
         } else {
-            return view('/reservation', ['successful' => false]);
+            return view('/home/reservation', ['successful' => false]);
         }
     }
 }

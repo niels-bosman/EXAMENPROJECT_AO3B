@@ -96,6 +96,43 @@
                 @endif
             @endif
         </div>
-        <div id="registraties"></div>
+        <div id="registraties">
+            <h2>Reserveringen</h2>
+            @foreach($reservations as $reservation)
+                <div class="card profiel__card profiel__card--less-margin">
+                    <h3>{{$reservation->reservation_code}}</h3>
+                    <div class="row">
+                        <div class="col-md-10">
+                            <div class="row">
+                                <div class="col-md-4"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
+                                <div class="col-md-4">
+                                    <b>Tafelnummer(s):</b>
+
+                                    <?php $count = 0; ?>
+
+                                    @foreach($tables_reservations as $table)
+                                        @if($table->reservation_code == $reservation->reservation_code)
+                                            {{$count == 0 ? '' : ', '}}
+                                            {{$table->table_id}}
+                                            <?php $count++; ?>
+                                        @endif
+                                    @endforeach
+                                </div>
+                                <div class="col-md-4"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
+                                <div class="col-md-4"><b>Duur:</b> {{$reservation->duration}} minuten</div>
+                                <div class="col-md-4"><b>Personen:</b> {{$reservation->guest_amount}}</div>
+                            </div>
+                        </div>
+                        <div class="col-md-2 float-right">
+                            @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s")))
+                                <a href="#">Nota downloaden</a>
+                            @else
+                                <a href="/"><button type="button" class="button button--danger float-right">Annuleren</button></a>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
     </div>
 @endsection

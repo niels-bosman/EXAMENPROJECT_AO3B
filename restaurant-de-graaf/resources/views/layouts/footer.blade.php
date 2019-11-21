@@ -14,9 +14,16 @@
             <div class="col-md-4">
                 <h3 class="footer__menu-title">Account</h3>
                 <ul class="footer__menu">
-                    <li><a class="footer__menu-item" href="/login">Inloggen</a></li>
-                    <li><a class="footer__menu-item" href="/register">Registreren</a></li>
-                    <li><a class="footer__menu-item" href="/wachtwoord-vergeten">Wachtwoord vergeten</a></li>
+                    @if (Route::has('login'))
+                    @auth
+                    <li><a class="footer__menu-item" href="{{ url('/profiel') }}">Profiel</a></li>
+                    @else
+                    <li><a class="footer__menu-item" href="{{ url('/login') }}">Inloggen</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/registreer') }}">Registreren</a></li>
+                    <li><a class="footer__menu-item" href="{{ url('/wachtwoord-vergeten') }}">Wachtwoord vergeten</a></li>
+                    @endauth
+                    @endif
+
                 </ul>
             </div>
             <div class="col-md-4">

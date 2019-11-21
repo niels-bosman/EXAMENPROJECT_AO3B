@@ -9,7 +9,7 @@
 @section('content')
 <h1>Login</h1>
 <ul style="list-style-type:none">
-    <form action="/registration" method="POST" class="text-center">
+    <form action="/home/registration" method="POST" class="text-center">
         {{ csrf_field() }}
         <li>Naam: <input type="text" name="naam"></li>
         <li>Email: <input type="text" name="email"></li>
