@@ -34,7 +34,7 @@ class PagesController extends Controller
 
     public function reservation()
     {
-        return view(User::check_account('/home/reservation'));
+        return view(User::check_account('/home/reservation'), ['button' => 'Check beschikbaarheid']);
     }
 
     public function contact()
