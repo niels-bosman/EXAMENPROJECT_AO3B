@@ -59,6 +59,7 @@
 /vendor/laravel/framework/src/Illuminate/*
 !vendor/laravel/framework/src/Illuminate/Auth
 !vendor/laravel/framework/src/Illuminate/Foundation
+!vendor/laravel/framework/src/Illuminate/Notifications
 
 .env
 .env.backup
