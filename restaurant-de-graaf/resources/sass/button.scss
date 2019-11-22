@@ -33,6 +33,10 @@
         left: -50%;
     }
 
+    &--left {
+        margin: 0;
+    }
+
     &--danger {
         background: $color-danger;
         color: white;

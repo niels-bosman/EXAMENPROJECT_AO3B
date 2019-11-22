@@ -186,6 +186,10 @@
   left: -50%;
 }
 
+.button--left {
+  margin: 0;
+}
+
 .button--danger {
   background: #cd0613;
   color: white;
@@ -424,6 +428,30 @@ label {
   top: 0;
   bottom: 0;
   opacity: 100;
+}
+
+.email {
+  padding: 100px 15px;
+}
+
+.email__heading {
+  margin-bottom: 50px;
+}
+
+.registration {
+  padding: 100px 15px;
+}
+
+.registration__heading {
+  margin-bottom: 50px;
+}
+
+.reset {
+  padding: 100px 15px;
+}
+
+.reset__heading {
+  margin-bottom: 50px;
 }
 
 h1,
