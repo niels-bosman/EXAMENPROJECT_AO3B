@@ -151,6 +151,10 @@
   background: rgba(0, 0, 0, 0.4);
 }
 
+.button {
+  height: 38px;
+}
+
 .button--primary {
   background: #1693A6;
   color: white;
@@ -199,6 +203,21 @@
 .button--danger:hover {
   background: #b40511;
   color: white;
+}
+
+.button--soft {
+  background: #ffc107;
+  color: black;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--soft:hover {
+  background: #edb100;
+  color: black;
 }
 
 .btn-link {
@@ -297,7 +316,7 @@
   margin-bottom: 35px;
 }
 
-.reservation__field .button {
+.reservation__field .buttons {
   margin: 0 auto;
   display: table;
 }
@@ -319,6 +338,16 @@
   bottom: -60px;
 }
 
+.reservation__radio-buttons {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 50px 0;
+}
+
+.reservation__radio-buttons input {
+  margin-right: 10px;
+}
+
 .reservation__fields {
   text-align: center;
 }
@@ -329,6 +358,11 @@
   min-width: 200px;
   min-height: 35px;
   text-align: center;
+}
+
+.reservation__fields input[type=radio] {
+  min-width: auto;
+  min-height: auto;
 }
 
 .reservation__fields textarea {
