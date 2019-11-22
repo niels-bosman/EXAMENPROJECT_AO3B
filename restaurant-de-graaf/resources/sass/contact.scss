@@ -1,8 +1,8 @@
 .contact {
-    padding: 100px 15px;
+    padding: 60px 15px;
 
     &__heading {
-        margin-bottom: 50px;
+        margin-bottom: 30px;
     }
 
     &--h2 {
@@ -23,6 +23,10 @@
     &--space {
         margin: 40px auto 40px auto;
     }
+
+    &--row {
+        margin-top: 50px;
+    }
 }
 
 #form {
@@ -38,5 +42,10 @@
         display: block;
         margin: 0 auto;
         height: 80px;
+        text-align: center;
+
+        &:hover {
+            text-align: none;
+        }
     }
 }

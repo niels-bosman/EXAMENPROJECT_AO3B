@@ -455,11 +455,11 @@ label {
 }
 
 .contact {
-  padding: 100px 15px;
+  padding: 60px 15px;
 }
 
 .contact__heading {
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 }
 
 .contact--h2 {
@@ -481,6 +481,10 @@ label {
   margin: 40px auto 40px auto;
 }
 
+.contact--row {
+  margin-top: 50px;
+}
+
 #form {
   border-radius: 40px;
 }
@@ -495,6 +499,11 @@ label {
   display: block;
   margin: 0 auto;
   height: 80px;
+  text-align: center;
+}
+
+#form--content:hover {
+  text-align: none;
 }
 
 h1,
