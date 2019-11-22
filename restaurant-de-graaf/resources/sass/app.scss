@@ -13,6 +13,10 @@ $color-danger: #cd0613;
 @import "profiel";
 @import "beheer";
 @import "error";
+@import "email";
+@import "register";
+@import "reset";
+@import "contact";
 
 h1, p {
     text-align: center;

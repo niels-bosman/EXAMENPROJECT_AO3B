@@ -1,0 +1,53 @@
+.contact {
+    padding: 60px 15px;
+
+    &__heading {
+        margin-bottom: 30px;
+    }
+
+    &--h2 {
+        margin-bottom: 30px;
+    }
+
+    &--h3 {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &--adress {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &--space {
+        margin: 20px auto 20px auto;
+    }
+
+    &--row {
+        margin-top: 50px;
+    }
+
+    &--iframe {
+        margin: 0 auto -30px auto;
+    }
+}
+
+#form {
+    border-radius: 40px;
+
+    &--subject {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &--content {
+        display: block;
+        margin: 0 auto;
+        height: 80px;
+
+        &:hover {
+            text-align: none;
+        }
+    }
+}
