@@ -1,0 +1,42 @@
+.contact {
+    padding: 100px 15px;
+
+    &__heading {
+        margin-bottom: 50px;
+    }
+
+    &--h2 {
+        margin-bottom: 30px;
+    }
+
+    &--h3 {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &--adress {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &--space {
+        margin: 40px auto 40px auto;
+    }
+}
+
+#form {
+    border-radius: 40px;
+
+    &--subject {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    &--content {
+        display: block;
+        margin: 0 auto;
+        height: 80px;
+    }
+}
