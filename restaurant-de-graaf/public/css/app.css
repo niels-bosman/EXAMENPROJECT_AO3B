@@ -464,6 +464,10 @@ label {
   padding: 100px 0;
 }
 
+.beheer__heading {
+  margin-bottom: 50px;
+}
+
 .beheer__card {
   padding: 25px;
   margin-bottom: 30px;

@@ -1,6 +1,10 @@
 .beheer {
     padding: 100px 0;
 
+    &__heading {
+        margin-bottom: 50px;
+    }
+
     &__card {
         padding: 25px;
         margin-bottom: 30px;
