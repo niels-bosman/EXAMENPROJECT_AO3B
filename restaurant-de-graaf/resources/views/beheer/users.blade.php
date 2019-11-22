@@ -20,8 +20,8 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->tel_number}}</td>
                     <td>
-                        <a href="" class="button button--soft"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" class="button button--danger"><i class="fas fa-ban"></i></a>
+                        <a href="" class="button button--danger"><i class="fas fa-trash-alt"></i></a>
+                        <a href="" class="button button--primary"><i class="fas fa-ban"></i></a>
                     </td>
                 </tr>
             @endforeach

@@ -8,7 +8,7 @@
 
         <table class="table table-hover">
             <tr>
-                <th>ID</th>
+                <th>Tafelnummer</th>
                 <th>Zitplaatsen</th>
                 <th>Minimaal aantal personen</th>
                 <th>Reserveerbaar</th>
@@ -22,7 +22,7 @@
                     <td>{{$table->minimum_guests}}</td>
                     <td>{{$table->reservable}}</td>
                     <td>
-                        <a href="" class="button button--primary"><i class="fas fa-edit"></i></a>
+                        <a href="" class="button button--danger"><i class="fas fa-edit"></i></a>
                         <a href="" class="button button--soft"><i class="fas fa-trash-alt"></i></a>
                     </td>
                 </tr>
