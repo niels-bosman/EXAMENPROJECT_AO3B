@@ -25,7 +25,7 @@ class TafelsController extends Controller
      */
     public function index()
     {
-        $tafels = Table::get();
-        return view('beheer/tafels', compact('tafels'));
+        $tables = Table::all();
+        return view('beheer/tafels', compact('tables'));
     }
 }
