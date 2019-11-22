@@ -23,13 +23,6 @@ class LoginController extends Controller
     use AuthenticatesUsers;
 
     /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
-    protected $redirectTo = '/profiel';
-
-    /**
      * Create a new controller instance.
      *
      * @return void
@@ -37,6 +30,15 @@ class LoginController extends Controller
     public function __construct()
     {
         $this->middleware('guest')->except('logout');
+    }
+
+    protected function authenticated(Request $request, $user)
+    {
+        if ( $user->auth_level > 1 ) {
+            return redirect('/beheer');
+        }
+
+        return redirect('/profiel');
     }
 
     public $maxAttempts = 2;
