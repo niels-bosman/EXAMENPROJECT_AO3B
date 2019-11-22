@@ -12,6 +12,7 @@ Route::get('/wachtwoord-vergeten', 'PagesController@forgot_password');
 Route::get('/profiel', 'ProfileController@home');
 Route::put('/profiel', 'ProfileController@update');
 Route::delete('/profiel', 'ProfileController@destroy');
+Route::delete('/reservering', 'ReserveringController@destroy');
 Route::get('/profiel/account_geactiveerd', 'ProfileController@account_activated');
 Route::get('/profiel/account_not_activated', 'ProfileController@account_not_activated');
 Route::get('/profiel/account_blocked', 'ProfileController@account_blocked');

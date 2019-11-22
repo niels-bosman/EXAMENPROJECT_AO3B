@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Reservation;
 use App\TableReservation;
 use App\Table;
+use App\User;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
@@ -91,5 +92,16 @@ class ReserveringController extends Controller {
                 'button' => 'Check beschikbaarheid'
             ]);
         endif;
+    }
+
+    public function destroy() {
+        TableReservation::where('reservation_code', request('reservering'))->delete();
+        Reservation::where('reservation_code', request('reservering'))->delete();
+
+        $user = auth()->user();
+        $reservations = Reservation::where('UserID', $user->id)->get();
+        $tables_reservations = TableReservation::get();
+
+        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
     }
 }
