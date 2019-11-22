@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="login container">
+<div class="reset container">
     <h1 class="login__heading">Wachtwoord veranderen</h1>
     <div class="row justify-content-center">
         <div class="col-md-8">

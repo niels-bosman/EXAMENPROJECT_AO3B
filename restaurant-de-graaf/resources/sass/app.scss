@@ -11,6 +11,9 @@ $color-danger: #cd0613;
 @import "login";
 @import "reservation";
 @import "profiel";
+@import "email";
+@import "register";
+@import "reset";
 
 h1, p {
     text-align: center;

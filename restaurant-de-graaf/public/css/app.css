@@ -383,6 +383,30 @@ label {
   margin-left: 15px;
 }
 
+.email {
+  padding: 100px 15px;
+}
+
+.email__heading {
+  margin-bottom: 50px;
+}
+
+.registration {
+  padding: 100px 15px;
+}
+
+.registration__heading {
+  margin-bottom: 50px;
+}
+
+.reset {
+  padding: 100px 15px;
+}
+
+.reset__heading {
+  margin-bottom: 50px;
+}
+
 h1,
 p {
   text-align: center;
