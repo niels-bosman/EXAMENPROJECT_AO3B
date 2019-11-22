@@ -45,6 +45,11 @@ a {
 
 .body {
     min-height: calc(100vh - 477px);
+
+    &--noscroll {
+        height: 100vh;
+        overflow: hidden;
+    }
 }
 
 .invalid-feedback {

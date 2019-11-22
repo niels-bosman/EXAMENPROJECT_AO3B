@@ -8,6 +8,7 @@
         <div class="card profiel__card">
             <form method="post">
                 @csrf
+
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
                     <div class="col-md-6 profiel__input">
@@ -79,60 +80,102 @@
                         </span>
                         @enderror
                     </div>
+                    <div class="col-md-6 profiel__input">
+                        <label for="input-password">Wachtwoord: </label>
+                        <input type="password" id="input-password" class="form-control" name="password">
+                        @error('password')
+                        <span class="invalid-feedback" role="alert">
+                            <strong>{{ $message }}</strong>
+                        </span>
+                        @enderror
+                    </div>
+                    <div class="col-md-6 profiel__input">
+                        <label for="checkbox">Ik ben geen robot</label>
+                        <input id="checkbox" type="checkbox" required>
+                    </div>
                     <div class="col-md-6 profiel__spacing">
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
-                        <a href="/"><button type="button" class="button button--danger float-right">Account opzeggen</button></a>
+            </form>
+            <a class="button button--danger float-right profiel__remove-account-button" href="#">Account opzeggen</a>
+            <div class="profiel__remove-modal-background profiel__remove-modal-disable"></div>
+            <form method="post" class="profiel__remove-modal">
+                <div class="modal-header">
+                    <h5 class="modal-title">Weet je zeker dat je je account wilt opzeggen? Dit kan niet meer terug gezet worden.</h5>
+                    <button type="button" class="close profiel__remove-modal-disable">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="profiel__remove-modal-content">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <label>Ik ben geen robot
+                                <input type="checkbox" required>
+                            </label>
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <button type="submit" class="button button--danger float-right">Account opzeggen</button>
+                        </div>
                     </div>
                 </div>
             </form>
-            @if(isset($putSucces))
-                @if($putSucces == true)
-                    <div class="alert alert-success reservation__alert" role="alert">
-                        Je gegevens zijn succesvol gewijzigd!
-                        <button type="button" class="close reservation__alert-close">
-                            <span>&times;</span>
-                        </button>
-                    </div>
-                @endif
-            @endif
         </div>
-        <div id="registraties">
-            <h2>Reserveringen</h2>
-            @foreach($reservations as $reservation)
-                <div class="card profiel__card profiel__card--less-margin">
-                    <h3>{{$reservation->reservation_code}}</h3>
-                    <div class="row">
-                        <div class="col-md-10">
-                            <div class="row">
-                                <div class="col-md-4"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}</div>
-                                <div class="col-md-4">
-                                    <b>Tafelnummer(s):</b>
+    </div>
+    </div>
 
-                                    <?php $count = 0; ?>
+    @if(isset($putSucces))
+        @if($putSucces == true)
+            <div class="alert alert-success reservation__alert" role="alert">
+                Je gegevens zijn succesvol gewijzigd!
+                <button type="button" class="close reservation__alert-close">
+                    <span>&times;</span>
+                </button>
+            </div>
+        @endif
+    @endif
 
-                                    @foreach($tables_reservations as $table)
-                                        @if($table->reservation_code == $reservation->reservation_code)
-                                            {{$count == 0 ? '' : ', '}}
-                                            {{$table->table_id}}
-                                            <?php $count++; ?>
-                                        @endif
-                                    @endforeach
-                                </div>
-                                <div class="col-md-4"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}</div>
-                                <div class="col-md-4"><b>Duur:</b> {{$reservation->duration}} minuten</div>
-                                <div class="col-md-4"><b>Personen:</b> {{$reservation->guest_amount}}</div>
+    <div id="registraties">
+        <h2>Reserveringen</h2>
+        @if(count($reservations) <= 0)
+            <p class="text-left">Er zijn helaas nog geen reserveringen op dit account</p>
+        @endif
+        @foreach($reservations as $reservation)
+            <div class="card profiel__card profiel__card--less-margin">
+                <h3>{{$reservation->reservation_code}}</h3>
+                <div class="row">
+                    <div class="col-md-10">
+                        <div class="row">
+                            <div class="col-md-4"><b>Datum:</b> {{date("Y-m-d", strtotime($reservation->date))}}
                             </div>
+                            <div class="col-md-4">
+                                <b>Tafelnummer(s):</b>
+
+                                <?php $count = 0; ?>
+
+                                @foreach($tables_reservations as $table)
+                                    @if($table->reservation_code == $reservation->reservation_code)
+                                        {{ $count == 0 ? '' : ', ' }}
+                                        {{ $table->table_id }}
+                                        <?php $count++; ?>
+                                    @endif
+                                @endforeach
+                            </div>
+                            <div class="col-md-4"><b>Tijd:</b> {{date("H:i", strtotime($reservation->date))}}
+                            </div>
+                            <div class="col-md-4"><b>Duur:</b> {{$reservation->duration}} minuten</div>
+                            <div class="col-md-4"><b>Personen:</b> {{$reservation->guest_amount}}</div>
                         </div>
-                        <div class="col-md-2 float-right">
-                            @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s")))
-                                <a href="#">Nota downloaden</a>
-                            @else
-                                <a href="/"><button type="button" class="button button--danger float-right">Annuleren</button></a>
-                            @endif
-                        </div>
+                    </div>
+                    <div class="col-md-2 float-right">
+                        @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s")))
+                            <a href="#">Nota downloaden</a>
+                        @else
+                            <a href="/">
+                                <button type="button" class="button button--danger float-right">Annuleren</button>
+                            </a>
+                        @endif
                     </div>
                 </div>
-            @endforeach
-        </div>
+            </div>
+        @endforeach
     </div>
 @endsection

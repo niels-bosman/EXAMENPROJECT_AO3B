@@ -6,6 +6,7 @@ use App\Reservation;
 use App\TableReservation;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileController extends Controller
 {
@@ -39,6 +40,16 @@ class ProfileController extends Controller
         $user->city = request('city');
         $user->zipcode = request('zipcode');
 
+        if (strlen(request('password')) !== 0) {
+
+            $this->validate($request, [
+                'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'],
+            ]);
+
+            $user->password = request('password');
+        }
+
+
         $user->save();
 
         $putSucces = true;
@@ -48,6 +59,13 @@ class ProfileController extends Controller
         $tables_reservations = TableReservation::get();
 
         return view(User::check_account('/profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces'));
+    }
+
+    public function destroy() {
+        Reservation::where('UserID', Auth::user()->id)->update(['UserID' => null]);
+        User::where('id', Auth::user()->id)->delete();
+
+        return view('auth/login');
     }
 
     public function account_activated()
