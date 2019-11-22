@@ -20,6 +20,7 @@ Route::get('/profiel/account_blocked_password', 'ProfileController@account_block
 
 Route::get('/beheer', 'Beheer\BeheerController@index');
 Route::get('/beheer/gebruikers', 'Beheer\UserController@index');
+Route::put('/beheer/gebruikers', 'Beheer\UserController@ban');
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
 Route::get('/beheer/producten', 'Beheer\BeheerController@index');
 Route::get('/beheer/tafels', 'Beheer\BeheerController@index');

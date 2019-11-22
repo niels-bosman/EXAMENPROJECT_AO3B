@@ -20,8 +20,22 @@
                     <td>{{$user->email}}</td>
                     <td>{{$user->tel_number}}</td>
                     <td>
-                        <a href="" class="button button--soft"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" class="button button--danger"><i class="fas fa-ban"></i></a>
+                        <form method="post">
+                            {{ csrf_field() }}
+                            {{ method_field('DELETE') }}
+                            <input hidden required value="{{$user->id}}" name="userID">
+                            <button type="submit" class="button button--soft"><i class="fas fa-trash-alt"></i></button>
+                        </form>
+                        <form method="post" >
+                            {{ csrf_field() }}
+                            {{ method_field('PUT') }}
+                            <input hidden required value="{{$user->id}}" name="userID">
+                            @if($user->blocked == 0)
+                                <button type="submit" class="button button--danger"><i class="fas fa-ban"></i></button>
+                               @else
+                                <button type="submit" class="button button--danger"><i class="fas fa-unlock"></i></button>
+                            @endif
+                        </form>
                     </td>
                 </tr>
             @endforeach

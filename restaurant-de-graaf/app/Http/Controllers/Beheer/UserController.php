@@ -28,4 +28,13 @@ class UserController extends Controller
         $users = User::all();
         return view('beheer/users', compact('users'));
     }
+
+    public function ban(Request $request)
+    {
+        $user = User::where('id', request('userID'))->first();
+        $user->blocked = $user->blocked == 0 ? 1 : 0;
+
+        $user->save();
+        return $this->index();
+    }
 }
