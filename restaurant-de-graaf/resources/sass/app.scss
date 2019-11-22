@@ -36,6 +36,11 @@ p, span, label, .btn-link, input, td {
     background: rgba($color-main, .4);
 }
 
+.card-content-admin {
+    display: flex;
+    align-items: center;
+}
+
 a {
     color: black;
 

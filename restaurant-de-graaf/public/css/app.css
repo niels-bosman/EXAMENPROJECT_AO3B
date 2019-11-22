@@ -524,6 +524,13 @@ td {
   background: rgba(22, 147, 166, 0.4);
 }
 
+.card-content-admin {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
 a {
   color: black;
 }
