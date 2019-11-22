@@ -58,6 +58,7 @@
 
 /vendor/laravel/framework/src/Illuminate/*
 !vendor/laravel/framework/src/Illuminate/Auth
+!vendor/laravel/framework/src/Illuminate/Foundation
 
 .env
 .env.backup
