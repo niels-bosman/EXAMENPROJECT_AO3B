@@ -14,9 +14,9 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $reservations = Reservation::where('UserID', $user->id)->get();
-
+        $check = User::check_privileges();
         $tables_reservations = TableReservation::get();
-        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
+        return view(User::check_account('profiel/profiel'), compact('user',  'reservations', 'tables_reservations', 'check'));
     }
 
     public function update(Request $request)
@@ -58,33 +58,40 @@ class ProfileController extends Controller
 
         $tables_reservations = TableReservation::get();
 
-        return view(User::check_account('/profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces'));
+        $check = User::check_privileges();
+
+        return view(User::check_account($check['link']), compact('user', 'reservations', 'tables_reservations' , 'putSucces', 'check'));
     }
 
     public function destroy() {
         Reservation::where('UserID', Auth::user()->id)->update(['UserID' => null]);
         User::where('id', Auth::user()->id)->delete();
 
-        return view('auth/login');
+        $check = User::check_privileges();
+        return view('auth/login', compact('check'));
     }
 
     public function account_activated()
     {
-        return view(User::check_account('/profiel/account_activated'));
+        $check = User::check_privileges();
+        return view(User::check_account('/profiel/account_activated'), compact('check'));
     }
 
     public function account_not_activated()
     {
-        return view('/profiel/account_not_activated');
+        $check = User::check_privileges();
+        return view('/profiel/account_not_activated', compact('check'));
     }
 
     public function account_blocked()
     {
-        return view('/profiel/account_blocked');
+        $check = User::check_privileges();
+        return view('/profiel/account_blocked', compact('check'));
     }
 
     public function account_blocked_password()
     {
-        return view('/profiel/account_blocked_password');
+        $check = User::check_privileges();
+        return view('/profiel/account_blocked_password', compact('check'));
     }
 }
