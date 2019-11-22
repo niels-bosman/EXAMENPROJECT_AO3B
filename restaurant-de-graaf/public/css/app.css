@@ -460,6 +460,22 @@ label {
   opacity: 100;
 }
 
+.beheer {
+  padding: 100px 0;
+}
+
+.beheer__card {
+  padding: 25px;
+  margin-bottom: 30px;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.beheer__card:hover {
+  -webkit-transform: scale(0.97);
+          transform: scale(0.97);
+}
+
 h1,
 p {
   text-align: center;

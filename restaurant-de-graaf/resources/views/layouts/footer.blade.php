@@ -29,9 +29,9 @@
             <div class="col-md-4">
                 <h3 class="footer__menu-title">Volg ons</h3>
                 <ul class="footer__menu-socials">
-                    <a class="footer__menu-item" href="#"><i class="fa fa-facebook-square"></i></a>
-                    <a class="footer__menu-item" href="#"><i class="fa fa-twitter-square"></i></a>
-                    <a class="footer__menu-item" href="#"><i class="fa fa-instagram"></i></a>
+                    <a class="footer__menu-item" href="#"><i class="fab fa-facebook-square"></i></a>
+                    <a class="footer__menu-item" href="#"><i class="fab fa-twitter-square"></i></a>
+                    <a class="footer__menu-item" href="#"><i class="fab fa-instagram"></i></a>
                 </ul>
             </div>
         </div>
