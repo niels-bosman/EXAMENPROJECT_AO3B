@@ -21,11 +21,15 @@
     }
 
     &--space {
-        margin: 40px auto 40px auto;
+        margin: 20px auto 20px auto;
     }
 
     &--row {
         margin-top: 50px;
+    }
+
+    &--iframe {
+        margin: 0 auto -30px auto;
     }
 }
 
@@ -35,14 +39,12 @@
     &--subject {
         display: block;
         margin: 0 auto;
-        text-align: center;
     }
 
     &--content {
         display: block;
         margin: 0 auto;
         height: 80px;
-        text-align: center;
 
         &:hover {
             text-align: none;
