@@ -20,7 +20,7 @@
                     <td>{{$table->table_id}}</td>
                     <td>{{$table->seats}}</td>
                     <td>{{$table->minimum_guests}}</td>
-                    <td>{{$table->reservable}}</td>
+                    <td><?php echo $table->reservable == 1 ? "Ja" : "Nee"; ?></td>
                     <td>
                         <a href="" class="button button--primary"><i class="fas fa-edit"></i></a>
                         <a href="" class="button button--danger"><i class="fas fa-trash-alt"></i></a>
