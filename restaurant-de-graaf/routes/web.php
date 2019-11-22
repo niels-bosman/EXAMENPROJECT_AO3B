@@ -16,6 +16,12 @@ Route::get('/profiel/account_not_activated', 'ProfileController@account_not_acti
 Route::get('/profiel/account_blocked', 'ProfileController@account_blocked');
 Route::get('/profiel/account_blocked_password', 'ProfileController@account_blocked_password');
 
+Route::get('/beheer', 'Beheer\BeheerController@index');
+Route::get('/beheer/gebruikers', 'Beheer\BeheerController@index');
+Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
+Route::get('/beheer/producten', 'Beheer\BeheerController@index');
+Route::get('/beheer/tafels', 'Beheer\BeheerController@index');
+
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
 });
