@@ -186,6 +186,10 @@
   left: -50%;
 }
 
+.button--left {
+  margin: 0;
+}
+
 .button--danger {
   background: #cd0613;
   color: white;
