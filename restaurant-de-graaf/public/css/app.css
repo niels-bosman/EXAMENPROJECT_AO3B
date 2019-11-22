@@ -469,6 +469,7 @@ label {
   margin-bottom: 30px;
   -webkit-transition: 0.3s ease;
   transition: 0.3s ease;
+  will-change: transform;
 }
 
 .beheer__card:hover {
