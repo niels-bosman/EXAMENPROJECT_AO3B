@@ -19,8 +19,8 @@
                     <td>{{$product->price}}</td>
                     <td>{{Subtype::where('id', $product->subtype)->get()[0]->name}}</td>
                     <td>
+                        <a href="" class="button button--primary"><i class="fas fa-edit"></i></a>
                         <a href="" class="button button--danger"><i class="fas fa-trash-alt"></i></a>
-                        <a href="" class="button button--primary"><i class="fas fa-ban"></i></a>
                     </td>
                 </tr>
             @endforeach
