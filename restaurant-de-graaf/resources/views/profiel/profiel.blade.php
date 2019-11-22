@@ -169,9 +169,12 @@
                         @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s")))
                             <a href="#">Nota downloaden</a>
                         @else
-                            <a href="/">
-                                <button type="button" class="button button--danger float-right">Annuleren</button>
-                            </a>
+                            <form action="/reservering" method="post">
+                                {{ csrf_field() }}
+                                {{ method_field('DELETE') }}
+                                <input type="hidden" name="reservering" value="{{$reservation->reservation_code}}">
+                                <button type="submit" class="button button--danger float-right">Annuleren</button>
+                            </form>
                         @endif
                     </div>
                 </div>
