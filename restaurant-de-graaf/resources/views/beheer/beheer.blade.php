@@ -44,7 +44,7 @@
                                 <h3>Producten</h3>
                             </div>
                             <div class="col-3 icon-container">
-                                <h1 class="icon-large"><i class="fa fa-hamburger"></i></h1>
+                                <h1 class="icon-large"><i class="fas fa-utensils"></i></h1>
                             </div>
                         </div>
                     </a>
