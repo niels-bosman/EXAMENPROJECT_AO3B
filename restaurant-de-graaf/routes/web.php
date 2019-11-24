@@ -8,6 +8,7 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/faq', 'PagesController@faq');
 Route::get('/servicevoorwaarden', 'PagesController@service_condition');
 Route::get('/wachtwoord-vergeten', 'PagesController@forgot_password');
+Route::get('/registreer', 'PagesController@create');
 
 Route::get('/profiel', 'ProfileController@home');
 Route::put('/profiel', 'ProfileController@update');
@@ -26,7 +27,10 @@ Route::delete('/beheer/gebruikers', 'Beheer\UserController@destroy');
 Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
 Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
 Route::get('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@destroy');
-Route::delete('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@destroyConfirm');
+Route::post('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@cancel');
+Route::put('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@block');
+Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
+Route::delete('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@confirm');
 
 
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');

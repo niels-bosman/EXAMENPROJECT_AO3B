@@ -4,18 +4,30 @@
 
 @section('content')
 <div class="beheer container">
-    <h1 class="beheer__heading">Weet je zeker dat je het account van {{$user->name}} wilt opzeggen?</h1>
-    <form method="post" class="text-center">
-        <input type="hidden" name="id" value="{{ $user->id }}">
-        <div>
-            <div class="row">
-                <div class="col-md-7">
-                    {{ csrf_field() }}
-                    {{ method_field('DELETE') }}
-                    <button type="submit" class="button button--danger float-right">Account opzeggen</button>
-                </div>
-            </div>
+    <h3 class="beheer__heading text-center">Weet je zeker dat je het account van {{$user->name}} wilt opzeggen?</h3>
+    <div class="beheer__button-container">
+        <div class="beheer__button-button">
+            <form method="post" action="/beheer/gebruikers/{{$user->id}}/delete">
+                {{ csrf_field() }}
+                {{ method_field('POST') }}
+                <button type="submit" class="button button--soft">Annuleer</button>
+            </form>
         </div>
+        <div class="beheer__button-button">
+            <form method="post" action="/beheer/gebruikers/{{$user->id}}/delete">
+                {{ csrf_field() }}
+                {{ method_field('PUT') }}
+                <button type="submit" class="button button--primary">Account blokkeren</button>
+            </form>
+        </div>
+        <div class="beheer__button-button">
+            <form method="post" action="/beheer/gebruikers/{{$user->id}}/delete">
+                {{ csrf_field() }}
+                {{ method_field('DELETE') }}
+                <button type="submit" class="button button--danger">Account verwijderen</button>
+            </form>
+        </div>
+    </div>
     </form>
 </div>
 @endsection

@@ -31,16 +31,22 @@ class UserController extends Controller
     {
         $users = User::all();
         $check = User::check_privileges();
-        return view('beheer/user/users', compact('users', 'check'));
+        $auth = Auth::user();
+        return view('beheer/user/users', compact('users', 'check', 'auth'));
     }
 
     public function show(User $user)
     {
         $user = DB::table('users')->where('id', $user->id)->first();
-        $tables_reservations = TableReservation::get();
-        $check = User::check_privileges();
-        $reservations = Reservation::where('UserID', $user->id)->get();
-        return view(User::check_account('beheer/user/details'), compact('user',  'reservations', 'tables_reservations', 'check'));
+        $auth = Auth::user();
+        if($auth->id != $user->id) {
+            $tables_reservations = TableReservation::get();
+            $check = User::check_privileges();
+            $reservations = Reservation::where('UserID', $user->id)->get();
+            return view(User::check_account('beheer/user/details'), compact('user',  'reservations', 'tables_reservations', 'check'));
+        } else {
+            return redirect('beheer/gebruikers');
+        }
     }
 
     public function update(Request $request)
@@ -89,12 +95,37 @@ class UserController extends Controller
 
     public function destroy($id) {
         $user = User::where('id', $id)->first();
-        return view('beheer/user/delete', compact('user'));
+        $auth = Auth::user();
+        if($auth->id != $user->id) {
+            $tables_reservations = TableReservation::get();
+            $check = User::check_privileges();
+            $reservations = Reservation::where('UserID', $user->id)->get();
+            return view('beheer/user/delete', compact('user', 'check'));
+        } else {
+            return redirect('beheer/gebruikers');
+        }
     }
 
-    public function destroyConfirm() {
-        Reservation::where('UserID', request('id'))->update(['UserID' => null]);
-        $user = DB::table('users')->where('id', request('id'))->delete();
+    public function cancel() {
+        return redirect('/beheer/gebruikers');
+    }
+
+    public function block($id) {
+        $user = User::where('id', $id)->first();
+        $auth = Auth::user();
+        if($auth->id != $user->id) {
+            $user->blocked = 1;
+            $user->save();
+            return redirect('/beheer/gebruikers');
+        } else {
+            return redirect('beheer/gebruikers');
+        }
+
+    }
+
+    public function confirm($id) {
+        Reservation::where('UserID', $id)->update(['UserID' => null]);
+        DB::table('users')->where('id', $id)->delete();
         return redirect('/beheer/gebruikers');
     }
 }
