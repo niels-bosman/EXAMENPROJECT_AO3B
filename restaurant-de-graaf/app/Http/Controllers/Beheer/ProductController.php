@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Beheer;
 use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class ProductController extends Controller
 {
@@ -26,6 +27,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        return view('beheer/product', compact('products'));
+        $check = User::check_privileges();
+        return view('beheer/product', compact('products', 'check'));
     }
 }

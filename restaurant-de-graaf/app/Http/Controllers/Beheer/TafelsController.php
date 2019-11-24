@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Beheer;
 use App\Table;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class TafelsController extends Controller
 {
@@ -25,7 +26,8 @@ class TafelsController extends Controller
      */
     public function index()
     {
+        $check = User::check_privileges();
         $tables = Table::all();
-        return view('beheer/tafels', compact('tables'));
+        return view('beheer/tafels', compact('tables', 'check'));
     }
 }

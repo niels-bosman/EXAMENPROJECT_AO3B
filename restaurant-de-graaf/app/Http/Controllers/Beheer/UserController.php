@@ -26,6 +26,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        return view('beheer/users', compact('users'));
+        $check = User::check_privileges();
+        return view('beheer/users', compact('users', 'check'));
     }
 }

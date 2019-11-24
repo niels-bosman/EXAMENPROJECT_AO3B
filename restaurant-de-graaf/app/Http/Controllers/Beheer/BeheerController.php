@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Beheer;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\User;
 
 class BeheerController extends Controller
 {
@@ -24,6 +25,7 @@ class BeheerController extends Controller
      */
     public function index()
     {
-        return view('beheer/beheer');
+        $check = User::check_privileges();
+        return view('beheer/beheer', compact('check'));
     }
 }
