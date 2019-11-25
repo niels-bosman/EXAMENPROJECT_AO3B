@@ -6,6 +6,7 @@
     <div class="beheer container">
         <h1 class="beheer__heading">Productenoverzicht</h1>
 
+        <a href="/beheer/producten/new" class="button button--primary float-right" style="margin-bottom: 30px;">Product toevoegen&nbsp;<i class="fas fa-plus"></i></a>
         <table class="table table-hover">
             <tr>
                 <th>Naam</th>
@@ -19,9 +20,7 @@
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{$product->price}}</td>
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{Subtype::where('id', $product->subtype)->get()[0]->name}}</td>
                     <td>
-
                         <a href="/beheer/producten/{{$product->id}}" class="button button--primary button--primary--small"><i class="fas fa-edit" aria-hidden="true"></i></a>
-
 
                         @if($product->enabled == 1)
                             <form method="POST" style="display: inline">
