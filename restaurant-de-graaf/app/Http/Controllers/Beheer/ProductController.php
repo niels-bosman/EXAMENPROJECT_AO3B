@@ -45,7 +45,15 @@ class ProductController extends Controller
         return $this->index();
     }
 
-    public function put() {
+    public function put(Request $request) {
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'int'],
+            'price' => ['required', 'numeric'],
+            'enabled' => ['required', 'int'],
+            'robot' => ['required'],
+        ]);
+
         $name = request('name');
         $subtype = request('type');
         $price = request('price');
