@@ -68,13 +68,13 @@ a {
 }
 
 .hide-sm {
-    @media screen and (max-width: 600px) {
+    @media screen and (max-width: 1000px) {
         display: none !important;
     }
 }
 
 .hide-xl {
-    @media screen and (min-width: 600px) {
+    @media screen and (min-width: 1000px) {
         display: none !important;
     }
 }

@@ -14,7 +14,7 @@
                     @endif
                 </div>
             </div>
-            <div class="col-md-7 header-wrap hide-sm">
+            <div class="col-md-6 header-wrap hide-sm">
                 @if(isset($check))
                     @if($check > 1)
                         <ul class="header__menu">
@@ -58,7 +58,7 @@
                     </ul>
                 @endif
             </div>
-            <div class="col-md-3 col-6 header-wrap">
+            <div class="col-md-4 col-6 header-wrap" style="justify-content: flex-end;">
                 <ul class="header__menu header__menu--right hide-sm">
 
                     @if (Route::has('login'))

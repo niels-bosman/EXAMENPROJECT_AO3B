@@ -781,13 +781,13 @@ a:hover {
   overflow: hidden;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 1000px) {
   .hide-sm {
     display: none !important;
   }
 }
 
-@media screen and (min-width: 600px) {
+@media screen and (min-width: 1000px) {
   .hide-xl {
     display: none !important;
   }
