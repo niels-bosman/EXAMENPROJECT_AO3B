@@ -268,6 +268,31 @@
   padding: 9px 12px;
 }
 
+.button--deblock {
+  background: #2c8839;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--deblock:hover {
+  background: #267531;
+  color: white;
+}
+
+.button--block {
+  color: #ec0d1c;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.button--block:hover {
+  color: #d40c19;
+}
+
 .button--secondary {
   float: left;
   position: relative;
@@ -571,6 +596,53 @@ label {
 }
 
 .profiel__remove-modal-background--active {
+  display: block;
+  top: 0;
+  bottom: 0;
+  opacity: 100;
+}
+
+.profiel__block-modal {
+  width: 600px;
+  position: fixed;
+  left: 50%;
+  top: -5000px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: white;
+  z-index: 999999;
+  border-radius: 4px;
+  border: solid lightgrey 1px;
+  opacity: 0;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
+}
+
+.profiel__block-modal--active {
+  top: 50%;
+  opacity: 100;
+}
+
+.profiel__block-modal-content {
+  padding: 15px;
+}
+
+.profiel__block-modal-background {
+  display: none;
+  opacity: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999998;
+  top: -5000px;
+  right: 0;
+  bottom: 5000px;
+  left: 0;
+  position: fixed;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
+}
+
+.profiel__block-modal-background--active {
   display: block;
   top: 0;
   bottom: 0;

@@ -27,8 +27,7 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
-        $check = User::check_privileges();
-        return view('beheer/product', compact('products', 'check'));
+        return view('beheer/product', compact('products'));
     }
 
     public function getNew()

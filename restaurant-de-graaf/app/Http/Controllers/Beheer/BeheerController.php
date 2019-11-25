@@ -25,7 +25,6 @@ class BeheerController extends Controller
      */
     public function index()
     {
-        $check = User::check_privileges();
-        return view('beheer/beheer', compact('check'));
+        return view('beheer/beheer');
     }
 }

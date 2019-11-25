@@ -18,6 +18,29 @@
         }
     }
 
+    &--deblock {
+        background: $color-deblock;
+        color: white;
+        padding: 7px 15px;
+        border-radius: 4px;
+        transition: .2s ease;
+        border: none;
+
+        &:hover {
+            background: darken($color-deblock, 5);
+            color: white;
+        }
+    }
+
+    &--block {
+        color: $color-block;
+        transition: .2s ease;
+
+        &:hover {
+            color: darken($color-block, 5);
+        }
+    }
+
     &--secondary {
         float: left;
         position: relative;

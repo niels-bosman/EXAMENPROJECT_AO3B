@@ -12,7 +12,6 @@ use Illuminate\Support\Facades\Auth;
 class ReserveringController extends Controller {
     public function post(Reservation $reservation, TableReservation $tableReservation) {
         $table = request('table');
-        $check = User::check_privileges();
         if (empty($table)):
             $timestamp = strtotime(\request('date') . \request('time'));
             $date = date('Y-m-d H:i:s', $timestamp);
@@ -62,7 +61,7 @@ class ReserveringController extends Controller {
                     'time' => request('time'),
                     'persons' => request('persons'),
                     'comment' => request('comment'),
-                ], compact('check'),
+                ]),
             );
             } else {
                 return view('/home/reservation', [
@@ -72,7 +71,7 @@ class ReserveringController extends Controller {
                     'time' => request('time'),
                     'persons' => request('persons'),
                     'comment' => request('comment')
-                ], compact('check'),
+                ],
             );
             }
         else:
@@ -93,7 +92,7 @@ class ReserveringController extends Controller {
             return view('/home/reservation', [
                 'successful' => true,
                 'button' => 'Check beschikbaarheid'
-            ], compact('check'),
+            ],
         );
         endif;
     }
@@ -106,8 +105,6 @@ class ReserveringController extends Controller {
         $reservations = Reservation::where('UserID', $user->id)->get();
         $tables_reservations = TableReservation::get();
 
-        $check = User::check_privileges();
-
-        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations', 'check'));
+        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
     }
 }

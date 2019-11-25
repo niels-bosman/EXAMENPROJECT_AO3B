@@ -30,20 +30,18 @@ class UserController extends Controller
     public function index()
     {
         $users = User::all();
-        $check = User::check_privileges();
         $auth = Auth::user();
-        return view('beheer/user/users', compact('users', 'check', 'auth'));
+        return view('beheer/user/users', compact('users', 'auth'));
     }
 
     public function show(User $user)
     {
         $user = DB::table('users')->where('id', $user->id)->first();
         $auth = Auth::user();
-        if($auth->id != $user->id) {
+        if ($auth->id != $user->id) {
             $tables_reservations = TableReservation::get();
-            $check = User::check_privileges();
             $reservations = Reservation::where('UserID', $user->id)->get();
-            return view(User::check_account('beheer/user/details'), compact('user',  'reservations', 'tables_reservations', 'check'));
+            return view(User::check_account('beheer/user/details'), compact('user',  'reservations', 'tables_reservations'));
         } else {
             return redirect('beheer/gebruikers');
         }
@@ -64,9 +62,7 @@ class UserController extends Controller
 
         $user = User::where('id', request('id'))->first();
         $user->name = request('name');
-        if(User::where('email', request('email'))->first()) {
-
-        } else {
+        if (User::where('email', request('email'))->first()) { } else {
             $user->email = request('email');
         }
         $user->tel_number = request('tel_number');
@@ -89,44 +85,42 @@ class UserController extends Controller
         $putSucces = true;
         $reservations = Reservation::where('UserID', $user->id)->get();
         $tables_reservations = TableReservation::get();
-        $check = User::check_privileges();
-        return view(User::check_account('beheer/user/details'), compact('user', 'reservations', 'tables_reservations' , 'putSucces', 'check'));
+        return view(User::check_account('beheer/user/details'), compact('user', 'reservations', 'tables_reservations', 'putSucces'));
     }
 
-    public function destroy($id) {
-        $user = User::where('id', $id)->first();
+    public function destroy(Request $request)
+    {
+        $user = User::where('id', $request->id)->first();
         $auth = Auth::user();
-        if($auth->id != $user->id) {
-            $tables_reservations = TableReservation::get();
-            $check = User::check_privileges();
-            $reservations = Reservation::where('UserID', $user->id)->get();
-            return view('beheer/user/delete', compact('user', 'check'));
+        if ($auth->id != $user->id) {
+            Reservation::where('UserID', $request->id)->update(['UserID' => null]);
+            DB::table('users')->where('id', $request->id)->delete();
+            return redirect('/beheer/gebruikers');
         } else {
             return redirect('beheer/gebruikers');
         }
     }
 
-    public function cancel() {
+    public function cancel()
+    {
         return redirect('/beheer/gebruikers');
     }
 
-    public function block($id) {
-        $user = User::where('id', $id)->first();
+    public function block(Request $request, $id = null)
+    {
+        if(isset($id)) {
+            $user = User::where('id', $id)->first();
+        } else {
+            $user = User::where('id', $request->id)->first();
+        }
         $auth = Auth::user();
-        if($auth->id != $user->id) {
-            $user->blocked = 1;
+        if ($auth->id != $user->id) {
+            $user->blocked = $user->blocked == 1 ? 0 : 1;
             $user->save();
             return redirect('/beheer/gebruikers');
         } else {
             return redirect('beheer/gebruikers');
         }
-
-    }
-
-    public function confirm($id) {
-        Reservation::where('UserID', $id)->update(['UserID' => null]);
-        DB::table('users')->where('id', $id)->delete();
-        return redirect('/beheer/gebruikers');
     }
 
     public function ban(Request $request)
