@@ -18,6 +18,7 @@ class CreateTableTable extends Migration
             $table->unsignedInteger('seats')->nullable(false);
             $table->unsignedInteger('minimum_guests')->nullable(false);
             $table->boolean('reservable')->default(true);
+            $table->timestamps();
         });
     }
 

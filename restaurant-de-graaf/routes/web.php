@@ -28,6 +28,8 @@ Route::get('/beheer/producten/{id}', 'Beheer\ProductController@get');
 Route::put('/beheer/producten/{id}', 'Beheer\ProductController@put');
 
 Route::get('/beheer/tafels', 'Beheer\TafelsController@index');
+Route::get('/beheer/tafels/{id}', 'Beheer\TafelsController@detail');
+Route::put('/beheer/tafels/{id}', 'Beheer\TafelsController@update');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
