@@ -12,6 +12,7 @@
             <th>Emailadres</th>
             <th>Telefoonnummer</th>
             <th></th>
+
         </tr>
         @foreach($users as $user)
         <tr>
