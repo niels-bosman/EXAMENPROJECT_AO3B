@@ -61,7 +61,7 @@ class ProfileController extends Controller
 
         $check = User::check_privileges();
 
-        return view(User::check_account($check['link']), compact('user', 'reservations', 'tables_reservations' , 'putSucces', 'check'));
+        return view(User::check_account('profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces', 'check'));
     }
 
     public function destroy() {
