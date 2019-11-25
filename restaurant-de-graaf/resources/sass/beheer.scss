@@ -38,3 +38,13 @@
         width: 20%;
     }
 }
+
+.table {
+    .disabled {
+        opacity: .3;
+
+        &:hover {
+            cursor: not-allowed;
+        }
+    }
+}

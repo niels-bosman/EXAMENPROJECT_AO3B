@@ -18,6 +18,7 @@ class CreateProductTable extends Migration
             $table->string("name")->nullable(false);
             $table->unsignedBigInteger('subtype')->nullable(false);
             $table->double('price')->nullable(false);
+            $table->boolean('enabled')->nullable(false)->default(1);
 
             $table->foreign('subtype')->references('id')->on('subtypes');
             $table->timestamps();

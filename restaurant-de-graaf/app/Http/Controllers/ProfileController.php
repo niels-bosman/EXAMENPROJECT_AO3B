@@ -28,7 +28,8 @@ class ProfileController extends Controller
             'street' => ['max:255'],
             'house_number' => ['max:255'],
             'city' => ['max:255'],
-            'zipcode' => ['max:255']
+            'zipcode' => ['max:255'],
+            'no-robot' => ['required']
         ]);
 
         $user = User::find(auth()->user()->id);

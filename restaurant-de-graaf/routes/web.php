@@ -32,8 +32,17 @@ Route::delete('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@confirm
 
 
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
+
 Route::get('/beheer/producten', 'Beheer\ProductController@index');
+Route::delete('/beheer/producten', 'Beheer\ProductController@delete');
+Route::post('/beheer/producten/new', 'Beheer\ProductController@post');
+Route::get('/beheer/producten/new', 'Beheer\ProductController@getNew');
+Route::get('/beheer/producten/{id}', 'Beheer\ProductController@get');
+Route::put('/beheer/producten/{id}', 'Beheer\ProductController@put');
+
 Route::get('/beheer/tafels', 'Beheer\TafelsController@index');
+Route::get('/beheer/tafels/{id}', 'Beheer\TafelsController@detail');
+Route::put('/beheer/tafels/{id}', 'Beheer\TafelsController@update');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
