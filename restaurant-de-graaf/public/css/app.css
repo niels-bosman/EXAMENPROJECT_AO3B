@@ -481,6 +481,16 @@ label {
           transform: scale(0.97);
 }
 
+.error_page,
+a {
+  text-align: center;
+}
+
+.error_page,
+a {
+  text-align: center;
+}
+
 h1,
 p {
   text-align: center;
