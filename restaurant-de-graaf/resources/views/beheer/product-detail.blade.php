@@ -47,7 +47,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="robot">Ik ben geen robot</label>&nbsp;<input type="checkbox" id="robot" required>
+                        <label for="robot">Ik ben geen robot</label>&nbsp;<input type="checkbox" id="robot" name="robot" required>
                     </div>
 
                     <div class="col-md-6">
