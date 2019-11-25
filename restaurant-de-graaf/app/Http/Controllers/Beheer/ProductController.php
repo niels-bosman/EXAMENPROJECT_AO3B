@@ -31,12 +31,14 @@ class ProductController extends Controller
         return view('beheer/product', compact('products', 'check'));
     }
 
-    public function getNew() {
+    public function getNew()
+    {
         $check = User::check_privileges();
         return view('beheer/product-add', compact('check'));
     }
 
-    public function post(Request $request, Product $product) {
+    public function post(Request $request, Product $product)
+    {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'type' => ['required', 'int'],
@@ -55,7 +57,8 @@ class ProductController extends Controller
     }
 
     // Toggles the deletion
-    public function delete() {
+    public function delete()
+    {
         $enabled = request('enabled');
         $id = request('id');
 
@@ -68,7 +71,8 @@ class ProductController extends Controller
         return $this->index();
     }
 
-    public function put(Request $request) {
+    public function put(Request $request)
+    {
         $this->validate($request, [
             'name' => ['required', 'string', 'max:255'],
             'type' => ['required', 'int'],
@@ -95,7 +99,8 @@ class ProductController extends Controller
         return view('beheer/product-detail', compact('product', 'putSuccess'));
     }
 
-    public function get() {
+    public function get()
+    {
         $id = request('id');
         $product = Product::where('id', $id)->first();
         return view('beheer/product-detail', compact('product'));
