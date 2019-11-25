@@ -12,6 +12,10 @@
             background: darken($color-main, 5);
             color: white;
         }
+
+        &--small {
+            padding: 9px 15px;
+        }
     }
 
     &--secondary {
@@ -63,6 +67,20 @@
         &:hover {
             background: darken(#ffc107, 5);
             color: black;
+        }
+    }
+
+    &--positive {
+        background: #77CCA4;
+        color: white;
+        padding: 7px 15px;
+        border-radius: 4px;
+        transition: .2s ease;
+        border: none;
+
+        &:hover {
+            background: darken(#77CCA4, 5);
+            color: white;
         }
     }
 }

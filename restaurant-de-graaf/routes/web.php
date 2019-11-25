@@ -21,7 +21,12 @@ Route::get('/profiel/account_blocked_password', 'ProfileController@account_block
 Route::get('/beheer', 'Beheer\BeheerController@index');
 Route::get('/beheer/gebruikers', 'Beheer\UserController@index');
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
+
 Route::get('/beheer/producten', 'Beheer\ProductController@index');
+Route::delete('/beheer/producten', 'Beheer\ProductController@delete');
+Route::get('/beheer/producten/{id}', 'Beheer\ProductController@get');
+Route::put('/beheer/producten/{id}', 'Beheer\ProductController@put');
+
 Route::get('/beheer/tafels', 'Beheer\TafelsController@index');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
