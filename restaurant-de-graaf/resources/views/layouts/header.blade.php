@@ -16,7 +16,19 @@
             </div>
             <div class="col-md-6 header-wrap hide-sm">
                 @if(isset($check))
-                    @if($check > 1)
+                    @if($check == 0)
+                        <ul class="header__menu">
+                            <li>
+                                <a class="header__menu-item @if (\Request::is('reserveren')) header__menu-item--active @endif" href="/reserveren">Reserveren</a>
+                            </li>
+                            <li>
+                                <a class="header__menu-item @if (\Request::is('menu')) header__menu-item--active @endif" href="/menu">Menu</a>
+                            </li>
+                            <li>
+                                <a class="header__menu-item @if (\Request::is('contact')) header__menu-item--active @endif" href="/contact">Contact</a>
+                            </li>
+                        </ul>
+                    @else
                         <ul class="header__menu">
                             <li>
                                 <a class="header__menu-item @if (\Request::is('beheer/reserveringen')) header__menu-item--active @endif" href="/beheer/reserveringen">Reserveringen</a>
@@ -31,31 +43,7 @@
                                 <a class="header__menu-item @if (\Request::is('beheer/tafels')) header__menu-item--active @endif" href="/beheer/tafels">Tafels</a>
                             </li>
                         </ul>
-                    @else
-                        <ul class="header__menu">
-                            <li>
-                                <a class="header__menu-item @if (\Request::is('reserveren')) header__menu-item--active @endif" href="/reserveren">Reserveren</a>
-                            </li>
-                            <li>
-                                <a class="header__menu-item @if (\Request::is('menu')) header__menu-item--active @endif" href="/menu">Menu</a>
-                            </li>
-                            <li>
-                                <a class="header__menu-item @if (\Request::is('contact')) header__menu-item--active @endif" href="/contact">Contact</a>
-                            </li>
-                        </ul>
                     @endif
-                @else
-                    <ul class="header__menu">
-                        <li>
-                            <a class="header__menu-item @if (\Request::is('reserveren')) header__menu-item--active @endif" href="/reserveren">Reserveren</a>
-                        </li>
-                        <li>
-                            <a class="header__menu-item @if (\Request::is('menu')) header__menu-item--active @endif" href="/menu">Menu</a>
-                        </li>
-                        <li>
-                            <a class="header__menu-item @if (\Request::is('contact')) header__menu-item--active @endif" href="/contact">Contact</a>
-                        </li>
-                    </ul>
                 @endif
             </div>
             <div class="col-md-4 col-6 header-wrap" style="justify-content: flex-end;">
@@ -67,7 +55,7 @@
                                 <a class="header__menu-item @if (\Request::is('profiel')) header__menu-item--active @endif" href="/profiel">Profiel</a>
                             </li>
                             @if(isset($check))
-                                @if($check > 1)
+                                @if($check >= 1)
                                     <li>
                                         <a class="header__menu-item @if (\Request::is('beheer/reserveren/new')) header__menu-item--active @endif" href="/beheer/reserveren/new">Reserveren</a>
                                     </li>
