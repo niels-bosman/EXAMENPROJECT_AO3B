@@ -114,7 +114,7 @@ class UserController extends Controller
         $user = User::where('id', $id)->first();
         $auth = Auth::user();
         if($auth->id != $user->id) {
-            $user->blocked = 1;
+            $user->blocked = $user->blocked == 1 ? 0 : 1;
             $user->save();
             return redirect('/beheer/gebruikers');
         } else {

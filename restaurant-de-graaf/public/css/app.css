@@ -170,6 +170,31 @@
   color: white;
 }
 
+.button--deblock {
+  background: #2c8839;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--deblock:hover {
+  background: #267531;
+  color: white;
+}
+
+.button--block {
+  color: #ec0d1c;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.button--block:hover {
+  color: #d40c19;
+}
+
 .button--secondary {
   float: left;
   position: relative;

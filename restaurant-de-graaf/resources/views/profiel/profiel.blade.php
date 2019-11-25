@@ -96,6 +96,7 @@
                     <div class="col-md-6 profiel__spacing">
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
             </form>
+            @if($only_admin > 2)
             <a class="button button--danger float-right profiel__remove-account-button" href="#">Account opzeggen</a>
             <div class="profiel__remove-modal-background profiel__remove-modal-disable"></div>
             <form method="post" class="profiel__remove-modal">
@@ -118,6 +119,7 @@
                     </div>
                 </div>
             </form>
+            @endif
         </div>
     </div>
     </div>
