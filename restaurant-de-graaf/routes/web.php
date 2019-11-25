@@ -22,15 +22,12 @@ Route::get('/profiel/account_blocked_password', 'ProfileController@account_block
 Route::get('/beheer', 'Beheer\BeheerController@index');
 
 Route::get('/beheer/gebruikers', 'Beheer\UserController@index');
+Route::put('/beheer/gebruikers', 'Beheer\UserController@block');
 Route::delete('/beheer/gebruikers', 'Beheer\UserController@destroy');
 
 Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
 Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
-Route::get('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@destroy');
-Route::post('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@cancel');
-Route::put('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@block');
 Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
-Route::delete('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@confirm');
 
 
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');

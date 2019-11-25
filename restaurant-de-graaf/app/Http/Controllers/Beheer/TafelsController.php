@@ -26,8 +26,7 @@ class TafelsController extends Controller
      */
     public function index()
     {
-        $check = User::check_privileges();
         $tables = Table::all();
-        return view('beheer/tafels', compact('tables', 'check'));
+        return view('beheer/tafels', compact('tables'));
     }
 }
