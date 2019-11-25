@@ -23,6 +23,8 @@ Route::get('/beheer/gebruikers', 'Beheer\UserController@index');
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
 Route::get('/beheer/producten', 'Beheer\ProductController@index');
 Route::get('/beheer/tafels', 'Beheer\TafelsController@index');
+Route::get('/beheer/tafels/{id}', 'Beheer\TafelsController@detail');
+Route::put('/beheer/tafels/{id}', 'Beheer\TafelsController@update');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
