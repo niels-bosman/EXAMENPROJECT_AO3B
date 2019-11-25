@@ -31,6 +31,29 @@ class ProductController extends Controller
         return view('beheer/product', compact('products', 'check'));
     }
 
+    public function getNew() {
+        $check = User::check_privileges();
+        return view('beheer/product-add', compact('check'));
+    }
+
+    public function post(Request $request, Product $product) {
+        $this->validate($request, [
+            'name' => ['required', 'string', 'max:255'],
+            'type' => ['required', 'int'],
+            'price' => ['required', 'numeric'],
+            'enabled' => ['required', 'int'],
+            'robot' => ['required']
+        ]);
+
+        $product->name = request('name');
+        $product->subtype = request('type');
+        $product->price = request('price');
+        $product->enabled = request('enabled');
+        $product->save();
+
+        return $this->index();
+    }
+
     // Toggles the deletion
     public function delete() {
         $enabled = request('enabled');
@@ -51,7 +74,7 @@ class ProductController extends Controller
             'type' => ['required', 'int'],
             'price' => ['required', 'numeric'],
             'enabled' => ['required', 'int'],
-            'robot' => ['required'],
+            'robot' => ['required']
         ]);
 
         $name = request('name');
