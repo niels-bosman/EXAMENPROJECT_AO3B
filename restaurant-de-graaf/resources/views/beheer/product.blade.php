@@ -20,7 +20,7 @@
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{$product->price}}</td>
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{Subtype::where('id', $product->subtype)->get()[0]->name}}</td>
                     <td>
-                        <a href="/beheer/producten/{{$product->id}}" class="button button--primary button--primary--small"><i class="fas fa-edit" aria-hidden="true"></i></a>
+                        <a href="/beheer/producten/{{$product->id}}" class="button button--primary button--primary--small"><i class="fas fa-pen"></i></a>
 
                         @if($product->enabled == 1)
                             <form method="POST" style="display: inline">

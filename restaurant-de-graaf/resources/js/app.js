@@ -13,3 +13,7 @@ $('.profiel__remove-modal-disable').on('click', function() {
     $('.profiel__remove-modal-background').removeClass('profiel__remove-modal-background--active');
     $('body').removeClass('body--noscroll');
 });
+
+$('.hamburger').on('click', function() {
+    $(this).toggleClass('hamburger--active');
+});
