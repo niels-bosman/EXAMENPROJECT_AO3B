@@ -11,6 +11,7 @@ Route::get('/wachtwoord-vergeten', 'PagesController@forgot_password');
 Route::get('/registreer', 'PagesController@create');
 
 Route::get('/profiel', 'ProfileController@home');
+Route::get('/profiel/pdf/{reservation}', 'PDFController@index');
 Route::put('/profiel', 'ProfileController@update');
 Route::delete('/profiel', 'ProfileController@destroy');
 Route::delete('/reservering', 'ReserveringController@destroy');
@@ -28,7 +29,6 @@ Route::delete('/beheer/gebruikers', 'Beheer\UserController@destroy');
 Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
 Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
 Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
-
 
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
 Route::get('/beheer/producten', 'Beheer\ProductController@index');
