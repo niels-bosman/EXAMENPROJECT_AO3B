@@ -69,6 +69,21 @@ a {
     }
 }
 
+.hide-sm {
+    @media screen and (max-width: 1000px) {
+        display: none !important;
+    }
+}
+
+.hide-xl {
+    @media screen and (min-width: 1000px) {
+        display: none !important;
+    }
+}
+
+.row {
+    margin: 0 !important;
+}
 .invalid-feedback {
     display: block !important;
 }
