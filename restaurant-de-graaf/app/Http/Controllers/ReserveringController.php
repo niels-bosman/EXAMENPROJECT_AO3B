@@ -106,6 +106,8 @@ class ReserveringController extends Controller {
         $reservations = Reservation::where('UserID', $user->id)->get();
         $tables_reservations = TableReservation::get();
 
-        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
+        $check = User::check_privileges();
+
+        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations', 'check'));
     }
 }

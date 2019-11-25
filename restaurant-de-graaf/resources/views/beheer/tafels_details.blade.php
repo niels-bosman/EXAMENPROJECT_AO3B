@@ -4,28 +4,28 @@
 
 @section('content')
     <div class="profiel container">
-        <h1 class="profiel__heading">Profiel</h1>
+        <h1 class="profiel__heading">Tafel {{$table->table_id}}</h1>
         <div class="card profiel__card">
             <form method="post">
                 @csrf
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
                     <div class="col-md-6 profiel__input">
-                        <label for="input-tafelID">Tafelnummer: </label>
+                        <label for="input-tafelID">Tafelnummer</label>
                         <input type="number" id="input-tafelID" class="form-control" min="1" name="tafelnummer" required="required" value="{{$table->table_id}}">
                     </div>
                     <div class="col-md-6 profiel__input">
-                        <label for="input-seats">Zitplaatsen: </label>
+                        <label for="input-seats">Zitplaatsen</label>
                         <input type="number" id="input-seats" class="form-control" min="1" name="zitplaatsen" required="required" value="{{$table->seats}}">
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 profiel__input">
-                        <label for="input-min">Minimaal Aantal Personen: </label>
+                        <label for="input-min">Minimaal Aantal Personen</label>
                         <input type="number" id="input-min" class="form-control" min="0" name="minimum" required="required" value="{{$table->minimum_guests}}">
                     </div>
                     <div class="col-md-6 profiel__input">
-                        <label for="input-reservable">Reserveerbaar: </label>
+                        <label for="input-reservable">Reserveerbaar</label>
                         <select id="input-reservable" class="form-control" name="reserveerbaar">
                             <option value="1"
                                     @if($table->reservable == true)
