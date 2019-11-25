@@ -8,6 +8,7 @@ Route::get('/contact', 'PagesController@contact');
 Route::get('/faq', 'PagesController@faq');
 Route::get('/servicevoorwaarden', 'PagesController@service_condition');
 Route::get('/wachtwoord-vergeten', 'PagesController@forgot_password');
+Route::get('/registreer', 'PagesController@create');
 
 Route::get('/profiel', 'ProfileController@home');
 Route::put('/profiel', 'ProfileController@update');
@@ -19,11 +20,20 @@ Route::get('/profiel/account_blocked', 'ProfileController@account_blocked');
 Route::get('/profiel/account_blocked_password', 'ProfileController@account_blocked_password');
 
 Route::get('/beheer', 'Beheer\BeheerController@index');
+
 Route::get('/beheer/gebruikers', 'Beheer\UserController@index');
-Route::put('/beheer/gebruikers', 'Beheer\UserController@ban');
+Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
+Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
+Route::get('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@destroy');
+Route::post('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@cancel');
+Route::put('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@block');
+Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
+Route::delete('/beheer/gebruikers/{user}/delete', 'Beheer\UserController@confirm');
+
+
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
-Route::get('/beheer/producten', 'Beheer\BeheerController@index');
-Route::get('/beheer/tafels', 'Beheer\BeheerController@index');
+Route::get('/beheer/producten', 'Beheer\ProductController@index');
+Route::get('/beheer/tafels', 'Beheer\TafelsController@index');
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);

@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Beheer;
 
+use App\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class BeheerController extends Controller
+class ProductController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -25,7 +26,8 @@ class BeheerController extends Controller
      */
     public function index()
     {
+        $products = Product::all();
         $check = User::check_privileges();
-        return view('beheer/beheer', compact('check'));
+        return view('beheer/product', compact('products', 'check'));
     }
 }

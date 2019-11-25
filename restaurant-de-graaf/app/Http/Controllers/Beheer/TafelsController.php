@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Beheer;
 
+use App\Table;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\User;
 
-class BeheerController extends Controller
+class TafelsController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -26,6 +27,7 @@ class BeheerController extends Controller
     public function index()
     {
         $check = User::check_privileges();
-        return view('beheer/beheer', compact('check'));
+        $tables = Table::all();
+        return view('beheer/tafels', compact('tables', 'check'));
     }
 }

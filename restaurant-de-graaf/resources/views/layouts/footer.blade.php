@@ -17,6 +17,14 @@
                     @if (Route::has('login'))
                     @auth
                     <li><a class="footer__menu-item" href="{{ url('/profiel') }}">Profiel</a></li>
+                    @if(isset($check))
+                    @if($check > 1)
+                    <li><a class="footer__menu-item @if (\Request::is('beheer/reserveringen')) header__menu-item--active @endif" href="/beheer/reserveringen">Reserveringen</a></li>
+                    <li><a class="footer__menu-item @if (\Request::is('beheer/gebruikers')) header__menu-item--active @endif" href="/beheer/gebruikers">Gebruikers</a></li>
+                    <li><a class="footer__menu-item @if (\Request::is('beheer/producten')) header__menu-item--active @endif" href="/beheer/producten">Producten</a></li>
+                    <li><a class="footer__menu-item @if (\Request::is('beheer/tafels')) header__menu-item--active @endif" href="/beheer/tafels">Tafels</a></li>
+                    @endif
+                    @endif
                     @else
                     <li><a class="footer__menu-item" href="{{ url('/login') }}">Inloggen</a></li>
                     <li><a class="footer__menu-item" href="{{ url('/registreer') }}">Registreren</a></li>

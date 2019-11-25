@@ -15,4 +15,26 @@
             transform: scale(.97);
         }
     }
+
+    &__button-container {
+        display: block;
+        margin: 0 auto;
+        width: 80%;
+        height: 100px;
+        padding: 0 10px 0 10px;
+        align-content: center;
+        align-items: center;
+    }
+
+    &__button-button {
+        margin: 0 20px 0 20px;
+        float: left;
+    }
+
+    &__float {
+        align-self: center;
+        margin: 0 auto;
+        float: left;
+        width: 20%;
+    }
 }

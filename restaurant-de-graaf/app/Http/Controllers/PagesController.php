@@ -6,58 +6,71 @@ use Illuminate\Http\Request;
 use App\Subtype;
 use App\User;
 use App\Type;
+use Illuminate\Support\Facades\Auth;
 use App\Product;
 
 class PagesController extends Controller
 {
     public function home()
     {
-        return view('/home/home');
+        $check = User::check_privileges();
+        return view('home/home', compact('check'));
     }
 
     public function login()
     {
-        return view('/profiel/login');
+        $check = User::check_privileges();
+
+        dd($check);
+
+        return view('/auth/login', compact('check'));
     }
 
     public function create()
     {
-        return view('/profiel/registration');
+        $check = User::check_privileges();
+        return view('/auth/register', compact('check'));
     }
 
     public function menu()
     {
         $types = Type::all();
+        $check = User::check_privileges();
 
-        return view('/home/menu', compact('types'));
+        return view('/home/menu', compact('types', 'check'));
     }
 
     public function reservation()
     {
-        return view(User::check_account('/home/reservation'), ['button' => 'Check beschikbaarheid']);
+        $check = User::check_privileges();
+        return view(User::check_account('/home/reservation'), ['button' => 'Check beschikbaarheid'], compact('check'));
     }
 
     public function contact()
     {
-        return view('/home/contact');
+        $check = User::check_privileges();
+        return view('/home/contact', compact('check'));
     }
 
     public function faq()
     {
-        return view('/home/faq');
+        $check = User::check_privileges();
+        return view('/home/faq', compact('check'));
     }
 
     public function service_condition()
     {
-        return view('/home/service_condition');
+        $check = User::check_privileges();
+        return view('/home/service_condition', compact('check'));
     }
 
     public function forgot_password()
     {
+        $check = User::check_privileges();
         if (User::check_logged_in()) {
-            return view('/profiel');
+            return view('/profiel', compact('check'));
         } else {
-            return view('/auth/passwords/email');
+            return view('/auth/passwords/email', compact('check'));
         }
     }
 }

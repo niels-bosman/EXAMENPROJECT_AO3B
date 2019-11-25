@@ -190,6 +190,10 @@
   left: -50%;
 }
 
+.button--left {
+  margin: 0;
+}
+
 .button--danger {
   background: #cd0613;
   color: white;
@@ -481,6 +485,29 @@ label {
           transform: scale(0.97);
 }
 
+.beheer__button-container {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 100px;
+  padding: 0 10px 0 10px;
+  align-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.beheer__button-button {
+  margin: 0 20px 0 20px;
+  float: left;
+}
+
+.beheer__float {
+  align-self: center;
+  margin: 0 auto;
+  float: left;
+  width: 20%;
+}
+
 .error_page,
 a {
   text-align: center;
@@ -489,6 +516,84 @@ a {
 .error_page,
 a {
   text-align: center;
+}
+
+.email {
+  padding: 100px 15px;
+}
+
+.email__heading {
+  margin-bottom: 50px;
+}
+
+.registration {
+  padding: 100px 15px;
+}
+
+.registration__heading {
+  margin-bottom: 50px;
+}
+
+.reset {
+  padding: 100px 15px;
+}
+
+.reset__heading {
+  margin-bottom: 50px;
+}
+
+.contact {
+  padding: 60px 15px;
+}
+
+.contact__heading {
+  margin-bottom: 30px;
+}
+
+.contact--h2 {
+  margin-bottom: 30px;
+}
+
+.contact--h3 {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact--adress {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact--space {
+  margin: 20px auto 20px auto;
+}
+
+.contact--row {
+  margin-top: 50px;
+}
+
+.contact--iframe {
+  margin: 0 auto -30px auto;
+}
+
+#form {
+  border-radius: 40px;
+}
+
+#form--subject {
+  display: block;
+  margin: 0 auto;
+}
+
+#form--content {
+  display: block;
+  margin: 0 auto;
+  height: 80px;
+}
+
+#form--content:hover {
+  text-align: none;
 }
 
 h1,
@@ -511,7 +616,8 @@ p,
 span,
 label,
 .btn-link,
-input {
+input,
+td {
   font-family: "Roboto", sans-serif;
 }
 
@@ -521,6 +627,13 @@ input {
 
 ::selection {
   background: rgba(22, 147, 166, 0.4);
+}
+
+.card-content-admin {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
 }
 
 a {
