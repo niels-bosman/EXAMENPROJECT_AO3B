@@ -75,6 +75,8 @@
                 <a class="button button--deblock" href="/beheer/gebruikers/{{$user->id}}/block"><i class="fas fa-unlock-alt"></i></i></a>
                 @endif
             </td>
+            @else
+                <td></td>
             @endif
         </tr>
         @endforeach
