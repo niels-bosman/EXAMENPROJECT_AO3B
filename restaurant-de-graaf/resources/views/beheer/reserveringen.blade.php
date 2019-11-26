@@ -39,6 +39,7 @@
                 <th scope="col">Commentaar</th>
                 <th scope="col">Kosten</th>
                 <th scope="col">Gasten</th>
+                <th scope="col">Verwijder reservering</th>
             </tr>
             </thead>
             <tbody>
@@ -50,6 +51,7 @@
                     <td>{{ $reservation->comment }}</td>
                     <td> € {{ $reservation->payed_price }}</td>
                     <td>{{ $reservation->guest_amount }}</td>
+                    <td><button class="fas fa-trash" name="delete"></button></td>
                 </tr>
             @endforeach
             </tbody>
