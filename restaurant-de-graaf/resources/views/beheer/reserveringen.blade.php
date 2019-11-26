@@ -42,6 +42,7 @@
                 <th scope="col">Verwijder reservering</th>
             </tr>
             </thead>
+
             <tbody>
             @foreach ($reservations as $reservation)
                 <tr>
@@ -51,11 +52,17 @@
                     <td>{{ $reservation->comment }}</td>
                     <td> € {{ $reservation->payed_price }}</td>
                     <td>{{ $reservation->guest_amount }}</td>
-                    <td><button class="fas fa-trash" name="delete"></button></td>
+                    <form method="post" action="/beheer/reserveringen/{{$reservation->reservation_code}}">
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+                    <td><button type="submit" name="delete"><i class="fas fa-trash"></i></button></td>
+                    </form>
                 </tr>
             @endforeach
             </tbody>
+
         </table>
+
         <hr>
     </div>
 

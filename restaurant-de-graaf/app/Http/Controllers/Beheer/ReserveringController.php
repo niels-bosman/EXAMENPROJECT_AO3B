@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Beheer;
 
 use App\Reservation;
+use App\TableReservation;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -50,7 +51,14 @@ class ReserveringController extends Controller
         return view('beheer/reserveringen',compact('reservations'));
     }
 
-    public function destroy() {
+
+
+    public function delete($reservation_code)
+    {
+        TableReservation::where('reservation_code', '=', $reservation_code)->delete();
+        DB::table('reservation_products')->where('reservation_code', '=', $reservation_code)->delete();
+        Reservation::where('reservation_code', '=', $reservation_code)->delete();
+        return redirect('/beheer/reserveringen');
 
     }
 
