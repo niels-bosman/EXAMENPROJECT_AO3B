@@ -63,7 +63,7 @@
                                 <a class="header__menu-item  @if (\Request::is('login')) header__menu-item--active @endif" href="/login">Inloggen</a>
                             </li>
                             <li>
-                                <a class="header__menu-item  @if (\Request::is('register')) header__menu-item--active @endif" href="/registeer">Registreren</a>
+                                <a class="header__menu-item  @if (\Request::is('register')) header__menu-item--active @endif" href="/register">Registreren</a>
                             </li>
                         @endauth
                     @endif

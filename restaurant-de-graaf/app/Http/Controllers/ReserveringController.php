@@ -116,10 +116,6 @@ class ReserveringController extends Controller {
         TableReservation::where('reservation_code', request('reservering'))->delete();
         Reservation::where('reservation_code', request('reservering'))->delete();
 
-        $user = auth()->user();
-        $reservations = Reservation::where('UserID', $user->id)->get();
-        $tables_reservations = TableReservation::get();
-
-        return view('/profiel/profiel', compact('user',  'reservations', 'tables_reservations'));
+        return redirect('/profiel');
     }
 }

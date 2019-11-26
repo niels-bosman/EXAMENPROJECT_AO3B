@@ -52,7 +52,7 @@ class ProductController extends Controller
         $product->enabled = request('enabled');
         $product->save();
 
-        return $this->index();
+        return redirect('/beheer/producten');
     }
 
     // Toggles the deletion
@@ -92,10 +92,7 @@ class ProductController extends Controller
             'enabled' => $enabled
         ]);
 
-        $id = request('id');
-        $product = Product::where('id', $id)->first();
-        $putSuccess = true;
-        return view('beheer/product-detail', compact('product', 'putSuccess'));
+        return redirect('/beheer/producten');
     }
 
     public function get()

@@ -874,10 +874,6 @@ a:hover {
   }
 }
 
-.row {
-  margin: 0 !important;
-}
-
 .invalid-feedback {
   display: block !important;
 }
