@@ -81,7 +81,6 @@ class ReserveringController extends Controller {
                 $reservation_code .= $table;
             }
 
-
             for ($i = 1; $i < 10; $i++) {
                 $temp_code = $reservation_code . $i;
                 $check = Reservation::where('reservation_code', $temp_code)->first();
@@ -97,7 +96,6 @@ class ReserveringController extends Controller {
             $reservation->date = request('date') . ' ' . request('time');
             $reservation->duration = 120;
             $reservation->guest_amount = request('persons');
-            //dd(request('comment'));
             $reservation->comment = request('comment');
             $reservation->save();
 
