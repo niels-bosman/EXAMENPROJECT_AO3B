@@ -17,6 +17,7 @@ class CreateReservationProductTable extends Migration
             $table->bigIncrements('id');
             $table->string('reservation_code')->nullable(false);
             $table->unsignedBigInteger('product_id')->nullable(false);
+            $table->integer('amount')->nullable(false)->default(1);
 
             $table->foreign('reservation_code')->references('reservation_code')->on('reservations');
             $table->foreign('product_id')->references('id')->on('products');
