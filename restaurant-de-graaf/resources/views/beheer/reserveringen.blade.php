@@ -10,7 +10,6 @@
 
         <div class="col-md-3 profiel__input">
             <form method="get" style="display: flex;flex-direction: column;">
-                @csrf
                 <label for="date">Dag van de reservering</label>
                 <div style="display: flex">
                     <input id="date" class="form-control" name="datum" value="<?php echo isset($date) ? $date : date('Y-m-d') ?>" <?php echo isset($date) ? 'readonly' : '' ?> type="date" required>
@@ -21,7 +20,6 @@
 
         <div class="col-md-3 profiel__input">
             <form method="get" style="display: flex;flex-direction: column">
-                @csrf
                 <label for="date">Week van de reservering</label>
                 <div style="display: flex">
                     <input id="week" class="form-control" name="week" value="<?php echo isset($date) ? $date : date('Y-m-d') ?>" <?php echo isset($date) ? 'readonly' : '' ?> type="week" required>
@@ -43,12 +41,12 @@
 
         @foreach ($reservations as $reservation)
             <tr>
-                <td>{{ $reservation->reservation_code}}</td>
+                <td>{{$reservation->reservation_code}}</td>
                 <td>{{date("Y-m-d", strtotime($reservation->date))}}</td>
-                <td>{{ $reservation->duration }} minuten</td>
-                <td>{{ $reservation->comment }}</td>
+                <td>{{$reservation->duration}} minuten</td>
+                <td>{{$reservation->comment}}</td>
                 @if($reservation->payed_price)
-                    <td> € {{ $reservation->payed_price }}</td>
+                    <td>&euro; {{ $reservation->payed_price }}</td>
                 @else
                     <td></td>
                 @endif
