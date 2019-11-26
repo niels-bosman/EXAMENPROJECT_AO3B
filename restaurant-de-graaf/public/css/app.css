@@ -812,7 +812,8 @@ label,
 input,
 td,
 select,
-option {
+option,
+textarea {
   font-family: "Roboto", sans-serif;
 }
 
@@ -829,6 +830,14 @@ option {
   display: flex;
   -webkit-box-align: center;
           align-items: center;
+}
+
+.duo-heading {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-top: 125px;
 }
 
 .table td {
