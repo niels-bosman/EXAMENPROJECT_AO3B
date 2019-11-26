@@ -29,7 +29,6 @@ class ReserveringController extends Controller
      */
     public function index()
     {
-
         if (isset($_GET['datum'])){
             $reservations = Reservation::whereDate('date','=', $_GET['datum'])->get();
         }
@@ -49,8 +48,9 @@ class ReserveringController extends Controller
         }
 
         return view('beheer/reserveringen',compact('reservations'));
+    }
 
-
+    public function destroy() {
 
     }
 
