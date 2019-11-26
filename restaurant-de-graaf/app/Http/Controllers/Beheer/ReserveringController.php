@@ -34,16 +34,15 @@ class ReserveringController extends Controller
             $reservations = Reservation::whereDate('date','=', $_GET['datum'])->get();
         }
         elseif(isset($_GET['week'])){
+            $year = substr($_GET['week'], 0, 4); // 4 vervangen met aantal tekens tot '-'
+            $week = substr($_GET['week'], strpos($_GET['week'], 'W') + 1);
             $date = Carbon::now();
-            $date->setISODate(2019, 48);
-            $weekEnd =  $date->startOfWeek();
-            $weekStart = $date->endOfWeek();
-            $weekStart->day -= 6;
-            $reservations = Reservation::whereDate('date', [$weekStart, $weekEnd])->get();
-//            $reservations = Reservation::where(\DB::raw("WEEKOFYEAR(date)"),'=',$_GET['week'])->get();
-
-//            dd(\request('week'));
-            dd($weekStart, $weekEnd);
+            $date->setISODate($year, $week);
+            $weekStart = $date->startOfWeek()->toDateString();
+            $weekEndTemp = $date->endOfWeek();
+            $weekEndTemp->day += 1;
+            $weekEnd =  $weekEndTemp->toDateString();
+            $reservations = Reservation::whereBetween('date', [$weekStart, $weekEnd])->get();
         }
         else{
             $reservations = Reservation::all();
