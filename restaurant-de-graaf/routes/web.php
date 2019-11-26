@@ -33,6 +33,7 @@ Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
 Route::get('/beheer/reserveringen/{id}', 'Beheer\BeheerController@get');
 Route::put('/beheer/reserveringen/{id}', 'Beheer\BeheerController@put');
+Route::delete('/beheer/reserveringen/{reservation_code}', 'Beheer\ReserveringController@delete');
 Route::delete('/beheer/reserveringen/{id}', 'Beheer\BeheerController@destroyBestelling');
 
 Route::get('/beheer/reserveringen/{id}/bestellingen/add', 'Beheer\BeheerController@getBestellingen');
@@ -48,6 +49,7 @@ Route::put('/beheer/producten/{id}', 'Beheer\ProductController@put');
 Route::get('/beheer/tafels', 'Beheer\TafelsController@index');
 Route::get('/beheer/tafels/{id}', 'Beheer\TafelsController@detail');
 Route::put('/beheer/tafels/{id}', 'Beheer\TafelsController@update');
+
 
 Route::get('logout', 'Auth\LoginController@logout', function () {
     return abort(404);
