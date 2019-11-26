@@ -172,7 +172,8 @@
                     </div>
                 </div>
                 <div class="col-md-2 float-right">
-                    @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s"))) <a href="#">Nota downloaden</a>
+                    @if(new DateTime($reservation->date) <= new DateTime(date("Y-m-d H:i:s")))
+                     <a href="/beheer/gebruikers/pdf/{{$reservation->reservation_code}}" target="_blank">Nota downloaden</a>
                         @else
                         <form action="/reservering" method="post">
                             {{ csrf_field() }}

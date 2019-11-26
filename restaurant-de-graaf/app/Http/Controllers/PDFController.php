@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Product;
 use Illuminate\Http\Request;
-use App\Reservation;
 use App\User;
+use App\Reservation;
+use App\ReservationProducts;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use PDF;
@@ -13,52 +15,151 @@ class PDFController extends Controller
 {
     public function index($reservation)
     {
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML($this->convert_customer_data_to_html($reservation));
-        return $pdf->stream();
+        if(User::check_account("check") == "check") {
+            $user = $this->get_user();
+            $reservation_check = $this->get_reservation($reservation);
+            if(User::check_privileges() > 1) {
+                $pdf = \App::make('dompdf.wrapper');
+                $pdf->loadHTML($this->convert_customer_to_html($reservation));
+                return $pdf->stream();
+            }
+            else if($user->id === $reservation_check->UserID)
+            {
+                $pdf = \App::make('dompdf.wrapper');
+                $pdf->loadHTML($this->convert_customer_to_html($reservation));
+                return $pdf->stream();
+            }
+            else {
+                return redirect('/profiel');
+            }
+        }
     }
 
-    public function get_user_data()
+    public function get_user()
     {
-        $user = DB::table('users')->where('id', Auth::user()->id)->first();
+        $user = User::where('id', Auth::user()->id)->first();
         return $user;
     }
 
-    public function get_reservation_data($reservation)
+    public function get_reservation($reservation)
     {
-        $reservation = DB::table('reservations')->where('reservation_code', $reservation)->first();
+        $reservation = Reservation::where('reservation_code', $reservation)->first();
         return $reservation;
     }
 
-    function convert_customer_data_to_html($reservation)
+    public function get_reservation_products($reservation)
     {
-     $user = $this->get_user_data();
-     $reservation = $this->get_reservation_data($reservation);
+        $reservation_products = ReservationProducts::where('reservation_code', $reservation)->get();
+        return $reservation_products;
+    }
 
-     $created_at = (empty($reservation->created_at)) ? "Datum onbekend": date("Y-m-d", strtotime($reservation->created_at));
-     $output = '
-     <h1 align="center">Reservering klant '.$user->name.'</h1>
-     <br>
-     <h3 align="center">Reserverings code: '.$reservation->reservation_code.'</h3>
-     <h4 align="center">Datum: '.date("Y-m-d", strtotime($reservation->date)).'</h4>
-     <br><br>
-     <table width="100%" style="border-collapse: collapse; border: 0px;">
-      <tr>
-    <th align="center" style="border: 1px solid; padding:12px;" width="12%">Naam</th>
-    <th align="center" style="border: 1px solid; padding:12px;" width="5%">Gasten</th>
-    <th align="center" style="border: 1px solid; padding:12px;" width="8%">Duur</th>
-    <th align="center" style="border: 1px solid; padding:12px;" width="10%">aangemaakt op:</th>
-   </tr>
-     ';
-      $output .= '
-      <tr>
-       <td align="center" style="border: 1px solid; padding:12px;">'.$user->name.'</td>
-       <td align="center" style="border: 1px solid; padding:12px;">'.$reservation->guest_amount.'</td>
-       <td align="center" style="border: 1px solid; padding:12px;">'.$reservation->duration.' minuten</td>
-       <td align="center" style="border: 1px solid; padding:12px;">'.$created_at.'</td>
-      </tr>
-      ';
-     $output .= '</table>';
-     return $output;
+    public function get_products($reservation)
+    {
+        $data = [];
+        foreach($reservation as $products)
+        {
+            array_push($data,  Product::where('id', $products->product_id)->orderBy('name')->get());
+        }
+        return $data;
+    }
+
+    function convert_customer_to_html($reservation_code)
+    {
+        $user = $this->get_user();
+        $reservation = $this->get_reservation($reservation_code);
+        $reservation_products = $this->get_reservation_products($reservation_code);
+        $products = $this->get_products($reservation_products);
+
+        $date = (empty($reservation->date)) ? "Datum onbekend" : date('l - d M Y', strtotime($reservation->date));
+        $time = (empty($reservation->date)) ? "Tijd onbekend" : date('g:i A', strtotime($reservation->date));
+        $guest = (empty($reservation->guest_amount)) ? "?" : $reservation->guest_amount;
+        $payed = (empty($reservation->payed_price)) ? "Niet betaald" : "Betaald: €".number_format($reservation->payed_price, 2, ',', '.')."";
+        $output = '
+        <head>
+            <script src="https://code.jquery.com/jquery-3.4.1.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous">
+            </script>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1">
+            <title>Nota: '. $reservation->reservation_code.'</title>
+            <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+            <script src="https://kit.fontawesome.com/326db4868f.js" crossorigin="anonymous"></script>
+            <link rel="stylesheet" href="/css/app.css">
+            <link rel="shortcut icon" type="image/png" href="favicon.png"/>
+        </head>
+        <body>
+        <div>
+            <h1 align="center" style="color: #1693A6;">Restaurant de Graaf</h1>
+            <hr>
+            <table width="100%" style="border: 0px; line-height: 0.5">
+                <tr>
+                    <td width="25%"></td>
+                    <td width="25%"><p align="center">Restaurant de Graaf,</p></td>
+                    <td width="25%"><p align="center">J.F. Kennedylaan 49,</p></td>
+                    <td width="25%"></td>
+                </tr>
+                <tr>
+                    <td width="25%"></td>
+                    <td width="25%"><p align="center">7001 EA Doetinchem,</p></td>
+                    <td width="25%"><p align="center">(06) 52 54 12 36</p></td>
+                    <td width="25%"></td>
+                </tr>
+            </table>
+            <hr style="margin: 0 auto 20px auto">
+            <table width="100%" style="border: 0px; line-height: 0.5">
+                <tr>
+                    <td width="25%"><p align="center">'. $date .'</p></td>
+                    <td width="25%"><p align="center">'. $time .'</p></td>
+                    <td width="25%"><p align="center">Aantal mensen: '.$guest.'</p></td>
+                    <td width="25%"><p align="center">'.$payed.'</p></td>
+                </tr>
+            </table
+            <hr style="margin: 0 auto 20px auto">
+            <table width="100%" style="border-collapse: collapse; border: 0px;">
+                <tr>
+                    <th align="center" width="10%">Naam</th>
+                    <th align="center" width="5%">Prijs</th>
+                    <th align="center" width="8%">Aantal</th>
+                    <th align="center" width="10%">Totaal</th>
+                </tr>
+            </table>
+            <hr style="margin: 5px auto 10px auto">
+            <table width="100%" style="border-collapse: collapse; border: 0px;">
+                ';
+                $subtotal = 0;
+                foreach($products as $product) {
+                    if(is_numeric($product)) {
+                    } else {
+                        $product[0]->total = ($product[0]->price * $reservation_products[0]->amount);
+                        $subtotal = $subtotal + $product[0]->total;
+                        $output .= '
+
+                        <tr>
+                            <td width="10%">' . $product[0]->name . '</td>
+                            <td width="5%">' . $product[0]->price . '</td>
+                            <td width="8%">' . $reservation_products[0]->amount . '</td>
+                            <td width="10%">' . $product[0]->total . '</td>
+                        </tr>';
+                        ;
+                    }
+                }
+                $subtotal = number_format($subtotal, 2, ',', '.');
+                $output .= '
+                </table>
+                <hr style="margin: 15px auto 80px auto">
+                <table width="100%" style="border-collapse: collapse; border: 0px;">
+                    <tr>
+                        <th width="20   %" align="center"></th>
+                        <th width="20%" align="center"><h1>TOTAAL:</h1></th>
+                        <th width="10%" align="center"></th>
+                        <th width="20%" align="center"><h1>€ '.$subtotal.'</h1></th>
+                        <th width="20%" align="center"></th>
+                    </tr>
+                </table>
+                <hr style="margin: 15px auto 20px auto">
+                <h4 align="center">Bedankt en tot ziens!</h4>
+            </body>';
+
+
+        return $output;
     }
 }

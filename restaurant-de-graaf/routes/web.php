@@ -28,6 +28,7 @@ Route::delete('/beheer/gebruikers', 'Beheer\UserController@destroy');
 
 Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
 Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
+Route::get('/beheer/gebruikers/pdf/{reservation}', 'PDFController@index');
 Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
 
 Route::get('/beheer/reserveringen', 'Beheer\ReserveringController@index');
