@@ -28,7 +28,7 @@
             </form>
         </div>
     </div>
-    <table class="table mt-5">
+    <table class="table table-hover">
         <tr>
             <th scope="col">Reserveringsnummer</th>
             <th scope="col">Datum</th>
@@ -63,7 +63,5 @@
         @endforeach
 
     </table>
-
-    <hr>
 </div>
 
