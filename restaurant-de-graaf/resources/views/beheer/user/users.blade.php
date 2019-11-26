@@ -72,7 +72,7 @@
                     </div>
                 </form>
                 @else
-                <a class="button button--deblock" href="/beheer/gebruikers/{{$user->id}}/block"><i class="fas fa-unlock-alt"></i></i></a>
+                    <a class="button button--deblock" href="/beheer/gebruikers/{{$user->id}}/block"><i class="fas fa-unlock-alt"></i></a>
                 @endif
             </td>
             @else
