@@ -22,7 +22,7 @@
                     <td>{{$table->minimum_guests}}</td>
                     <td><?php echo $table->reservable == 1 ? "Ja" : "Nee"; ?></td>
                     <td>
-                        <a href="tafels/{{$table->table_id}}" class="button button--primary"><i class="fas fa-edit"></i></a>
+                        <a href="tafels/{{$table->table_id}}" class="button button--primary button--primary--small"><i class="fas fa-pen" aria-hidden="true"></i></a>
                     </td>
                 </tr>
             @endforeach

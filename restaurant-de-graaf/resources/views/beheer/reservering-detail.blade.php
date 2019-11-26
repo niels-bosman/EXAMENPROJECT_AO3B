@@ -129,7 +129,7 @@
                                 <input type="hidden" name="_method" value="DELETE">
                                 <input type="hidden" name="koppel_id" value="{{$reservationProduct->id}}">
                                 <button type="submit" class="button button--danger" title="Verwijderen">
-                                    <i class="fas fa-trash"></i></button>
+                                    <i class="fas fa-trash-alt" aria-hidden="true"></i></button>
                             </form>
                         </td>
 

@@ -30,7 +30,7 @@ Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
 Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
 Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
 
-Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
+Route::get('/beheer/reserveringen', 'Beheer\ReserveringController@index');
 Route::get('/beheer/reserveringen/{id}', 'Beheer\BeheerController@get');
 Route::put('/beheer/reserveringen/{id}', 'Beheer\BeheerController@put');
 Route::delete('/beheer/reserveringen/{reservation_code}', 'Beheer\ReserveringController@delete');
