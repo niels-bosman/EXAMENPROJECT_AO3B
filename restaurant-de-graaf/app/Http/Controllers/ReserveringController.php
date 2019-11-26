@@ -60,7 +60,7 @@ class ReserveringController extends Controller {
                     'date' => request('date'),
                     'time' => request('time'),
                     'persons' => request('persons'),
-                    'comment' => request('comment')
+                    'comment' => request('comment'),
                 ]);
             } else {
                 return view('/home/reservation', [
@@ -73,14 +73,32 @@ class ReserveringController extends Controller {
                 ]);
             }
         else:
-            $reservation_code = str_replace('-', '', request('date')) . $table;
+            $reservation_code = str_replace('-', '', request('date'));
+
+            if($table < 10) {
+                $reservation_code .= '0' . $table;
+            } else {
+                $reservation_code .= $table;
+            }
+
+
+            for ($i = 1; $i < 10; $i++) {
+                $temp_code = $reservation_code . $i;
+                $check = Reservation::where('reservation_code', $temp_code)->first();
+
+                if (!$check) {
+                    $reservation_code = $temp_code;
+                    break;
+                }
+            }
 
             $reservation->reservation_code = $reservation_code;
             $reservation->UserID = Auth::user()->id;
             $reservation->date = request('date') . ' ' . request('time');
             $reservation->duration = 120;
             $reservation->guest_amount = request('persons');
-            $reservation->comment = request('date');
+            //dd(request('comment'));
+            $reservation->comment = request('comment');
             $reservation->save();
 
             $tableReservation->table_id = $table;
@@ -98,10 +116,6 @@ class ReserveringController extends Controller {
         TableReservation::where('reservation_code', request('reservering'))->delete();
         Reservation::where('reservation_code', request('reservering'))->delete();
 
-        $user = auth()->user();
-        $reservations = Reservation::where('UserID', $user->id)->get();
-        $tables_reservations = TableReservation::get();
-
-        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
+        return redirect('/profiel');
     }
 }

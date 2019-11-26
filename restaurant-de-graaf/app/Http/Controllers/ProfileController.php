@@ -6,7 +6,9 @@ use App\Reservation;
 use App\TableReservation;
 use App\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
@@ -14,9 +16,9 @@ class ProfileController extends Controller
     {
         $user = auth()->user();
         $reservations = Reservation::where('UserID', $user->id)->get();
-
+        $only_admin = DB::table('users')->where('auth_level', 3)->count();
         $tables_reservations = TableReservation::get();
-        return view(User::check_account('/profiel/profiel'), compact('user',  'reservations', 'tables_reservations'));
+        return view(User::check_account('profiel/profiel'), compact('user',  'reservations', 'tables_reservations', 'only_admin'));
     }
 
     public function update(Request $request)
@@ -28,7 +30,8 @@ class ProfileController extends Controller
             'street' => ['max:255'],
             'house_number' => ['max:255'],
             'city' => ['max:255'],
-            'zipcode' => ['max:255']
+            'zipcode' => ['max:255'],
+            'no-robot' => ['required']
         ]);
 
         $user = User::find(auth()->user()->id);
@@ -41,24 +44,17 @@ class ProfileController extends Controller
         $user->zipcode = request('zipcode');
 
         if (strlen(request('password')) !== 0) {
-
             $this->validate($request, [
                 'password' => ['required', 'string', 'min:8', 'regex:/^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[#?!@$%^&*-]).{8,}$/'],
             ]);
-
-            $user->password = request('password');
+            $user->password = Hash::make(request('password'));
         }
-
-
         $user->save();
-
         $putSucces = true;
-
         $reservations = Reservation::where('UserID', $user->id)->get();
-
         $tables_reservations = TableReservation::get();
-
-        return view(User::check_account('/profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces'));
+        $only_admin = DB::table('users')->where('auth_level', 3)->count();
+        return view(User::check_account('profiel/profiel'), compact('user', 'reservations', 'tables_reservations' , 'putSucces', 'only_admin'));
     }
 
     public function destroy() {

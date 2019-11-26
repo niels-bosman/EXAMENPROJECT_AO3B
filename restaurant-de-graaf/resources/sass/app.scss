@@ -1,5 +1,7 @@
 $color-main: #1693A6;
 $color-danger: #cd0613;
+$color-block: #ec0d1c;
+$color-deblock: #2c8839;
 
 @import "footer";
 @import "header";
@@ -13,6 +15,10 @@ $color-danger: #cd0613;
 @import "profiel";
 @import "beheer";
 @import "error";
+@import "email";
+@import "register";
+@import "reset";
+@import "contact";
 
 h1, p {
     text-align: center;
@@ -28,12 +34,27 @@ body {
     margin-top: 78px;
 }
 
-p, span, label, .btn-link, input {
+p, span, label, .btn-link, input, td, select, option, textarea {
     font-family: 'Roboto', sans-serif;
 }
 
 ::selection {
     background: rgba($color-main, .4);
+}
+
+.card-content-admin {
+    display: flex;
+    align-items: center;
+}
+
+.duo-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 125px;
+}
+
+.table td {
+    vertical-align: middle;
 }
 
 a {
@@ -51,6 +72,18 @@ a {
     &--noscroll {
         height: 100vh;
         overflow: hidden;
+    }
+}
+
+.hide-sm {
+    @media screen and (max-width: 1000px) {
+        display: none !important;
+    }
+}
+
+.hide-xl {
+    @media screen and (min-width: 1000px) {
+        display: none !important;
     }
 }
 

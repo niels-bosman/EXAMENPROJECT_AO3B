@@ -89,6 +89,27 @@
   padding: 0;
 }
 
+.header__menu--mobile {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+          flex-direction: column;
+  -webkit-box-align: center;
+          align-items: center;
+  margin-top: 50px;
+}
+
+.header__menu--mobile li {
+  padding: 15px 0 !important;
+}
+
+.header__menu--mobile a {
+  color: black;
+}
+
+.header__menu--mobile a:hover {
+  color: black;
+}
+
 .header__menu--right li {
   padding-right: 20px !important;
 }
@@ -117,6 +138,79 @@
 
 .header__menu-item--active {
   color: #1693A6;
+}
+
+.header .hamburger {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+  width: 100%;
+  -webkit-box-pack: end;
+          justify-content: flex-end;
+}
+
+.header .hamburger--active .header__mobile-menu {
+  opacity: 100;
+  top: 78px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.header .hamburger--active .hamburger__line {
+  background: white;
+}
+
+.header .hamburger--active .hamburger__line::before {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+  top: 0;
+}
+
+.header .hamburger--active .hamburger__line::after {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 0;
+}
+
+.header .hamburger__line {
+  background: black;
+  position: relative;
+  width: 30px;
+  height: 2px;
+  display: inline-block;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.header .hamburger__line::before,
+.header .hamburger__line::after {
+  content: "";
+  background: black;
+  width: 30px;
+  height: 2px;
+  display: inline-block;
+  position: absolute;
+  -webkit-transition: 0.3s ease;
+  transition: 0.3s ease;
+}
+
+.header .hamburger__line::before {
+  bottom: 7px;
+}
+
+.header .hamburger__line::after {
+  top: 7px;
+}
+
+.header__mobile-menu {
+  opacity: 0;
+  position: fixed;
+  top: 99999999px;
+  background: #1693A6;
+  -webkit-transition: 0.3s opacity;
+  transition: 0.3s opacity;
 }
 
 .content {
@@ -170,6 +264,35 @@
   color: white;
 }
 
+.button--primary--small {
+  padding: 9px 12px;
+}
+
+.button--deblock {
+  background: #2c8839;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--deblock:hover {
+  background: #267531;
+  color: white;
+}
+
+.button--block {
+  color: #ec0d1c;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.button--block:hover {
+  color: #d40c19;
+}
+
 .button--secondary {
   float: left;
   position: relative;
@@ -188,6 +311,10 @@
   float: left;
   position: relative;
   left: -50%;
+}
+
+.button--left {
+  margin: 0;
 }
 
 .button--danger {
@@ -218,6 +345,21 @@
 .button--soft:hover {
   background: #edb100;
   color: black;
+}
+
+.button--positive {
+  background: #77CCA4;
+  color: white;
+  padding: 7px 15px;
+  border-radius: 4px;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+  border: none;
+}
+
+.button--positive:hover {
+  background: #64c598;
+  color: white;
 }
 
 .btn-link {
@@ -460,8 +602,59 @@ label {
   opacity: 100;
 }
 
+.profiel__block-modal {
+  width: 600px;
+  position: fixed;
+  left: 50%;
+  top: -5000px;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background: white;
+  z-index: 999999;
+  border-radius: 4px;
+  border: solid lightgrey 1px;
+  opacity: 0;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
+}
+
+.profiel__block-modal--active {
+  top: 50%;
+  opacity: 100;
+}
+
+.profiel__block-modal-content {
+  padding: 15px;
+}
+
+.profiel__block-modal-background {
+  display: none;
+  opacity: 0;
+  content: "";
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999998;
+  top: -5000px;
+  right: 0;
+  bottom: 5000px;
+  left: 0;
+  position: fixed;
+  -webkit-transition: 0.5s ease opacity;
+  transition: 0.5s ease opacity;
+}
+
+.profiel__block-modal-background--active {
+  display: block;
+  top: 0;
+  bottom: 0;
+  opacity: 100;
+}
+
 .beheer {
   padding: 100px 0;
+}
+
+.beheer__heading {
+  margin-bottom: 50px;
 }
 
 .beheer__card {
@@ -475,6 +668,125 @@ label {
 .beheer__card:hover {
   -webkit-transform: scale(0.97);
           transform: scale(0.97);
+}
+
+.beheer__button-container {
+  display: block;
+  margin: 0 auto;
+  width: 80%;
+  height: 100px;
+  padding: 0 10px 0 10px;
+  align-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.beheer__button-button {
+  margin: 0 20px 0 20px;
+  float: left;
+}
+
+.beheer__float {
+  align-self: center;
+  margin: 0 auto;
+  float: left;
+  width: 20%;
+}
+
+.table .disabled {
+  opacity: 0.3;
+}
+
+.table .disabled:hover {
+  cursor: not-allowed;
+}
+
+.error_page,
+a {
+  text-align: center;
+}
+
+.error_page,
+a {
+  text-align: center;
+}
+
+.email {
+  padding: 100px 15px;
+}
+
+.email__heading {
+  margin-bottom: 50px;
+}
+
+.registration {
+  padding: 100px 15px;
+}
+
+.registration__heading {
+  margin-bottom: 50px;
+}
+
+.reset {
+  padding: 100px 15px;
+}
+
+.reset__heading {
+  margin-bottom: 50px;
+}
+
+.contact {
+  padding: 60px 15px;
+}
+
+.contact__heading {
+  margin-bottom: 30px;
+}
+
+.contact--h2 {
+  margin-bottom: 30px;
+}
+
+.contact--h3 {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact--adress {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.contact--space {
+  margin: 20px auto 20px auto;
+}
+
+.contact--row {
+  margin-top: 50px;
+}
+
+.contact--iframe {
+  margin: 0 auto -30px auto;
+}
+
+#form {
+  border-radius: 40px;
+}
+
+#form--subject {
+  display: block;
+  margin: 0 auto;
+}
+
+#form--content {
+  display: block;
+  margin: 0 auto;
+  height: 80px;
+}
+
+#form--content:hover {
+  text-align: none;
 }
 
 h1,
@@ -497,7 +809,11 @@ p,
 span,
 label,
 .btn-link,
-input {
+input,
+td,
+select,
+option,
+textarea {
   font-family: "Roboto", sans-serif;
 }
 
@@ -507,6 +823,25 @@ input {
 
 ::selection {
   background: rgba(22, 147, 166, 0.4);
+}
+
+.card-content-admin {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.duo-heading {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  margin-top: 125px;
+}
+
+.table td {
+  vertical-align: middle;
 }
 
 a {
@@ -525,6 +860,18 @@ a:hover {
 .body--noscroll {
   height: 100vh;
   overflow: hidden;
+}
+
+@media screen and (max-width: 1000px) {
+  .hide-sm {
+    display: none !important;
+  }
+}
+
+@media screen and (min-width: 1000px) {
+  .hide-xl {
+    display: none !important;
+  }
 }
 
 .invalid-feedback {

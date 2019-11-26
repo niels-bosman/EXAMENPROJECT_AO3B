@@ -12,6 +12,33 @@
             background: darken($color-main, 5);
             color: white;
         }
+
+        &--small {
+            padding: 9px 12px;
+        }
+    }
+
+    &--deblock {
+        background: $color-deblock;
+        color: white;
+        padding: 7px 15px;
+        border-radius: 4px;
+        transition: .2s ease;
+        border: none;
+
+        &:hover {
+            background: darken($color-deblock, 5);
+            color: white;
+        }
+    }
+
+    &--block {
+        color: $color-block;
+        transition: .2s ease;
+
+        &:hover {
+            color: darken($color-block, 5);
+        }
     }
 
     &--secondary {
@@ -32,6 +59,10 @@
         float: left;
         position: relative;
         left: -50%;
+    }
+
+    &--left {
+        margin: 0;
     }
 
     &--danger {
@@ -59,6 +90,20 @@
         &:hover {
             background: darken(#ffc107, 5);
             color: black;
+        }
+    }
+
+    &--positive {
+        background: #77CCA4;
+        color: white;
+        padding: 7px 15px;
+        border-radius: 4px;
+        transition: .2s ease;
+        border: none;
+
+        &:hover {
+            background: darken(#77CCA4, 5);
+            color: white;
         }
     }
 }

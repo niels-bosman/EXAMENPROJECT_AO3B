@@ -63,7 +63,7 @@
                         <label for="comment">Heeft u nog een opmerking? (dieetwensen etc.)</label>
                     </div>
                     <div class="col-md-12">
-                        <textarea id="comment" value="<?php echo isset($comment) ? $comment : '' ?>" <?php echo isset($comment) ? 'readonly' : '' ?> name="comment"></textarea>
+                        <textarea id="comment" <?php echo isset($comment) ? 'readonly' : '' ?> name="comment"><?php echo isset($comment) ? $comment : '' ?></textarea>
                     </div>
 
                     @if(isset($tables))
