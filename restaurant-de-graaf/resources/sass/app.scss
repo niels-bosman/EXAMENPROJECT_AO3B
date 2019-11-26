@@ -34,7 +34,7 @@ body {
     margin-top: 78px;
 }
 
-p, span, label, .btn-link, input, td, select, option {
+p, span, label, .btn-link, input, td, select, option, textarea {
     font-family: 'Roboto', sans-serif;
 }
 
@@ -45,6 +45,12 @@ p, span, label, .btn-link, input, td, select, option {
 .card-content-admin {
     display: flex;
     align-items: center;
+}
+
+.duo-heading {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 125px;
 }
 
 .table td {

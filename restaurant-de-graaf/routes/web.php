@@ -31,6 +31,12 @@ Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
 Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
 
 Route::get('/beheer/reserveringen', 'Beheer\BeheerController@index');
+Route::get('/beheer/reserveringen/{id}', 'Beheer\BeheerController@get');
+Route::put('/beheer/reserveringen/{id}', 'Beheer\BeheerController@put');
+Route::delete('/beheer/reserveringen/{id}', 'Beheer\BeheerController@destroyBestelling');
+
+Route::get('/beheer/reserveringen/{id}/bestellingen/add', 'Beheer\BeheerController@getBestellingen');
+Route::post('/beheer/reserveringen/{id}/bestellingen/add', 'Beheer\BeheerController@postBestellingen');
 
 Route::get('/beheer/producten', 'Beheer\ProductController@index');
 Route::delete('/beheer/producten', 'Beheer\ProductController@delete');
