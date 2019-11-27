@@ -15,13 +15,12 @@ class ReserveringController extends Controller
     {
         $table = request('table');
         if (empty($table)):
-            $persons = \request('persons');
 
-            $available_tables = Table::where('reservable', 1)->where('minimum_guests', '<=', $persons)->where('seats', '>=', $persons)->get();
+            $available_tables = Table::where('reservable', 1)->where('minimum_guests', '<=', request('persons'))->where('seats', '>=', request('persons'))->get();
+
+            $tables = [];
 
             // Loop through tables
-            $tables = array();
-
             foreach ($available_tables as $available_table)
             {
                 $possible = 0;
