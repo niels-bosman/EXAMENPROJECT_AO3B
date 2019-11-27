@@ -55,12 +55,22 @@ class PDFController extends Controller
 
     public function get_products($reservation)
     {
-        $data = [];
+        $data1 = [];
         foreach($reservation as $products)
         {
-            array_push($data,  Product::where('id', $products->product_id)->orderBy('name')->get());
+            array_push($data1,  Product::where('id', $products->product_id)->orderBy('name')->get());
         }
-        return $data;
+        $data2 = [];
+        for($i = 0; $i < count($data1); $i++)
+        {
+            array_push($data2, $data1[$i][0]->name);
+        }
+        sort($data2);
+        $data3 = [];
+        for($i = 0; $i < count($data2); $i++) {
+            array_push($data3, Product::where('name', $data2[$i])->get());
+        }
+        return $data3;
     }
 
     function convert_customer_to_html($reservation_code)
@@ -126,20 +136,22 @@ class PDFController extends Controller
             <table width="100%" style="border-collapse: collapse; border: 0px;">
                 ';
                 $subtotal = 0;
+                $i = 0;
                 foreach($products as $product) {
                     if(is_numeric($product)) {
                     } else {
-                        $product[0]->total = ($product[0]->price * $reservation_products[0]->amount);
+                        $product[0]->total = ($product[0]->price * $reservation_products[$i]->amount);
                         $subtotal = $subtotal + $product[0]->total;
                         $output .= '
 
                         <tr>
                             <td width="10%">' . $product[0]->name . '</td>
                             <td width="5%">' . $product[0]->price . '</td>
-                            <td width="8%">' . $reservation_products[0]->amount . '</td>
+                            <td width="8%">' . $reservation_products[$i]->amount . '</td>
                             <td width="10%">' . $product[0]->total . '</td>
                         </tr>';
                         ;
+                        $i++;
                     }
                 }
                 $subtotal = number_format($subtotal, 2, ',', '.');
