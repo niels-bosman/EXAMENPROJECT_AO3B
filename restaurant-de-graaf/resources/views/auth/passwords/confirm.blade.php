@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Wachtwoord bevestigen | Restaurant de Graaf')
+
 @section('content')
 <div class="container">
     <div class="row justify-content-center">

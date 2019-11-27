@@ -11,6 +11,8 @@ use App\Subtype;
 use App\Product;
 ?>
 
+@section('title', 'Menukaart | Restaurant de Graaf')
+
 @section('content')
     <div class="menukaart container">
         <h1 class="menukaart__heading">Ons menu</h1>
@@ -24,6 +26,9 @@ use App\Product;
 
                     <div class="menukaart__single-product">
                         @foreach(App\Product::where('subtype', $subtype->id)->get() as $product)
+                            @if($product->enabled == 0)
+                                @continue
+                            @endif
                             <div class="menukaart__product-row">
                                 <article class="menukaart__product">
                                     <div class="menukaart__product-name">

@@ -1,7 +1,9 @@
 @extends('layouts.app')
 
+@section('title', 'Registreren | Restaurant de Graaf')
+
 @section('content')
-    <div class="login container">
+    <div class="registration container">
         <h1 class="login__heading">Registreren</h1>
         <div class="row justify-content-center">
             <div class="col-md-8">

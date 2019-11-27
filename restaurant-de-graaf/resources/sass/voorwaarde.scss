@@ -1,0 +1,73 @@
+.voorwaarden {
+    padding: 60px 15px;
+    text-align: left;
+
+    &__heading {
+        margin-bottom: 30px;
+    }
+
+    &--head-hr {
+        margin: 10px auto 0 auto;
+    }
+
+    p {
+        font-size: 16px;
+        text-align: left;
+    }
+
+    &--link {
+        color: $color-main;
+        transition: 0.2s ease;
+        &:hover {
+            color: darken($color-main, 50);
+        }
+    }
+
+    &--h2 {
+        text-align: center;
+        margin: 0 auto 30px auto;
+        display: block;
+    }
+
+    &--h3 {
+        display: block;
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &--adress {
+        text-align: center;
+        margin-bottom: 10px;
+    }
+
+    &--space {
+        margin: 20px auto 85px auto;
+    }
+
+    &--row {
+        margin-top: 50px;
+    }
+
+    &--iframe {
+        margin: 0 auto -30px auto;
+    }
+}
+
+#form {
+    border-radius: 40px;
+
+    &--subject {
+        display: block;
+        margin: 0 auto;
+    }
+
+    &--content {
+        display: block;
+        margin: 0 auto;
+        height: 80px;
+
+        &:hover {
+            text-align: none;
+        }
+    }
+}
