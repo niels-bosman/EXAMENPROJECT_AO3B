@@ -45,7 +45,7 @@
                         <label for="time">Hoe laat wilt u reserveren?</label>
                     </div>
                     <div class="col-md-12">
-                        <input id="time" value="<?php echo isset($time) ? $time : '' ?>" <?php echo isset($time) ? 'readonly' : '' ?> name="time" type="time" required>
+                        <input id="time" min="12:00" max="20:00" value="<?php echo isset($time) ? $time : '' ?>" <?php echo isset($time) ? 'readonly' : '' ?> name="time" type="time" required>
                     </div>
                 </div>
 
