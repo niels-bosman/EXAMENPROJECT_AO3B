@@ -92,10 +92,14 @@ class UserController extends Controller
     {
         $user = User::where('id', $request->id)->first();
         $auth = Auth::user();
-        if ($auth->id != $user->id) {
+        if ($auth->id !== $user->id) {
             Reservation::where('UserID', $request->id)->update(['UserID' => null]);
             DB::table('users')->where('id', $request->id)->delete();
-            return redirect('/beheer/gebruikers');
+            $putSuccess = true;
+            $msg = 'De gebruiker is succesvol verwijderd!';
+            $users = User::all();
+            $auth = Auth::user();
+            return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
         } else {
             return redirect('beheer/gebruikers');
         }
@@ -117,7 +121,11 @@ class UserController extends Controller
         if ($auth->id != $user->id) {
             $user->blocked = $user->blocked == 1 ? 0 : 1;
             $user->save();
-            return redirect('/beheer/gebruikers');
+            $putSuccess = true;
+            $msg = "De gebruiker is succesvol geblokkeerd!";
+            $users = User::all();
+            $auth = Auth::user();
+            return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
         } else {
             return redirect('beheer/gebruikers');
         }

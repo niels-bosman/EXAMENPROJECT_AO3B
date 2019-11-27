@@ -63,11 +63,15 @@ class ProductController extends Controller
 
         if ($enabled == 1) {
             Product::where('id', $id)->update(['enabled' => 0]);
+            $msg = "Het product is succesvol gedeactiveerd!";
         } else {
             Product::where('id', $id)->update(['enabled' => 1]);
+            $msg = "Het product is succesvol weer toegevoegd!";
         }
 
-        return $this->index();
+        $products = Product::all();
+        $putSuccess = true;
+        return view('/beheer/product', compact('putSuccess', 'msg', 'products'));
     }
 
     public function put(Request $request)

@@ -47,3 +47,14 @@
         </table>
     </div>
 @endsection
+
+@if(isset($putSuccess))
+    @if($putSuccess == true)
+        <div class="alert alert-success reservation__alert" role="alert">
+            {{$msg}}
+            <button type="button" class="close reservation__alert-close">
+                <span>&times;</span>
+            </button>
+        </div>
+    @endif
+@endif
