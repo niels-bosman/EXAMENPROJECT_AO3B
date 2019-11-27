@@ -8,7 +8,7 @@
         <div class="row">
             <div class="col-md-6 card-container scale-animation">
                 <div class="card beheer__card pointer border-top">
-                    <a href="/beheer/gebruikers">
+                    <a href="/beheer/klanten">
                         <div class="row height-150">
                             <div class="col-9 card-content-admin">
                                 <h3>Klanten</h3>

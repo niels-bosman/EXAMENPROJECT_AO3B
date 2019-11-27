@@ -21,7 +21,7 @@
             <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->tel_number}}</a></td>
             @if($user->id != $auth->id)
             <td>
-                <a class="button button--primary" href="gebruikers/{{$user->id}}"><i class="fas fa-pen"></i></a>
+                <a class="button button--primary" href="klanten/{{$user->id}}"><i class="fas fa-pen"></i></a>
                 <a class="button button--danger profiel__remove-account-button" data-id="{{$user->id}}" href="#"><i class="fas fa-trash-alt"></i></a>
                 <div class="profiel__remove-modal-background profiel__remove-modal-disable" data-id="{{$user->id}}"></div>
                 <form method="post" class="profiel__remove-modal" data-id="{{$user->id}}">
@@ -70,7 +70,7 @@
                     </div>
                 </form>
                 @else
-                    <a class="button button--deblock" href="/beheer/gebruikers/{{$user->id}}/block"><i class="fas fa-unlock-alt"></i></a>
+                    <a class="button button--deblock" href="/beheer/klanten/{{$user->id}}/block"><i class="fas fa-unlock-alt"></i></a>
                 @endif
             </td>
             @else

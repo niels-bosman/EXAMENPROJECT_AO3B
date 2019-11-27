@@ -43,7 +43,7 @@ class UserController extends Controller
             $reservations = Reservation::where('UserID', $user->id)->get();
             return view(User::check_account('beheer/user/details'), compact('user',  'reservations', 'tables_reservations'));
         } else {
-            return redirect('beheer/gebruikers');
+            return redirect('beheer/klanten');
         }
     }
 
@@ -104,13 +104,13 @@ class UserController extends Controller
             $auth = Auth::user();
             return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
         } else {
-            return redirect('beheer/gebruikers');
+            return redirect('beheer/klanten');
         }
     }
 
     public function cancel()
     {
-        return redirect('/beheer/gebruikers');
+        return redirect('/beheer/klanten');
     }
 
     public function block(Request $request, $id = null)
@@ -130,7 +130,7 @@ class UserController extends Controller
             $auth = Auth::user();
             return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
         } else {
-            return redirect('beheer/gebruikers');
+            return redirect('beheer/klanten');
         }
     }
 
