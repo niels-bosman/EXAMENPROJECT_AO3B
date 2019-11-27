@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Het account is geactiveerd')
+@section('title', 'Account geactiveerd | Restaurant de Graaf')
 
 @section('header')
 

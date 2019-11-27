@@ -11,6 +11,8 @@ use App\Subtype;
 use App\Product;
 ?>
 
+@section('title', 'Menukaart | Restaurant de Graaf')
+
 @section('content')
     <div class="menukaart container">
         <h1 class="menukaart__heading">Ons menu</h1>

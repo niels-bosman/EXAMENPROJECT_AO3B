@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Inloggen | Restaurant de Graaf')
+
 @section('content')
     <div class="login container">
         <h1 class="login__heading">Inloggen</h1>

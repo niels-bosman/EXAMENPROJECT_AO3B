@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Registreren | Restaurant de Graaf')
+
 @section('content')
     <div class="registration container">
         <h1 class="login__heading">Registreren</h1>

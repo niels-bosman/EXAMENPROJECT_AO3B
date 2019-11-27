@@ -1,5 +1,7 @@
 @extends('layouts.app')
 
+@section('title', 'Wachtwoord veranderen | Restaurant de Graaf')
+
 @section('content')
 <div class="reset container">
     <h1 class="login__heading">Wachtwoord veranderen</h1>

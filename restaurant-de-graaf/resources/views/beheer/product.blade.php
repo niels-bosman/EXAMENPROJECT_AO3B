@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Beheer | Restaurant de Graaf')
+@section('title', 'Productoverzicht | Restaurant de Graaf')
 <?php use App\Subtype; ?>
 @section('content')
     <div class="beheer container">
-        <h1 class="beheer__heading">Productenoverzicht</h1>
+        <h1 class="beheer__heading">Productoverzicht</h1>
 
         <a href="/beheer/producten/new" class="button button--primary float-right" style="margin-bottom: 30px;">Product toevoegen&nbsp;<i class="fas fa-plus"></i></a>
         <table class="table table-hover">

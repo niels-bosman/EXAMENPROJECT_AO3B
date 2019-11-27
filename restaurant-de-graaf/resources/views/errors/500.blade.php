@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'pagina niet gevonden | Restaurant de Graaf')
+@section('title', 'Pagina niet gevonden | Restaurant de Graaf')
 
 @section('content')
     <div class="container profiel error_page">

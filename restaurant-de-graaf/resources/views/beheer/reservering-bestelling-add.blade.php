@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Reservering | Restaurant de Graaf')
+@section('title', 'Reservering aanpassen | Restaurant de Graaf')
 
 @section('content')
     <div class="profiel container">

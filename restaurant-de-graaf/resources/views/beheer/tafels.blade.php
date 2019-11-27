@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Beheer | Restaurant de Graaf')
+@section('title', 'Tafeloverzicht | Restaurant de Graaf')
 
 @section('content')
     <div class="beheer container">
