@@ -55,12 +55,22 @@ class PDFController extends Controller
 
     public function get_products($reservation)
     {
-        $data = [];
+        $data1 = [];
         foreach($reservation as $products)
         {
-            array_push($data,  Product::where('id', $products->product_id)->orderBy('name')->get());
+            array_push($data1,  Product::where('id', $products->product_id)->orderBy('name')->get());
         }
-        return $data;
+        $data2 = [];
+        for($i = 0; $i < count($data1); $i++)
+        {
+            array_push($data2, $data1[$i][0]->name);
+        }
+        sort($data2);
+        $data3 = [];
+        for($i = 0; $i < count($data2); $i++) {
+            array_push($data3, Product::where('name', $data2[$i])->get());
+        }
+        return $data3;
     }
 
     function convert_customer_to_html($reservation_code)
