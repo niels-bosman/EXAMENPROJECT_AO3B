@@ -1,7 +1,10 @@
 .button {
     height: 38px;
-    display: flex;
-    align-items: center;
+
+    &--flex {
+        display: flex;
+        align-items: center;
+    }
     &--primary {
         background: $color-main;
         color: white;

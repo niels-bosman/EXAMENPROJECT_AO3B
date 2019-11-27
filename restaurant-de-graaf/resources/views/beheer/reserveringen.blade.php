@@ -58,8 +58,8 @@
                 @endif
                 <td>{{ $reservation->guest_amount }}</td>
                 <td style="display: flex">
-                    <a href="/beheer/reserveringen/{{$reservation->reservation_code}}" class="button button--primary" style="margin-right: 5px;"><i class="fas fa-pen" aria-hidden="true"></i></a>
-                    <a class="button button--danger profiel__remove-account-button" data-id="{{$reservation->reservation_code}}" href="#"><i class="fas fa-trash-alt"></i></a>
+                    <a href="/beheer/reserveringen/{{$reservation->reservation_code}}" class="button button--primary button--flex" style="margin-right: 5px;"><i class="fas fa-pen" aria-hidden="true"></i></a>
+                    <a class="button button--danger profiel__remove-account-button button--flex" data-id="{{$reservation->reservation_code}}" href="#"><i class="fas fa-trash-alt"></i></a>
                     <div class="profiel__remove-modal-background profiel__remove-modal-disable" data-id="{{$reservation->reservation_code}}"></div>
                     <form method="post" class="profiel__remove-modal" action="/beheer/reserveringen/{{$reservation->reservation_code}}" data-id="{{$reservation->reservation_code}}">
                         <input type="hidden" name="id" value="{{$reservation->reservation_code}}">
