@@ -136,20 +136,22 @@ class PDFController extends Controller
             <table width="100%" style="border-collapse: collapse; border: 0px;">
                 ';
                 $subtotal = 0;
+                $i = 0;
                 foreach($products as $product) {
                     if(is_numeric($product)) {
                     } else {
-                        $product[0]->total = ($product[0]->price * $reservation_products[0]->amount);
+                        $product[0]->total = ($product[0]->price * $reservation_products[$i]->amount);
                         $subtotal = $subtotal + $product[0]->total;
                         $output .= '
 
                         <tr>
                             <td width="10%">' . $product[0]->name . '</td>
                             <td width="5%">' . $product[0]->price . '</td>
-                            <td width="8%">' . $reservation_products[0]->amount . '</td>
+                            <td width="8%">' . $reservation_products[$i]->amount . '</td>
                             <td width="10%">' . $product[0]->total . '</td>
                         </tr>';
                         ;
+                        $i++;
                     }
                 }
                 $subtotal = number_format($subtotal, 2, ',', '.');
