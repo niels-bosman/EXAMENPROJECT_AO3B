@@ -51,14 +51,16 @@
                     <td></td>
                 @endif
                 <td>{{ $reservation->guest_amount }}</td>
-                <form method="post" action="/beheer/reserveringen/{{$reservation->reservation_code}}">
-                    {{csrf_field()}}
-                    {{method_field('DELETE')}}
-                    <td>
+                <td style="display: flex">
+                    <a href="/beheer/reserveringen/{{$reservation->reservation_code}}" class="button button--primary button--primary--small" style="margin-right: 5px;"><i class="fas fa-pen" aria-hidden="true"></i></a>
+                    <form method="post" action="/beheer/reserveringen/{{$reservation->reservation_code}}">
+                        {{csrf_field()}}
+                        {{method_field('DELETE')}}
+
                         <button type="submit" class="button button--danger" name="Verwijderen">
                             <i class="fas fa-trash-alt"></i></button>
-                    </td>
-                </form>
+                    </form>
+                </td>
             </tr>
         @endforeach
 
