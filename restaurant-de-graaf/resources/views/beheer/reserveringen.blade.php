@@ -27,6 +27,12 @@
                 </div>
             </form>
         </div>
+        <div class="col-md-3 profiel__input" style="display: flex; flex-direction: column">
+            @if(isset($_GET['datum']) || isset($_GET['week']))
+                <label for="#" style="opacity: 0">Opheven</label>
+                <a href="/beheer/reserveringen" class="button button--primary">Filters opheven</a>
+            @endif
+        </div>
     </div>
     <table class="table table-hover">
         <tr>
