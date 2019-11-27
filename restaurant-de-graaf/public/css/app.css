@@ -740,6 +740,82 @@ a {
   text-align: none;
 }
 
+.voorwaarden {
+  padding: 60px 15px;
+  text-align: left;
+}
+
+.voorwaarden__heading {
+  margin-bottom: 30px;
+}
+
+.voorwaarden--head-hr {
+  margin: 10px auto 0 auto;
+}
+
+.voorwaarden p {
+  font-size: 16px;
+  text-align: left;
+}
+
+.voorwaarden--link {
+  color: #1693A6;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.voorwaarden--link:hover {
+  color: black;
+}
+
+.voorwaarden--h2 {
+  text-align: center;
+  margin: 0 auto 30px auto;
+  display: block;
+}
+
+.voorwaarden--h3 {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.voorwaarden--adress {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.voorwaarden--space {
+  margin: 20px auto 85px auto;
+}
+
+.voorwaarden--row {
+  margin-top: 50px;
+}
+
+.voorwaarden--iframe {
+  margin: 0 auto -30px auto;
+}
+
+#form {
+  border-radius: 40px;
+}
+
+#form--subject {
+  display: block;
+  margin: 0 auto;
+}
+
+#form--content {
+  display: block;
+  margin: 0 auto;
+  height: 80px;
+}
+
+#form--content:hover {
+  text-align: none;
+}
+
 h1,
 p {
   text-align: center;
