@@ -1,10 +1,10 @@
 @extends('layouts.app')
 
-@section('title', 'Gebruikersoverzicht | Restaurant de Graaf')
+@section('title', 'klantenoverzicht | Restaurant de Graaf')
 
 @section('content')
 <div class="beheer container">
-    <h1 class="beheer__heading">Gebruikersoverzicht</h1>
+    <h1 class="beheer__heading">Klantenoverzicht</h1>
 
     <table class="table table-hover">
         <tr>

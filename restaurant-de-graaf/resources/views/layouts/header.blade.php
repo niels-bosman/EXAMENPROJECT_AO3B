@@ -17,7 +17,7 @@
                             <a class="header__menu-item @if (\Request::is('beheer/reserveringen')) header__menu-item--active @endif" href="/beheer/reserveringen">Reserveringen</a>
                         </li>
                         <li>
-                            <a class="header__menu-item @if (\Request::is('beheer/gebruikers')) header__menu-item--active @endif" href="/beheer/gebruikers">Gebruikers</a>
+                            <a class="header__menu-item @if (\Request::is('beheer/gebruikers')) header__menu-item--active @endif" href="/beheer/gebruikers">Klanten</a>
                         </li>
                         <li>
                             <a class="header__menu-item @if (\Request::is('beheer/producten')) header__menu-item--active @endif" href="/beheer/producten">Producten</a>
@@ -78,7 +78,7 @@
                                     <a class="header__menu-item @if (\Request::is('beheer/reserveringen')) header__menu-item--active @endif" href="/beheer/reserveringen">Reserveringen</a>
                                 </li>
                                 <li>
-                                    <a class="header__menu-item @if (\Request::is('beheer/gebruikers')) header__menu-item--active @endif" href="/beheer/gebruikers">Gebruikers</a>
+                                    <a class="header__menu-item @if (\Request::is('beheer/gebruikers')) header__menu-item--active @endif" href="/beheer/gebruikers">Klanten</a>
                                 </li>
                                 <li>
                                     <a class="header__menu-item @if (\Request::is('beheer/producten')) header__menu-item--active @endif" href="/beheer/producten">Producten</a>

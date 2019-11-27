@@ -99,7 +99,7 @@ class UserController extends Controller
             Reservation::where('UserID', $request->id)->update(['UserID' => null]);
             DB::table('users')->where('id', $request->id)->delete();
             $putSuccess = true;
-            $msg = 'De gebruiker is succesvol verwijderd!';
+            $msg = 'De klant is succesvol verwijderd!';
             $users = User::all();
             $auth = Auth::user();
             return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
@@ -125,7 +125,7 @@ class UserController extends Controller
             $user->blocked = $user->blocked == 1 ? 0 : 1;
             $user->save();
             $putSuccess = true;
-            $msg = "De gebruiker is succesvol geblokkeerd!";
+            $msg = "De klant is succesvol geblokkeerd!";
             $users = User::all();
             $auth = Auth::user();
             return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
