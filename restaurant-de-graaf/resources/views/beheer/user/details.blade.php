@@ -90,16 +90,22 @@
                     </span>
                     @enderror
                 </div>
-                <div class="col-md-6 profiel__input">
-                    <label for="input-password">Authenticatie level: </label>
-                    <input type="tetx" id="input-auth_level" class="form-control" name="auth_level" value="{{$user->auth_level}}">
-                    @error('auth_level')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
-                </div>
-                <div class="col-md-6 profiel__spacing">
+                @if(\Illuminate\Support\Facades\Auth::user()->auth_level > 2)
+                    <div class="col-md-6 profiel__input">
+                        <label for="input-password">Authenticatie level: </label>
+                        <select id="input-auth_level" class="form-control" name="auth_level">
+                            <option value="1" @if($user->auth_level == 1) selected @endif>Klant</option>
+                            <option value="2" @if($user->auth_level == 2) selected @endif>Personeel</option>
+                            <option value="3" @if($user->auth_level == 3) selected @endif>Beheerder</option>
+                        </select>
+                        @error('auth_level')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                    </div>
+                @endif
+                <div class="col-md-6 @if(\Illuminate\Support\Facades\Auth::user()->auth_level < 3) offset-md-6 @endif profiel__spacing">
                     <button type="submit" class="button float-right button--primary">Wijzigen</button>
         </form>
         <a class="button button--danger float-right profiel__remove-account-button" href="#">Account opzeggen</a>
