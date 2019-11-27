@@ -668,6 +668,78 @@ a {
   text-align: none;
 }
 
+.faq {
+  padding: 60px 15px;
+  text-align: left;
+}
+
+.faq__heading {
+  margin-bottom: 30px;
+}
+
+.faq p {
+  font-size: 16px;
+  text-align: left;
+}
+
+.faq--link {
+  color: #1693A6;
+  -webkit-transition: 0.2s ease;
+  transition: 0.2s ease;
+}
+
+.faq--link:hover {
+  color: black;
+}
+
+.faq--h2 {
+  text-align: center;
+  margin: 0 auto 30px auto;
+  display: block;
+}
+
+.faq--h3 {
+  display: block;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.faq--adress {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.faq--space {
+  margin: 20px auto 85px auto;
+}
+
+.faq--row {
+  margin-top: 50px;
+}
+
+.faq--iframe {
+  margin: 0 auto -30px auto;
+}
+
+#form {
+  border-radius: 40px;
+}
+
+#form--subject {
+  display: block;
+  margin: 0 auto;
+}
+
+#form--content {
+  display: block;
+  margin: 0 auto;
+  height: 80px;
+}
+
+#form--content:hover {
+  text-align: none;
+}
+
 h1,
 p {
   text-align: center;
