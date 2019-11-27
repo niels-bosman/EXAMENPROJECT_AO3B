@@ -9,12 +9,12 @@ use App\User;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
-class ReserveringController extends Controller {
-    public function post(Reservation $reservation, TableReservation $tableReservation) {
+class ReserveringController extends Controller
+{
+    public function post(Reservation $reservation, TableReservation $tableReservation)
+    {
         $table = request('table');
         if (empty($table)):
-            $timestamp = strtotime(\request('date') . \request('time'));
-            $date = date('Y-m-d H:i:s', $timestamp);
             $persons = \request('persons');
 
             $available_tables = Table::where('reservable', 1)->where('minimum_guests', '<=', $persons)->where('seats', '>=', $persons)->get();
@@ -22,38 +22,54 @@ class ReserveringController extends Controller {
             // Loop through tables
             $tables = array();
 
-            foreach ($available_tables as $available_table) {
-                $koppellingen = TableReservation::where('table_id', $available_table->table_id)->get();
-
+            foreach ($available_tables as $available_table)
+            {
                 $possible = 0;
 
-                // Nieuwe reservering
-                foreach ($koppellingen as $koppeling) {
+                // Selecteer koppelingen met zelfde tafel
+                $koppellingen = TableReservation::where('table_id', $available_table->table_id)->get();
+
+                foreach ($koppellingen as $koppeling)
+                {
+                    // Selecteer reservering met zelfde code
                     $paired_reservations = Reservation::where('reservation_code', $koppeling->reservation_code)->get();
 
-                    // Single reservering
-                    foreach ($paired_reservations as $paired_reservation) {
+                    foreach ($paired_reservations as $paired_reservation)
+                    {
                         // Check if date same
-                        if (substr($paired_reservation->date, 0, 10) !== substr(request('date'), 0, 10)) {
+                        if (substr($paired_reservation->date, 0, 10) !== substr(request('date'), 0, 10))
+                        {
                             $possible++;
-                        } else {
+                        } else
+                        {
                             $int_test_date = intval(substr($paired_reservation->date, 11, 2));
-                            $int_reservation_date = intval(substr(request('date'), 0, 2));
-                            if (($int_test_date + 2) !== $int_reservation_date && ($int_test_date + 1) !== $int_reservation_date && ($int_test_date) !== $int_reservation_date && ($int_test_date - 1) !== $int_reservation_date && ($int_test_date - 2) !== $int_reservation_date) {
+                            $int_reservation_date = intval(substr(request('time'), 0, 2));
+
+                            if (
+                                ($int_test_date + 2) !== $int_reservation_date &&
+                                ($int_test_date + 1) !== $int_reservation_date &&
+                                ($int_test_date) !== $int_reservation_date &&
+                                ($int_test_date - 1) !== $int_reservation_date &&
+                                ($int_test_date - 2) !== $int_reservation_date
+                            )
+                            {
                                 $possible++;
                             }
                         }
                     }
                 }
 
-                if ($possible == count($koppellingen)) {
-                    if ($available_table) {
+                if ($possible == count($koppellingen))
+                {
+                    if ($available_table)
+                    {
                         array_push($tables, $available_table);
                     }
                 }
             }
 
-            if (count($tables) > 0) {
+            if (count($tables) > 0)
+            {
                 return view('/home/reservation', [
                     'tables' => $tables,
                     'button' => 'Reserveren',
@@ -62,7 +78,8 @@ class ReserveringController extends Controller {
                     'persons' => request('persons'),
                     'comment' => request('comment'),
                 ]);
-            } else {
+            } else
+            {
                 return view('/home/reservation', [
                     'successful' => false,
                     'button' => 'Reserveren',
@@ -75,17 +92,21 @@ class ReserveringController extends Controller {
         else:
             $reservation_code = str_replace('-', '', request('date'));
 
-            if($table < 10) {
+            if ($table < 10)
+            {
                 $reservation_code .= '0' . $table;
-            } else {
+            } else
+            {
                 $reservation_code .= $table;
             }
 
-            for ($i = 1; $i < 10; $i++) {
+            for ($i = 1; $i < 10; $i++)
+            {
                 $temp_code = $reservation_code . $i;
                 $check = Reservation::where('reservation_code', $temp_code)->first();
 
-                if (!$check) {
+                if (!$check)
+                {
                     $reservation_code = $temp_code;
                     break;
                 }
@@ -110,7 +131,8 @@ class ReserveringController extends Controller {
         endif;
     }
 
-    public function destroy() {
+    public function destroy()
+    {
         TableReservation::where('reservation_code', request('reservering'))->delete();
         Reservation::where('reservation_code', request('reservering'))->delete();
 
