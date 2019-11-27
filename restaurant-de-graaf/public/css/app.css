@@ -514,6 +514,11 @@
   min-height: auto;
 }
 
+.reservation__fields input[type=checkbox] {
+  min-width: auto;
+  min-height: auto;
+}
+
 .reservation__fields textarea {
   min-height: 100px;
   min-width: 350px;

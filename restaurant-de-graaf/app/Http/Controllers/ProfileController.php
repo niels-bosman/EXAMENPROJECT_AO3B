@@ -18,7 +18,7 @@ class ProfileController extends Controller
         $reservations = Reservation::where('UserID', $user->id)->get();
         $only_admin = DB::table('users')->where('auth_level', 3)->count();
         $tables_reservations = TableReservation::get();
-        return view(User::check_account('profiel/edit'), compact('user',  'reservations', 'tables_reservations', 'only_admin'));
+        return view(User::check_account('profiel/profiel'), compact('user',  'reservations', 'tables_reservations', 'only_admin'));
     }
 
     public function update(Request $request)
