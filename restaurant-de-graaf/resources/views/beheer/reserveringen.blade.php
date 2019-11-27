@@ -58,13 +58,29 @@
                 @endif
                 <td>{{ $reservation->guest_amount }}</td>
                 <td style="display: flex">
-                    <a href="/beheer/reserveringen/{{$reservation->reservation_code}}" class="button button--primary button--primary--small" style="margin-right: 5px;"><i class="fas fa-pen" aria-hidden="true"></i></a>
-                    <form method="post" action="/beheer/reserveringen/{{$reservation->reservation_code}}">
-                        {{csrf_field()}}
-                        {{method_field('DELETE')}}
-
-                        <button type="submit" class="button button--danger" name="Verwijderen">
-                            <i class="fas fa-trash-alt"></i></button>
+                    <a href="/beheer/reserveringen/{{$reservation->reservation_code}}" class="button button--primary" style="margin-right: 5px;"><i class="fas fa-pen" aria-hidden="true"></i></a>
+                    <a class="button button--danger profiel__remove-account-button" data-id="{{$reservation->reservation_code}}" href="#"><i class="fas fa-trash-alt"></i></a>
+                    <div class="profiel__remove-modal-background profiel__remove-modal-disable" data-id="{{$reservation->reservation_code}}"></div>
+                    <form method="post" class="profiel__remove-modal" action="/beheer/reserveringen/{{$reservation->reservation_code}}" data-id="{{$reservation->reservation_code}}">
+                        <input type="hidden" name="id" value="{{$reservation->reservation_code}}">
+                        <div class="modal-header">
+                            <h5 class="modal-title">Weet je zeker dat je reservering {{$reservation->reservation_code}} wilt verwijderen? Dit kan niet meer terug gezet worden.</h5>
+                            <button type="button" class="close profiel__remove-modal-disable">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="profiel__remove-modal-content">
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <label>Ik ben geen robot
+                                        <input type="checkbox" required>
+                                    </label>
+                                    {{ csrf_field() }}
+                                    {{ method_field('DELETE') }}
+                                    <button type="submit" class="button button--danger float-right">Reservering verwijderen</button>
+                                </div>
+                            </div>
+                        </div>
                     </form>
                 </td>
             </tr>
