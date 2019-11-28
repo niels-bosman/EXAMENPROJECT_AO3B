@@ -4,7 +4,7 @@
 
 @section('content')
 <div class="profiel container">
-    <h1 class="profiel__heading">Profiel</h1>
+    <h1 class="profiel__heading">Gegevens van {{$user->name}}</h1>
     <div class="card profiel__card">
         <form method="post">
             @csrf
