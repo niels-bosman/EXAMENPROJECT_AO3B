@@ -128,7 +128,7 @@ class UserController extends Controller
             $msg = "De klant is succesvol geblokkeerd!";
             $users = User::all();
             $auth = Auth::user();
-            return view('beheer/user/users', compact('users', 'auth', 'putSuccess', 'msg'));
+            return redirect('beheer/klanten');
         } else {
             return redirect('beheer/klanten');
         }
@@ -140,6 +140,6 @@ class UserController extends Controller
         $user->blocked = $user->blocked == 0 ? 1 : 0;
 
         $user->save();
-        return $this->index();
+        return redirect('beheer/klanten');
     }
 }

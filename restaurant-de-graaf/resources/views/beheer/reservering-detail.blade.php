@@ -22,12 +22,12 @@
 
                     <div class="col-md-6 profiel__input">
                         <label for="user">Klant</label>
-                        <input type="text" id="user" class="form-control" value="{{\App\User::where('id',$reservation->UserID)->first()->name}} ({{$reservation->UserID}})" readonly required>
-                        @error('user')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
+                        <input type="text" id="user" class="form-control" @if(isset($reservation->UserID)) value="{{\App\User::where('id',$reservation->UserID)->first()->name}} ({{$reservation->UserID}})" @else disabled @endif readonly required>
+{{--                        @error('user')--}}
+{{--                        <span class="invalid-feedback" role="alert">--}}
+{{--                            <strong>{{ $message }}</strong>--}}
+{{--                        </span>--}}
+{{--                        @enderror--}}
                     </div>
 
                     <div class="col-md-6 profiel__input">

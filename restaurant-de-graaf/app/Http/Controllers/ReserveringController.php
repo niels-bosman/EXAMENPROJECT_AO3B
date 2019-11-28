@@ -135,6 +135,11 @@ class ReserveringController extends Controller
         TableReservation::where('reservation_code', request('reservering'))->delete();
         Reservation::where('reservation_code', request('reservering'))->delete();
 
+        if (!empty(request('user')))
+        {
+            return redirect('/beheer/klanten/' . request('user'));
+        }
+
         return redirect('/profiel');
     }
 }
