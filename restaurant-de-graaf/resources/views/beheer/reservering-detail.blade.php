@@ -56,7 +56,7 @@
 
                     <div class="col-md-6 profiel__input">
                         <label for="guests">Gasten</label>
-                        <input type="number" id="guests" name="guests" class="form-control" value="{{$reservation->guest_amount}}" required>
+                        <input type="number" id="guests" name="guests" class="form-control" value="{{$reservation->guest_amount}}" min="1" required>
                         @error('guests')
                         <span class="invalid-feedback" role="alert">
                             <strong>{{ $message }}</strong>

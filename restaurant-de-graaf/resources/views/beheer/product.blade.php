@@ -17,7 +17,7 @@
             @foreach($products as $product)
                 <tr>
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{$product->name}}</td>
-                    <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{$product->price}}</td>
+                    <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">€ <?php echo number_format($product->price, 2, ',', '.') ?></td>
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{Subtype::where('id', $product->subtype)->get()[0]->name}}</td>
                     <td>
                         <a href="/beheer/producten/{{$product->id}}" class="button button--primary button--primary--small"><i class="fas fa-pen"></i></a>

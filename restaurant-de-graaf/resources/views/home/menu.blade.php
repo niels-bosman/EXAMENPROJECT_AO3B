@@ -35,7 +35,7 @@ use App\Product;
                                         <span>{{$product->name}}</span>
                                     </div>
                                     <div class="menukaart__product-price">
-                                        <span>&euro; {{$product->price}}{{strpos($product->price, '.') ? '' : '.00' }}</span>
+                                        <span>€ <?php echo number_format($product->price, 2, ',', '.') ?></span>
                                     </div>
                                 </article>
                                 <hr>

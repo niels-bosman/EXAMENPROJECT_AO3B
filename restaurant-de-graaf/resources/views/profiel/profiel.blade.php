@@ -8,7 +8,6 @@
         <div class="card profiel__card">
             <form method="post">
                 @csrf
-
                 <input type="hidden" name="_method" value="PUT">
                 <div class="row">
                     <div class="col-md-6 profiel__input">
