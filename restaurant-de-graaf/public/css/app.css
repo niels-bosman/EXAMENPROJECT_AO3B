@@ -291,13 +291,13 @@
 }
 
 .button--block {
-  color: #ec0d1c;
+  color: #ec0d1c !important;
   -webkit-transition: 0.2s ease;
   transition: 0.2s ease;
 }
 
 .button--block:hover {
-  color: #d40c19;
+  color: #d40c19 !important;
 }
 
 .button--secondary {

@@ -38,11 +38,11 @@
     }
 
     &--block {
-        color: $color-block;
+        color: $color-block !important;
         transition: .2s ease;
 
         &:hover {
-            color: darken($color-block, 5);
+            color: darken($color-block, 5) !important;
         }
     }
 
