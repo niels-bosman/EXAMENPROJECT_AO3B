@@ -22,14 +22,14 @@ Route::get('/profiel/account_blocked_password', 'ProfileController@account_block
 
 Route::get('/beheer', 'Beheer\BeheerController@index');
 
-Route::get('/beheer/gebruikers', 'Beheer\UserController@index');
-Route::put('/beheer/gebruikers', 'Beheer\UserController@block');
-Route::delete('/beheer/gebruikers', 'Beheer\UserController@destroy');
+Route::get('/beheer/klanten', 'Beheer\UserController@index');
+Route::put('/beheer/klanten', 'Beheer\UserController@block');
+Route::delete('/beheer/klanten', 'Beheer\UserController@destroy');
 
-Route::get('/beheer/gebruikers/{user}', 'Beheer\UserController@show');
-Route::put('/beheer/gebruikers/{user}', 'Beheer\UserController@update');
-Route::get('/beheer/gebruikers/pdf/{reservation}', 'PDFController@index');
-Route::get('/beheer/gebruikers/{user}/block', 'Beheer\UserController@block');
+Route::get('/beheer/klanten/{user}', 'Beheer\UserController@show');
+Route::put('/beheer/klanten/{user}', 'Beheer\UserController@update');
+Route::get('/beheer/klanten/pdf/{reservation}', 'PDFController@index');
+Route::get('/beheer/klanten/{user}/block', 'Beheer\UserController@block');
 
 Route::get('/beheer/reserveringen', 'Beheer\ReserveringController@index');
 Route::get('/beheer/reserveren/new', 'Beheer\NieuweReserveringController@index'); //Route is afwijkend
