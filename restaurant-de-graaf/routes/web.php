@@ -36,7 +36,7 @@ Route::get('/beheer/reserveren/new', 'Beheer\NieuweReserveringController@index')
 Route::post('/beheer/reserveren/new', 'Beheer\NieuweReserveringController@create'); //Route is afwijkend
 Route::get('/beheer/reserveringen/{id}', 'Beheer\BeheerController@get');
 Route::put('/beheer/reserveringen/{id}', 'Beheer\BeheerController@put');
-Route::delete('/beheer/reserveringen/{reservation_code}', 'Beheer\ReserveringController@delete');
+//Route::delete('/beheer/reserveringen/{reservation_code}', 'Beheer\ReserveringController@delete');
 Route::delete('/beheer/reserveringen/{id}', 'Beheer\BeheerController@destroyBestelling');
 
 Route::get('/beheer/reserveringen/{id}/bestellingen/add', 'Beheer\BeheerController@getBestellingen');
