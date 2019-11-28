@@ -23,11 +23,6 @@
                     <div class="col-md-6 profiel__input">
                         <label for="user">Klant</label>
                         <input type="text" id="user" class="form-control" @if(isset($reservation->UserID)) value="{{\App\User::where('id',$reservation->UserID)->first()->name}} ({{$reservation->UserID}})" @else disabled @endif readonly required>
-{{--                        @error('user')--}}
-{{--                        <span class="invalid-feedback" role="alert">--}}
-{{--                            <strong>{{ $message }}</strong>--}}
-{{--                        </span>--}}
-{{--                        @enderror--}}
                     </div>
 
                     <div class="col-md-6 profiel__input">
@@ -124,10 +119,10 @@
                         <td>{{$amount}}</td>
                         <td>&euro; {{$totaal}}</td>
                         <td>
-                            <form method="post">
+                            <form method="post" action="/beheer/reserveringen/bestelling/{{$reservationProduct->id}}">
                                 @csrf
                                 <input type="hidden" name="_method" value="DELETE">
-                                <input type="hidden" name="koppel_id" value="{{$reservationProduct->id}}">
+                                <input type="hidden" name="code" value="{{$reservation->reservation_code}}">
                                 <button type="submit" class="button button--danger" title="Verwijderen">
                                     <i class="fas fa-trash-alt" aria-hidden="true"></i></button>
                             </form>
