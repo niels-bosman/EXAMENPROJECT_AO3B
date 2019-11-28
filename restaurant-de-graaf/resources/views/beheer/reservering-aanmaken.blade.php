@@ -42,7 +42,7 @@
 
                 <div class="row reservation__field">
                     <div class="col-md-12">
-                        <label for="time">Hoe laat is de reserveren?</label>
+                        <label for="time">Hoelaat is de reserveren?</label>
                     </div>
                     <div class="col-md-12">
                         <?php
@@ -55,7 +55,7 @@
 
                 <div class="row reservation__field">
                     <div class="col-md-12">
-                        <label for="number">Met hoe veel personen komen ze?</label>
+                        <label for="number">Met hoeveel personen komen ze?</label>
                     </div>
                     <div class="col-md-12">
                         <input id="number" value="<?php echo isset($persons) ? $persons : '1' ?>" <?php echo isset($persons) ? 'readonly' : '' ?> name="persons" min="1" type="number" required>

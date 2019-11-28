@@ -42,7 +42,7 @@
 
                 <div class="row reservation__field">
                     <div class="col-md-12">
-                        <label for="time">Hoe laat wilt u reserveren?</label>
+                        <label for="time">Hoelaat wilt u reserveren?</label>
                     </div>
                     <div class="col-md-12">
                         <input id="time" min="12:00" max="20:00" value="<?php echo isset($time) ? $time : '' ?>" <?php echo isset($time) ? 'readonly' : '' ?> name="time" type="time" required>
@@ -51,7 +51,7 @@
 
                 <div class="row reservation__field">
                     <div class="col-md-12">
-                        <label for="number">Met hoe veel personen komt u?</label>
+                        <label for="number">Met hoeveel personen komt u?</label>
                     </div>
                     <div class="col-md-12">
                         <input id="number" value="<?php echo isset($persons) ? $persons : '1' ?>" <?php echo isset($persons) ? 'readonly' : '' ?> name="persons" min="1" max="8" type="number" required>
