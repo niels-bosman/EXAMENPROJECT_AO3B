@@ -8,10 +8,10 @@
         <div class="row">
             <div class="col-md-6 card-container scale-animation">
                 <div class="card beheer__card pointer border-top">
-                    <a href="/beheer/gebruikers">
+                    <a href="/beheer/klanten">
                         <div class="row height-150">
                             <div class="col-9 card-content-admin">
-                                <h3>Gebruikers</h3>
+                                <h3>Klanten</h3>
                             </div>
                             <div class="col-3 icon-container">
                                 <h1 class="icon-large"><i class="fa fa-users"></i></h1>
