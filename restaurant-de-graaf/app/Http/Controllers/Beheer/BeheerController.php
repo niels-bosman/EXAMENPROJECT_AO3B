@@ -46,9 +46,9 @@ class BeheerController extends Controller
     }
 
     public function destroyBestelling() {
-        ReservationProduct::where('id', request('koppel_id'))->delete();
+        ReservationProduct::where('id', request('id'))->delete();
 
-        return redirect('/beheer/reserveringen/' . request('id'));
+        return redirect('/beheer/reserveringen/' . request('code'));
     }
 
     public function postBestellingen(Request $request, ReservationProduct $product)
