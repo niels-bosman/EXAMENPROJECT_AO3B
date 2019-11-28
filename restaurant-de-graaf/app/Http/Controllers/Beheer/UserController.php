@@ -49,16 +49,17 @@ class UserController extends Controller
 
     public function update(Request $request)
     {
-        $this->validate($request, [
+        $validations = [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255'],
             'tel_number' => ['required', 'string', 'max:255'],
             'street' => ['max:255'],
             'house_number' => ['max:255'],
             'city' => ['max:255'],
-            'zipcode' => ['max:255'],
-            'auth_level' => ['required', 'string', 'max:5']
-        ]);
+            'zipcode' => ['max:255']
+        ];
+
+        $this->validate($request, $validations);
 
         $user = User::where('id', request('id'))->first();
         $user->name = request('name');
@@ -70,7 +71,9 @@ class UserController extends Controller
         $user->house_number = request('house_number');
         $user->city = request('city');
         $user->zipcode = request('zipcode');
-        $user->auth_level = request('auth_level');
+        if (Auth::user()->auth_level > 2) {
+            $user->auth_level = request('auth_level');
+        }
 
         if (strlen(request('password')) !== 0) {
 

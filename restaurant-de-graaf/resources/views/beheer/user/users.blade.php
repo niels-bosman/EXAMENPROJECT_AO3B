@@ -16,14 +16,12 @@
         </tr>
         @foreach($users as $user)
         <tr>
-            <td>
-
-                <a href="gebruikers/{{ $user->id }}" class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->name}}</a>
-            </td>
-            <td><a href="gebruikers/{{ $user->id }}" class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->email}}</a></td>
-            <td><a href="gebruikers/{{ $user->id }}" class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->tel_number}}</a></td>
+            <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->name}}</a></td>
+            <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->email}}</a></td>
+            <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->tel_number}}</a></td>
             @if($user->id != $auth->id)
             <td>
+                <a class="button button--primary" href="gebruikers/{{$user->id}}"><i class="fas fa-pen"></i></a>
                 <a class="button button--danger profiel__remove-account-button" data-id="{{$user->id}}" href="#"><i class="fas fa-trash-alt"></i></a>
                 <div class="profiel__remove-modal-background profiel__remove-modal-disable" data-id="{{$user->id}}"></div>
                 <form method="post" class="profiel__remove-modal" data-id="{{$user->id}}">
@@ -48,7 +46,7 @@
                     </div>
                 </form>
                 @if($user->blocked == 0)
-                <a class="button button--primary profiel__block-account-button" data-id="{{$user->id}}" href="#"><i class="fas fa-ban"></i></a>
+                <a class="button button--soft profiel__block-account-button" data-id="{{$user->id}}" href="#"><i class="fas fa-ban"></i></a>
                 <div class="profiel__block-modal-background profiel__block-modal-disable" data-id="{{$user->id}}"></div>
                 <form method="post" class="profiel__block-modal" data-id="{{$user->id}}">
                     <input type="hidden" name="id" value="{{$user->id}}">
