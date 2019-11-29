@@ -32,6 +32,8 @@ class BeheerController extends Controller
     }
 
     /**
+     * Gets the general information of a reservation.
+     *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function get()
@@ -42,6 +44,8 @@ class BeheerController extends Controller
     }
 
     /**
+     * Gets the orders of a specific reservation.
+     *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function getBestellingen()
@@ -62,6 +66,8 @@ class BeheerController extends Controller
     }
 
     /**
+     * Posts new product data to a certain reservation.
+     *
      * @param Request $request
      * @param ReservationProduct $product
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -89,6 +95,8 @@ class BeheerController extends Controller
     }
 
     /**
+     * Edits a certain reservation.
+     *
      * @param Request $request
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Validation\ValidationException
