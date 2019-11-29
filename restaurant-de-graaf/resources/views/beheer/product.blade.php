@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Productoverzicht | Restaurant de Graaf')
-<?php use App\Subtype; ?>
+
 @section('content')
     <div class="beheer container">
         <h1 class="beheer__heading">Productoverzicht</h1>

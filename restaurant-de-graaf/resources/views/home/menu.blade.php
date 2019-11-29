@@ -6,11 +6,6 @@
 
 @endsection
 
-<?php
-use App\Subtype;
-use App\Product;
-?>
-
 @section('title', 'Menukaart | Restaurant de Graaf')
 
 @section('content')
