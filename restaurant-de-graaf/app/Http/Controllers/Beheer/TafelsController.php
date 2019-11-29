@@ -20,7 +20,7 @@ class TafelsController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Haal alle tafels op en laat het overzicht zien.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -32,6 +32,8 @@ class TafelsController extends Controller
     }
 
     /**
+     * Haal alle gegevens van een specifieke tafel op en laat de detail pagina zien.
+     *
      * @param $id
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -43,6 +45,8 @@ class TafelsController extends Controller
     }
 
     /**
+     * Verwerk de input van de aangepaste tafel en stuur de gebruiker terug naar het ocerzicht.
+     *
      * @param $id
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector

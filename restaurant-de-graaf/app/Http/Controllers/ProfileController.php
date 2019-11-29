@@ -13,6 +13,7 @@ use Illuminate\Support\Facades\Hash;
 class ProfileController extends Controller
 {
     /**
+     * Haal de user op en geef de gegevens van deze user en een lijst van de reserveringen.
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function home()
@@ -26,6 +27,9 @@ class ProfileController extends Controller
     }
 
     /**
+     * Controleer de aangepaste data van de gebruiker en update (Indien nodig) de gegevens.
+     * Laat daarna de profiel weer zien.
+     *
      * @param Request $request
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      * @throws \Illuminate\Validation\ValidationException
@@ -87,6 +91,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * Verwijder de gebruiker en stuur hem/haar terug naar de login pagina.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function destroy()
@@ -98,6 +104,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * Stuur de account geäctiveerd pagina terug.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function account_activated()
@@ -106,6 +114,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * Geen een pagina die vriendelijk verteld dat het account nog geäctiveerd moet worden.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function account_not_activated()
@@ -114,6 +124,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * Laat een pagina zien dat de gebruiker is geblokkerd
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function account_blocked()
@@ -122,6 +134,8 @@ class ProfileController extends Controller
     }
 
     /**
+     * Laat een pagina zien die toelicht dat de gebruiker te vaak een verkeerd wachtwoord heft ingevoerd.
+     *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function account_blocked_password()
