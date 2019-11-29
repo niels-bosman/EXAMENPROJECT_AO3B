@@ -3,16 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Reservation;
-use App\TableReservation;
 use App\Table;
-use App\User;
+use App\TableReservation;
 use DB;
 use Illuminate\Support\Facades\Auth;
 
 class ReserveringController extends Controller
 {
     /**
-     * Posts the data of a new reservation if the details are right, also regulates the first check for the tables.
+     * Voegt de data van een nieuwe reservering toe als de data klopt. Dit regelt ook de check voor de tafels.
      *
      * @param Reservation $reservation
      * @param TableReservation $tableReservation
@@ -27,7 +26,7 @@ class ReserveringController extends Controller
 
             $tables = [];
 
-            // Loop through tables
+            // Loopen door tafels
             foreach ($available_tables as $available_table)
             {
                 $possible = 0;
@@ -42,7 +41,7 @@ class ReserveringController extends Controller
 
                     foreach ($paired_reservations as $paired_reservation)
                     {
-                        // Check if date same
+                        // Check of de datum het zelfde is. Zo niet, is het een mogelijke koppeling.
                         if (substr($paired_reservation->date, 0, 10) !== substr(request('date'), 0, 10))
                         {
                             $possible++;
@@ -51,6 +50,7 @@ class ReserveringController extends Controller
                             $int_test_date = intval(substr($paired_reservation->date, 11, 2));
                             $int_reservation_date = intval(substr(request('time'), 0, 2));
 
+                            // Check of de gekoppelde reservering gelijk staat aan de nieuwe reservering (minder en meer dan 2 uur er vanaf
                             if (($int_test_date + 2) !== $int_reservation_date && ($int_test_date + 1) !== $int_reservation_date && ($int_test_date) !== $int_reservation_date && ($int_test_date - 1) !== $int_reservation_date && ($int_test_date - 2) !== $int_reservation_date)
                             {
                                 $possible++;
@@ -59,15 +59,18 @@ class ReserveringController extends Controller
                     }
                 }
 
+                // Check of alle koppelingen niet overlappen met de nieuwe reservering
                 if ($possible == count($koppellingen))
                 {
                     if ($available_table)
                     {
+                        // Voegt de tafel toe aan de beschikbare tafels array
                         array_push($tables, $available_table);
                     }
                 }
             }
 
+            // Kijk of er tafels zijn, zo ja; stuur deze mee. Anders error.
             if (count($tables) > 0)
             {
                 return view('/home/reservation', [
@@ -90,6 +93,7 @@ class ReserveringController extends Controller
                 ]);
             }
         else:
+            // Genereer reserveringscode
             $reservation_code = str_replace('-', '', request('date'));
 
             if ($table < 10)
@@ -100,6 +104,7 @@ class ReserveringController extends Controller
                 $reservation_code .= $table;
             }
 
+            // Check beschikbaarheid van volgnummer
             for ($i = 1; $i < 10; $i++)
             {
                 $temp_code = $reservation_code . $i;
@@ -112,6 +117,7 @@ class ReserveringController extends Controller
                 }
             }
 
+            // Velden
             $reservation->reservation_code = $reservation_code;
             $reservation->UserID = Auth::user()->id;
             $reservation->date = request('date') . ' ' . request('time');
@@ -124,6 +130,7 @@ class ReserveringController extends Controller
             $tableReservation->reservation_code = $reservation_code;
             $tableReservation->save();
 
+            // Succesvolle view
             return view('/home/reservation', [
                 'successful' => true,
                 'button' => 'Check beschikbaarheid'
@@ -132,15 +139,17 @@ class ReserveringController extends Controller
     }
 
     /**
-     * Deletes a specific reservation and its paired tables.
+     * Verwijderd een specifieke reservering en zijn gekoppelde tafels.
      *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy()
     {
+        // Query van reservering en zijn koppelingen verwijderen
         TableReservation::where('reservation_code', request('reservering'))->delete();
         Reservation::where('reservation_code', request('reservering'))->delete();
 
+        // Als het het persoonlijke account is, redirect hij naar profiel. Anders naar klanten pagina.
         if (!empty(request('user')))
         {
             return redirect('/beheer/klanten/' . request('user'));

@@ -10,7 +10,7 @@ use App\User;
 class ProductController extends Controller
 {
     /**
-     * Create a new controller instance.
+     * Maakt een nieuwe controllen instantie.
      *
      * @return void
      */
@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the product dashboard.
+     * Laat het product overzicht zien.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -32,7 +32,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Go to the product add page
+     * Retourneerd de product-toevoeg pagina
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -44,7 +44,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Post a new product
+     * Voegt een nieuw product toe aan de database
      *
      * @param Request $request
      * @param Product $product
@@ -53,6 +53,7 @@ class ProductController extends Controller
      */
     public function post(Request $request, Product $product)
     {
+        // Validatie
         $this->validate($request, [
             'name' => [
                 'required',
@@ -74,6 +75,7 @@ class ProductController extends Controller
             'robot' => ['required']
         ]);
 
+        // Velden en opslaan
         $product->name = request('name');
         $product->subtype = request('type');
         $product->price = request('price');
@@ -110,7 +112,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Edits a product
+     * Past de waardes van een bepaald product aan op basis van het request
      *
      * @param Request $request
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
@@ -118,6 +120,7 @@ class ProductController extends Controller
      */
     public function put(Request $request)
     {
+        // Validatie
         $this->validate($request, [
             'name' => [
                 'required',
@@ -139,11 +142,13 @@ class ProductController extends Controller
             'robot' => ['required']
         ]);
 
+        // Velden
         $name = request('name');
         $subtype = request('type');
         $price = request('price');
         $enabled = request('enabled');
 
+        // Aanpas query
         Product::where('id', \request('id'))->update([
             'name' => $name,
             'subtype' => $subtype,
@@ -155,12 +160,13 @@ class ProductController extends Controller
     }
 
     /**
-     * Returns the detail page of a product
+     * Retourneerd de detailpagina van een product op basis van het id
      *
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
     public function get()
     {
+        // Zet id en pak het bijhorende product
         $id = request('id');
         $product = Product::where('id', $id)->first();
 
