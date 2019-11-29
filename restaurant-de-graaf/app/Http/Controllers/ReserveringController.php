@@ -12,6 +12,8 @@ use Illuminate\Support\Facades\Auth;
 class ReserveringController extends Controller
 {
     /**
+     * Posts the data of a new reservation if the details are right, also regulates the first check for the tables.
+     *
      * @param Reservation $reservation
      * @param TableReservation $tableReservation
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -130,6 +132,8 @@ class ReserveringController extends Controller
     }
 
     /**
+     * Deletes a specific reservation and its paired tables.
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroy()
