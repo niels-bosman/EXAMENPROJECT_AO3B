@@ -11,6 +11,11 @@ use Illuminate\Support\Facades\Auth;
 
 class ReserveringController extends Controller
 {
+    /**
+     * @param Reservation $reservation
+     * @param TableReservation $tableReservation
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function post(Reservation $reservation, TableReservation $tableReservation)
     {
         $table = request('table');
@@ -124,6 +129,9 @@ class ReserveringController extends Controller
         endif;
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroy()
     {
         TableReservation::where('reservation_code', request('reservering'))->delete();
