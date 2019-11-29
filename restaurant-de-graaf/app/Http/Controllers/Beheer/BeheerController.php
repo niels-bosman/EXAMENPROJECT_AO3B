@@ -31,6 +31,9 @@ class BeheerController extends Controller
         return view('beheer/beheer');
     }
 
+    /**
+     * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function get()
     {
         $reservation = Reservation::where('reservation_code', request('id'))->first();
@@ -38,6 +41,9 @@ class BeheerController extends Controller
         return $reservation ? view('beheer/reservering-detail', compact('reservation')) : $this->index();
     }
 
+    /**
+     * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getBestellingen()
     {
         $reservation = Reservation::where('reservation_code', request('id'))->first();
@@ -45,6 +51,9 @@ class BeheerController extends Controller
         return $reservation ? view('beheer/reservering-bestelling-add', compact('reservation')) : $this->index();
     }
 
+    /**
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
     public function destroyBestelling()
     {
         ReservationProduct::where('id', request('id'))->delete();
@@ -52,6 +61,12 @@ class BeheerController extends Controller
         return redirect('/beheer/reserveringen/' . request('code'));
     }
 
+    /**
+     * @param Request $request
+     * @param ReservationProduct $product
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function postBestellingen(Request $request, ReservationProduct $product)
     {
         $this->validate($request, [
@@ -73,6 +88,11 @@ class BeheerController extends Controller
         return redirect('/beheer/reserveringen/' . request('id'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function put(Request $request)
     {
         $this->validate($request, [

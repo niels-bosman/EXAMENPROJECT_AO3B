@@ -31,6 +31,10 @@ class TafelsController extends Controller
         return view('beheer/tafels', compact('tables'));
     }
 
+    /**
+     * @param $id
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function detail($id)
     {
         $table = Table::where('table_id', $id)->first();
@@ -38,6 +42,12 @@ class TafelsController extends Controller
         return view('beheer/tafels_details', compact('table'));
     }
 
+    /**
+     * @param $id
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function update($id, Request $request)
     {
         $this->validate($request, [
