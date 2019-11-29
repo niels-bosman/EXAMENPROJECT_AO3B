@@ -12,6 +12,9 @@ use Illuminate\Support\Facades\Hash;
 
 class ProfileController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function home()
     {
         $user = auth()->user();
@@ -22,6 +25,11 @@ class ProfileController extends Controller
         return view(User::check_account('profiel/profiel'), compact('user', 'reservations', 'tables_reservations', 'only_admin'));
     }
 
+    /**
+     * @param Request $request
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function update(Request $request)
     {
         $this->validate($request, [
@@ -78,6 +86,9 @@ class ProfileController extends Controller
         return view(User::check_account('profiel/profiel'), compact('user', 'reservations', 'tables_reservations', 'putSucces', 'only_admin'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function destroy()
     {
         Reservation::where('UserID', Auth::user()->id)->update(['UserID' => null]);
@@ -86,21 +97,33 @@ class ProfileController extends Controller
         return view('auth/login');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function account_activated()
     {
         return view(User::check_account('/profiel/account_activated'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function account_not_activated()
     {
         return view('/profiel/account_not_activated');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function account_blocked()
     {
         return view('/profiel/account_blocked');
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function account_blocked_password()
     {
         return view('/profiel/account_blocked_password');
