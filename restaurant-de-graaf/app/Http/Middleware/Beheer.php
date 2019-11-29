@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Auth;
 class Beheer
 {
     /**
-     * Handle an incoming request.
+     * Een controle of de ingelogde systeem deze pagina mag bezoeken qua auth_level
      *
      * @param  \Illuminate\Http\Request  $request
      * @param  \Closure  $next
