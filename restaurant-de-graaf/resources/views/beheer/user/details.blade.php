@@ -108,6 +108,7 @@
                     <div class="col-md-6 @if(\Illuminate\Support\Facades\Auth::user()->auth_level < 3) offset-md-6 @endif profiel__spacing">
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
                     </div>
+                </div>
             </form>
         </div>
     </div>
