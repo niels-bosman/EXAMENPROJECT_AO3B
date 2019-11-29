@@ -44,13 +44,7 @@ class ReserveringController extends Controller
                             $int_test_date = intval(substr($paired_reservation->date, 11, 2));
                             $int_reservation_date = intval(substr(request('time'), 0, 2));
 
-                            if (
-                                ($int_test_date + 2) !== $int_reservation_date &&
-                                ($int_test_date + 1) !== $int_reservation_date &&
-                                ($int_test_date) !== $int_reservation_date &&
-                                ($int_test_date - 1) !== $int_reservation_date &&
-                                ($int_test_date - 2) !== $int_reservation_date
-                            )
+                            if (($int_test_date + 2) !== $int_reservation_date && ($int_test_date + 1) !== $int_reservation_date && ($int_test_date) !== $int_reservation_date && ($int_test_date - 1) !== $int_reservation_date && ($int_test_date - 2) !== $int_reservation_date)
                             {
                                 $possible++;
                             }

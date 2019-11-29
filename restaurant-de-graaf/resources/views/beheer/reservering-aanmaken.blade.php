@@ -76,7 +76,6 @@
                                 <div class="input__fields--radio">
                                     <input type="checkbox" id="table_{{$table->table_id}}" value="{{$table->table_id}}" name="table{{$table->table_id}}"
                                             @if(isset($selected))
-{{--                                            {{dd($selected)}}--}}
                                                 @if(in_array($table->table_id, $selected))
                                                     checked
                                                 @endif

@@ -34,7 +34,8 @@ class LoginController extends Controller
 
     protected function authenticated(Request $request, $user)
     {
-        if ( $user->auth_level > 1 ) {
+        if ($user->auth_level > 1)
+        {
             return redirect('/beheer');
         }
 
@@ -48,15 +49,16 @@ class LoginController extends Controller
         if ($this->limiter()->tooManyAttempts($this->throttleKey($request), $this->maxAttempts()))
         {
             $user = User::where('email', $request->email)->first();
-            if($user)
+            if ($user)
             {
                 $user->wrong_count = 1;
                 $user->update();
             }
+
             return $this->limiter()->tooManyAttempts($this->throttleKey($request), $this->maxAttempts());
         }
+
         return $this->limiter()->tooManyAttempts($this->throttleKey($request), $this->maxAttempts());
     }
-
 
 }

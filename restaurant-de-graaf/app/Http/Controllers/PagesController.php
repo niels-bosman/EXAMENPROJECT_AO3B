@@ -28,8 +28,6 @@ class PagesController extends Controller
     {
         $check = User::check_privileges();
 
-        dd($check);
-
         return view('/auth/login', compact('check'));
     }
 

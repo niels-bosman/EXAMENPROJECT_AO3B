@@ -27,22 +27,37 @@ class ProductController extends Controller
     public function index()
     {
         $products = Product::all();
+
         return view('beheer/product', compact('products'));
     }
 
     public function getNew()
     {
         $check = User::check_privileges();
+
         return view('beheer/product-add', compact('check'));
     }
 
     public function post(Request $request, Product $product)
     {
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'type' => ['required', 'int'],
-            'price' => ['required', 'numeric'],
-            'enabled' => ['required', 'int'],
+            'name' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+            'type' => [
+                'required',
+                'int'
+            ],
+            'price' => [
+                'required',
+                'numeric'
+            ],
+            'enabled' => [
+                'required',
+                'int'
+            ],
             'robot' => ['required']
         ]);
 
@@ -61,26 +76,42 @@ class ProductController extends Controller
         $enabled = request('enabled');
         $id = request('id');
 
-        if ($enabled == 1) {
+        if ($enabled == 1)
+        {
             Product::where('id', $id)->update(['enabled' => 0]);
             $msg = "Het product is succesvol gedeactiveerd!";
-        } else {
+        } else
+        {
             Product::where('id', $id)->update(['enabled' => 1]);
             $msg = "Het product is succesvol weer toegevoegd!";
         }
 
         $products = Product::all();
         $putSuccess = true;
+
         return view('/beheer/product', compact('putSuccess', 'msg', 'products'));
     }
 
     public function put(Request $request)
     {
         $this->validate($request, [
-            'name' => ['required', 'string', 'max:255'],
-            'type' => ['required', 'int'],
-            'price' => ['required', 'numeric'],
-            'enabled' => ['required', 'int'],
+            'name' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+            'type' => [
+                'required',
+                'int'
+            ],
+            'price' => [
+                'required',
+                'numeric'
+            ],
+            'enabled' => [
+                'required',
+                'int'
+            ],
             'robot' => ['required']
         ]);
 
@@ -103,6 +134,7 @@ class ProductController extends Controller
     {
         $id = request('id');
         $product = Product::where('id', $id)->first();
+
         return view('beheer/product-detail', compact('product'));
     }
 }

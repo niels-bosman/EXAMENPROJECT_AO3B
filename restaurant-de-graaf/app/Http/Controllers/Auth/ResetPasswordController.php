@@ -24,7 +24,7 @@ class ResetPasswordController extends Controller
     {
         $user->password = Hash::make($password);
         $user->wrong_count = 0;
-//        $user->blocked = 0;
+        //        $user->blocked = 0;
     }
 
     use ResetsPasswords;

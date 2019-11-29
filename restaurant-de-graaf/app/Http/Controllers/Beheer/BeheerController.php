@@ -45,7 +45,8 @@ class BeheerController extends Controller
         return $reservation ? view('beheer/reservering-bestelling-add', compact('reservation')) : $this->index();
     }
 
-    public function destroyBestelling() {
+    public function destroyBestelling()
+    {
         ReservationProduct::where('id', request('id'))->delete();
 
         return redirect('/beheer/reserveringen/' . request('code'));
@@ -54,8 +55,14 @@ class BeheerController extends Controller
     public function postBestellingen(Request $request, ReservationProduct $product)
     {
         $this->validate($request, [
-            'product' => ['required', 'int'],
-            'amount' => ['required', 'int'],
+            'product' => [
+                'required',
+                'int'
+            ],
+            'amount' => [
+                'required',
+                'int'
+            ],
         ]);
 
         $product->reservation_code = request('id');

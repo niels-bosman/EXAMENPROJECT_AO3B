@@ -27,12 +27,14 @@ class TafelsController extends Controller
     public function index()
     {
         $tables = Table::all();
+
         return view('beheer/tafels', compact('tables'));
     }
 
     public function detail($id)
     {
         $table = Table::where('table_id', $id)->first();
+
         return view('beheer/tafels_details', compact('table'));
     }
 
@@ -50,7 +52,8 @@ class TafelsController extends Controller
             'seats' => request('zitplaatsen'),
             'minimum_guests' => request('minimum'),
             'reservable' => request('reserveerbaar')
-            ]);
+        ]);
+
         return redirect('/beheer/tafels');
     }
 }
