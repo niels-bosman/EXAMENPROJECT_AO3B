@@ -11,12 +11,18 @@ use App\Product;
 
 class PagesController extends Controller
 {
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function home()
     {
         $check = User::check_privileges();
         return view('home/home', compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function login()
     {
         $check = User::check_privileges();
@@ -26,12 +32,18 @@ class PagesController extends Controller
         return view('/auth/login', compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create()
     {
         $check = User::check_privileges();
         return view('/auth/register', compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function menu()
     {
         $types = Type::all();
@@ -40,30 +52,45 @@ class PagesController extends Controller
         return view('/home/menu', compact('types', 'check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function reservation()
     {
         $check = User::check_privileges();
         return view(User::check_account('/home/reservation'), ['button' => 'Check beschikbaarheid'], compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function contact()
     {
         $check = User::check_privileges();
         return view('/home/contact', compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function faq()
     {
         $check = User::check_privileges();
         return view('/home/faq', compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function service_condition()
     {
         $check = User::check_privileges();
         return view('/home/service_condition', compact('check'));
     }
 
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function forgot_password()
     {
         $check = User::check_privileges();
