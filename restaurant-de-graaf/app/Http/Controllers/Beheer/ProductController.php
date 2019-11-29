@@ -20,7 +20,7 @@ class ProductController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show the product dashboard.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -31,6 +31,11 @@ class ProductController extends Controller
         return view('beheer/product', compact('products'));
     }
 
+    /**
+     * Go to the product add page
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function getNew()
     {
         $check = User::check_privileges();
@@ -38,6 +43,14 @@ class ProductController extends Controller
         return view('beheer/product-add', compact('check'));
     }
 
+    /**
+     * Post a new product
+     *
+     * @param Request $request
+     * @param Product $product
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function post(Request $request, Product $product)
     {
         $this->validate($request, [
@@ -70,7 +83,11 @@ class ProductController extends Controller
         return redirect('/beheer/producten');
     }
 
-    // Toggles the deletion
+    /**
+     * Toggles the deletion of a product
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function delete()
     {
         $enabled = request('enabled');
@@ -92,6 +109,13 @@ class ProductController extends Controller
         return view('/beheer/product', compact('putSuccess', 'msg', 'products'));
     }
 
+    /**
+     * Edits a product
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function put(Request $request)
     {
         $this->validate($request, [
@@ -130,6 +154,11 @@ class ProductController extends Controller
         return redirect('/beheer/producten');
     }
 
+    /**
+     * Returns the detail page of a product
+     *
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function get()
     {
         $id = request('id');
