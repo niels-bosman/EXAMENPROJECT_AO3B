@@ -17,6 +17,7 @@ class PagesController extends Controller
     public function home()
     {
         $check = User::check_privileges();
+
         return view('home/home', compact('check'));
     }
 
@@ -38,6 +39,7 @@ class PagesController extends Controller
     public function create()
     {
         $check = User::check_privileges();
+
         return view('/auth/register', compact('check'));
     }
 
@@ -58,6 +60,7 @@ class PagesController extends Controller
     public function reservation()
     {
         $check = User::check_privileges();
+
         return view(User::check_account('/home/reservation'), ['button' => 'Check beschikbaarheid'], compact('check'));
     }
 
@@ -67,6 +70,7 @@ class PagesController extends Controller
     public function contact()
     {
         $check = User::check_privileges();
+
         return view('/home/contact', compact('check'));
     }
 
@@ -76,6 +80,7 @@ class PagesController extends Controller
     public function faq()
     {
         $check = User::check_privileges();
+
         return view('/home/faq', compact('check'));
     }
 
@@ -85,6 +90,7 @@ class PagesController extends Controller
     public function service_condition()
     {
         $check = User::check_privileges();
+
         return view('/home/service_condition', compact('check'));
     }
 
@@ -94,9 +100,11 @@ class PagesController extends Controller
     public function forgot_password()
     {
         $check = User::check_privileges();
-        if (User::check_logged_in()) {
+        if (User::check_logged_in())
+        {
             return view('/profiel', compact('check'));
-        } else {
+        } else
+        {
             return view('/auth/passwords/email', compact('check'));
         }
     }
