@@ -25,7 +25,7 @@ class NieuweReserveringController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Laat de reservering pagina zien.
      *
      * @return \Illuminate\Contracts\Support\Renderable
      */
@@ -34,6 +34,15 @@ class NieuweReserveringController extends Controller
         return view('beheer/reservering-aanmaken', ['button' => 'Check beschikbaarheid']);
     }
 
+    /**
+     * Verwerk die ingevulde formulieren. Methode verwerkt het zelfde formulier 2 keer.
+     * De eerste keer wordt de form verlengt en terug gestuurd om een nog een tafel te kiezen.
+     * De 2de keer wordt de reserveringe geplaast.
+     *
+     * @param Reservation $reservation
+     * @param TableReservation $tableReservation
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
     public function create(Reservation $reservation, TableReservation $tableReservation)
     {
         $available_tables = Table::all();
