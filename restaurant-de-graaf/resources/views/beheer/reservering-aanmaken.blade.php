@@ -49,7 +49,9 @@
                         $hours = intval(date('H')) + 1;
                         $minutes = date('i');
                         ?>
-                        <input id="time" value="<?php if(!isset($time)){echo $hours . ':' . $minutes;} ?><?php echo isset($time) ? $time : '' ?>" <?php echo isset($time) ? 'readonly' : '' ?> name="time" type="time" required>
+                        <input id="time" value="<?php if (!isset($time)) {
+                            echo $hours . ':' . $minutes;
+                        } ?><?php echo isset($time) ? $time : '' ?>" <?php echo isset($time) ? 'readonly' : '' ?> name="time" type="time" required>
                     </div>
                 </div>
 
@@ -75,10 +77,10 @@
                             @foreach($tables as $table)
                                 <div class="input__fields--radio">
                                     <input type="checkbox" id="table_{{$table->table_id}}" value="{{$table->table_id}}" name="table{{$table->table_id}}"
-                                            @if(isset($selected))
-                                                @if(in_array($table->table_id, $selected))
-                                                    checked
-                                                @endif
+                                           @if(isset($selected))
+                                           @if(in_array($table->table_id, $selected))
+                                           checked
+                                            @endif
                                             @endif
                                     >
                                     <label for="table_{{$table->table_id}}">Tafel {{$table->table_id}} ({{$table->seats}} zitplaatsen)</label>

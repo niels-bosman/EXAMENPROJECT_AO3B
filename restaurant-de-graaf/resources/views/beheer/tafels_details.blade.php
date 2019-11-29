@@ -29,21 +29,23 @@
                         <select id="input-reservable" class="form-control" name="reserveerbaar">
                             <option value="1"
                                     @if($table->reservable == true)
-                                        selected="selected"
+                                    selected="selected"
                                     @endif
-                            >Ja</option>
+                            >Ja
+                            </option>
                             <option value="0"
                                     @if($table->reservable == false)
                                     selected="selected"
                                     @endif
-                            >Nee</option>
+                            >Nee
+                            </option>
                         </select>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-md-6 profiel__input">
                         <label for="checkbox">Ik ben geen robot</label>
-                        <input id="checkbox" name = no-robot type="checkbox" required>
+                        <input id="checkbox" name=no-robot type="checkbox" required>
                     </div>
                     <div class="col-md-6 profiel__spacing">
                         <button type="submit" class="button float-right button--primary">Wijzigen</button>
