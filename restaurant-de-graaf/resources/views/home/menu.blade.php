@@ -24,6 +24,7 @@
                     <div class="menukaart__single-product">
                         {{-- Loopt door de producten met de bepaalde subcategorie in de loop --}}
                         @foreach(App\Product::where('subtype', $subtype->id)->get() as $product)
+                            {{-- Skipt als het product niet enabled is --}}
                             @if($product->enabled == 0)
                                 @continue
                             @endif
