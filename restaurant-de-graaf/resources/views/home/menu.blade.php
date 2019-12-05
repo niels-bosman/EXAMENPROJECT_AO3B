@@ -13,13 +13,16 @@
         <h1 class="menukaart__heading">Ons menu</h1>
         <div class="menukaart__menu">
 
+            {{-- Loopt door alle types --}}
             @foreach($types as $type)
                 <h2 class="menukaart__type">{{$type->name}}</h2>
 
+                {{-- Loopt de subtypes van het bepaalde type in de loop --}}
                 @foreach(App\Subtype::where('type_id', $type->id)->get() as $subtype)
                     <h4 class="menukaart__subtype">{{$subtype->name}}</h4>
 
                     <div class="menukaart__single-product">
+                        {{-- Loopt door de producten met de bepaalde subcategorie in de loop --}}
                         @foreach(App\Product::where('subtype', $subtype->id)->get() as $product)
                             @if($product->enabled == 0)
                                 @continue

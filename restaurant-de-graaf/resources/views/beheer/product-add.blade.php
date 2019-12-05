@@ -17,6 +17,7 @@
                     <div class="col-md-6 profiel__input">
                         <label for="type">Subtype</label>
                         <select name="type" id="type" class="form-control" required>
+                            {{-- Laadt alle subtypes in in een select field --}}
                             @foreach(App\Subtype::all() as $subtype)
                                 @if($loop->first)
                                     <option value="{{$subtype->id}}" selected>{{$subtype->name}}</option>

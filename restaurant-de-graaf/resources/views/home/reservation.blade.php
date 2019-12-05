@@ -8,6 +8,7 @@
 
 @section('content')
     <div class="reservation container">
+        {{-- Checkt of het gelukt is en laat een succes of error message zien --}}
         @if(isset($successful))
             @if($successful)
                 <div class="alert alert-success reservation__alert" role="alert">
@@ -66,6 +67,7 @@
                         <textarea id="comment" <?php echo isset($comment) ? 'readonly' : '' ?> name="comment"><?php echo isset($comment) ? $comment : '' ?></textarea>
                     </div>
 
+                    {{-- Laat alle tafels zien --}}
                     @if(isset($tables))
                         <div class="col-md-12 reservation__radio-buttons">
                             @foreach($tables as $table)

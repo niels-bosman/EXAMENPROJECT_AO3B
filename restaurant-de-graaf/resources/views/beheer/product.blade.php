@@ -14,6 +14,7 @@
                 <th>Gerechttype</th>
                 <th></th>
             </tr>
+            {{-- Loopt door alle producten --}}
             @foreach($products as $product)
                 <tr>
                     <td class="{{$product->enabled == 0 ? 'disabled' : ''}}">{{$product->name}}</td>
@@ -22,6 +23,7 @@
                     <td>
                         <a href="/beheer/producten/{{$product->id}}" class="button button--primary button--primary--small"><i class="fas fa-pen"></i></a>
 
+                        {{-- Toggled of het een add of delete knop is --}}
                         @if($product->enabled == 1)
                             <form method="POST" style="display: inline">
                                 {{ csrf_field() }}
