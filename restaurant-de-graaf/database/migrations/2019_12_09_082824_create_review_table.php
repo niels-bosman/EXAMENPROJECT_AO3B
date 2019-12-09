@@ -16,6 +16,7 @@ class CreateReviewTable extends Migration
         Schema::create('review', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
+            $table->text("title");
             $table->text("text");
             $table->double("stars");
 
