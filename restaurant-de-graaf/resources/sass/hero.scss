@@ -4,6 +4,10 @@
     background-position: 0% 60%;
     position: relative;
 
+    @media screen and (max-width: 600px) {
+        height: 200px;
+    }
+
     &:after {
         content: '';
         position: absolute;

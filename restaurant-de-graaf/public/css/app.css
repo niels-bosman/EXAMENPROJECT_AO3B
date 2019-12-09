@@ -4,6 +4,12 @@
   position: relative;
 }
 
+@media screen and (max-width: 600px) {
+  .footer {
+    padding: 50px 0;
+  }
+}
+
 .footer__menu {
   list-style: none;
   display: -webkit-box;
@@ -217,6 +223,12 @@
   padding: 100px 15px;
 }
 
+@media screen and (max-width: 600px) {
+  .content {
+    padding: 50px 15px;
+  }
+}
+
 .content__paragraph {
   max-width: 500px;
   text-align: center;
@@ -233,6 +245,12 @@
   background: no-repeat;
   background-position: 0% 60%;
   position: relative;
+}
+
+@media screen and (max-width: 600px) {
+  .hero {
+    height: 200px;
+  }
 }
 
 .hero:after {
@@ -382,6 +400,12 @@
   background: white;
 }
 
+@media screen and (max-width: 600px) {
+  .menu {
+    padding: 50px 15px;
+  }
+}
+
 .menu p {
   text-align: left;
   display: block;
@@ -396,6 +420,12 @@
   overflow: hidden;
   -o-object-fit: cover;
      object-fit: cover;
+}
+
+@media screen and (max-width: 600px) {
+  .menu__img {
+    margin-top: 50px;
+  }
 }
 
 .menu__button {

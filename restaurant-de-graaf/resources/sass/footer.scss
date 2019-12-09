@@ -3,6 +3,10 @@
     padding: 75px 0;
     position: relative;
 
+    @media screen and (max-width: 600px) {
+        padding: 50px 0;
+    }
+
     &__menu {
         list-style: none;
         display: flex;

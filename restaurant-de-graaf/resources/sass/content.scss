@@ -1,15 +1,14 @@
 .content {
     padding: 100px 15px;
 
-    &__title {
-
+    @media screen and (max-width: 600px) {
+        padding: 50px 15px;
     }
 
     &__paragraph {
         max-width: 500px;
         text-align: center;
-        margin: 0 auto 20px auto    ;
-
+        margin: 0 auto 20px auto;
     }
 
     &__button {
