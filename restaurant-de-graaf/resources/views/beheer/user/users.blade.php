@@ -14,15 +14,14 @@
                 <th></th>
 
             </tr>
+            {{-- Loopt door de users heen --}}
             @foreach($users as $user)
                 <tr>
-                    <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->name}}</a>
-                    </td>
-                    <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->email}}</a>
-                    </td>
-                    <td>
-                        <a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->tel_number}}</a>
-                    </td>
+                    <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->name}}</a></td>
+                    <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->email}}</a></td>
+                    <td><a class="header__menu-item @if($user->blocked == 1) button--block @endif">{{$user->tel_number}}</a></td>
+
+                    {{-- Laat het ingelogde account niet zien --}}
                     @if($user->id != $auth->id)
                         <td>
                             <a class="button button--primary" href="klanten/{{$user->id}}"><i class="fas fa-pen"></i></a>
@@ -49,6 +48,7 @@
                                     </div>
                                 </div>
                             </form>
+                            {{-- Toggled welke knop er getoont word --}}
                             @if($user->blocked == 0)
                                 <a class="button button--soft profiel__block-account-button" data-id="{{$user->id}}" href="#"><i class="fas fa-ban"></i></a>
                                 <div class="profiel__block-modal-background profiel__block-modal-disable" data-id="{{$user->id}}"></div>
@@ -86,6 +86,7 @@
     </div>
 @endsection
 
+{{-- Checkt of het succesvol was en geeft feedback --}}
 @if(isset($putSuccess))
     @if($putSuccess == true)
         <div class="alert alert-success reservation__alert" role="alert">

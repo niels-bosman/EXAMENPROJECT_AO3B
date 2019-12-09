@@ -32,7 +32,7 @@ class BeheerController extends Controller
     }
 
     /**
-     * Gets the general information of a reservation.
+     * Retourneerd de details van een reservering op de detail pagina.
      *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -44,7 +44,7 @@ class BeheerController extends Controller
     }
 
     /**
-     * Gets the orders of a specific reservation.
+     * Retourneerd de bestellingen die bij een reservering horen.
      *
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
@@ -56,17 +56,20 @@ class BeheerController extends Controller
     }
 
     /**
+     * Verwijderd een specifieke bestelling die bij een reservering hoort.
+     *
      * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
      */
     public function destroyBestelling()
     {
+        // Verwijder query
         ReservationProduct::where('id', request('id'))->delete();
 
         return redirect('/beheer/reserveringen/' . request('code'));
     }
 
     /**
-     * Posts new product data to a certain reservation.
+     * Voegt een nieuwe bestelling aan een gekoppelde reservering toe.
      *
      * @param Request $request
      * @param ReservationProduct $product
@@ -75,6 +78,7 @@ class BeheerController extends Controller
      */
     public function postBestellingen(Request $request, ReservationProduct $product)
     {
+        // Validatie
         $this->validate($request, [
             'product' => [
                 'required',
@@ -86,6 +90,7 @@ class BeheerController extends Controller
             ],
         ]);
 
+        // Velden
         $product->reservation_code = request('id');
         $product->product_id = request('product');
         $product->amount = request('amount');
@@ -95,7 +100,7 @@ class BeheerController extends Controller
     }
 
     /**
-     * Edits a certain reservation.
+     * Bewerkt een specifieke reservering
      *
      * @param Request $request
      * @return \Illuminate\Contracts\Support\Renderable|\Illuminate\Contracts\View\Factory|\Illuminate\View\View
@@ -103,6 +108,7 @@ class BeheerController extends Controller
      */
     public function put(Request $request)
     {
+        // Validatie
         $this->validate($request, [
             'reservation_code' => [
                 'required',
@@ -123,6 +129,7 @@ class BeheerController extends Controller
             'robot' => ['required'],
         ]);
 
+        // Update query
         Reservation::where('reservation_code', request('reservation_code'))->update([
             'date' => request('date') . ' ' . request('time'),
             'duration' => request('duration'),
@@ -130,6 +137,7 @@ class BeheerController extends Controller
             'comment' => request('comment'),
         ]);
 
+        // Zorg dat er een succesvolle popup komt en pakt de juiste reservering pagina.
         $putSuccess = true;
         $reservation = Reservation::where('reservation_code', request('id'))->first();
 
