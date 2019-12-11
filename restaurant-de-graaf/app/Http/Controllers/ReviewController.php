@@ -20,6 +20,7 @@ class ReviewController extends Controller
 
         $review->save();
 
-        return $this->index();
+        $successful = true;
+        return view('/home/review', compact('successful'));
     }
 }

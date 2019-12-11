@@ -79,4 +79,15 @@
             </div>
         </form>
     </div>
+
+    @if(isset($successful))
+        @if($successful)
+            <div class="alert alert-success reservation__alert" role="alert">
+                Je review is succesvol geplaatst! Wanneer deze door de administrators goedgekeurd is zal deze te zien zijn!
+                <button type="button" class="close reservation__alert-close">
+                    <span>&times;</span>
+                </button>
+            </div>
+        @endif
+    @endif
 @endsection
