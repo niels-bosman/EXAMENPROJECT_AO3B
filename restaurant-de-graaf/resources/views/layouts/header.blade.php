@@ -35,6 +35,9 @@
                             <a class="header__menu-item @if (\Request::is('menu')) header__menu-item--active @endif" href="/menu">Menu</a>
                         </li>
                         <li>
+                            <a class="header__menu-item @if (\Request::is('review')) header__menu-item--active @endif" href="/review">Review</a>
+                        </li>
+                        <li>
                             <a class="header__menu-item @if (\Request::is('contact')) header__menu-item--active @endif" href="/contact">Contact</a>
                         </li>
                     </ul>
