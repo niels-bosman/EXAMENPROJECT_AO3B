@@ -229,6 +229,10 @@
   }
 }
 
+.content__heading {
+  margin-bottom: 50px;
+}
+
 .content__paragraph {
   max-width: 500px;
   text-align: center;
@@ -238,6 +242,35 @@
 .content__button--center {
   margin: 0 auto;
   display: table;
+}
+
+.content .stars {
+  margin: 15px auto;
+  display: table;
+}
+
+.content .stars i {
+  font-size: 30px;
+}
+
+.content .stars i .space {
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+          justify-content: space-evenly;
+  position: relative;
+}
+
+.content .stars i .space .half {
+  display: block;
+  height: 30px;
+  width: 10px;
+  position: absolute;
+  top: -30px;
+}
+
+.content .stars i .space .half--first {
+  left: -15px;
 }
 
 .hero {
@@ -498,6 +531,11 @@
 .reservation__field .buttons {
   margin: 0 auto;
   display: table;
+}
+
+.reservation__field--small {
+  max-width: 500px;
+  margin: 15px auto;
 }
 
 .reservation__alert {

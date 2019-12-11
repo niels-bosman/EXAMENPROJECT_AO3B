@@ -5,6 +5,10 @@
         padding: 50px 15px;
     }
 
+    &__heading {
+        margin-bottom: 50px;
+    }
+
     &__paragraph {
         max-width: 500px;
         text-align: center;
@@ -15,6 +19,32 @@
         &--center {
             margin: 0 auto;
             display: table;
+        }
+    }
+
+    .stars {
+        margin: 15px auto;
+        display: table;
+        i {
+            font-size: 30px;
+
+            .space {
+                display: flex;
+                justify-content: space-evenly;
+                position: relative;
+
+                .half {
+                    display: block;
+                    height: 30px;
+                    width: 10px;
+                    position: absolute;
+                    top: -30px;
+                }
+
+                .half--first {
+                    left: -15px;
+                }
+            }
         }
     }
 }

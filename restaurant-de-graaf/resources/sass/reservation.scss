@@ -12,6 +12,11 @@
             margin: 0 auto;
             display: table;
         }
+
+        &--small {
+            max-width: 500px;
+            margin: 15px auto;
+        }
     }
 
     &__alert {
