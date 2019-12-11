@@ -106,8 +106,4 @@ class PagesController extends Controller
             return view('/auth/passwords/email', compact('check'));
         }
     }
-
-    public function review() {
-        return view('/home/review');
-    }
 }

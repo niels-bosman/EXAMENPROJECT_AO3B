@@ -19,6 +19,7 @@ class CreateReviewTable extends Migration
             $table->text("title");
             $table->text("text");
             $table->double("stars");
+            $table->boolean('approved')->default(0);
 
             $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();

@@ -27,6 +27,12 @@
         display: table;
         i {
             font-size: 30px;
+            color: orange;
+            width: 35px;
+
+            &:hover {
+                cursor: pointer;
+            }
 
             .space {
                 display: flex;
@@ -36,13 +42,17 @@
                 .half {
                     display: block;
                     height: 30px;
-                    width: 10px;
+                    width: 15px;
                     position: absolute;
                     top: -30px;
                 }
 
                 .half--first {
-                    left: -15px;
+                    left: 0;
+                }
+
+                .half--last {
+                    right: 0;
                 }
             }
         }

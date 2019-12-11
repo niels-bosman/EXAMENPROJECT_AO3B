@@ -251,6 +251,12 @@
 
 .content .stars i {
   font-size: 30px;
+  color: orange;
+  width: 35px;
+}
+
+.content .stars i:hover {
+  cursor: pointer;
 }
 
 .content .stars i .space {
@@ -264,13 +270,17 @@
 .content .stars i .space .half {
   display: block;
   height: 30px;
-  width: 10px;
+  width: 15px;
   position: absolute;
   top: -30px;
 }
 
 .content .stars i .space .half--first {
-  left: -15px;
+  left: 0;
+}
+
+.content .stars i .space .half--last {
+  right: 0;
 }
 
 .hero {
