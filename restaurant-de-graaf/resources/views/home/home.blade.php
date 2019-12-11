@@ -24,7 +24,7 @@
         </div>
     </div>
     <div class="content container">
-        <h2 class="content__heading">Reviews</h2>
+        <h1 class="content__heading">Reviews</h1>
         <div class="row">
             @foreach(\App\Review::where('approved', 1)->take(2)->get() as $review)
                 <div class="col-md-6">
