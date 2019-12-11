@@ -34,7 +34,7 @@
                     <label style="margin: 0 auto; display: table;">Met hoe veel sterren zou u ons beoordelen?</label>
                 </div>
                 <div class="col-md-12">
-                    <input id="stars" name="stars" type="number" hidden min="0" max="5" required class="form-control">
+                    <input id="stars" name="stars" type="number" hidden min="1" max="10" required class="form-control">
 
                     <div class="stars">
                         <i class="far fa-star" id="star1">
