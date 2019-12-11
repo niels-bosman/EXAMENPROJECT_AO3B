@@ -21,6 +21,11 @@ label {
         margin-bottom: 35px;
         padding: 20px;
 
+        &--nocenter p {
+            text-align: left;
+
+        }
+
         &--less-margin {
             margin-bottom: 15px;
         }

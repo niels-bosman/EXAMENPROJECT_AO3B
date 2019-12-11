@@ -629,6 +629,10 @@ label {
   padding: 20px;
 }
 
+.profiel__card--nocenter p {
+  text-align: left;
+}
+
 .profiel__card--less-margin {
   margin-bottom: 15px;
 }

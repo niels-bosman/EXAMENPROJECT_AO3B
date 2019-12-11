@@ -23,4 +23,27 @@
             </div>
         </div>
     </div>
+    <div class="content container">
+        <h2 class="content__heading">Reviews</h2>
+        <div class="row">
+            @foreach(\App\Review::where('approved', 1)->take(2)->get() as $review)
+                <div class="col-md-6">
+                    <div class="card profiel__card profiel__card--nocenter">
+                        <h2>{{$review->title}}</h2>
+                        <p><i>"{{$review->text}}"</i></p>
+
+                        <div class="stars">
+                            @for($i = 0; $i <= $review->stars -1; $i++)
+                                <i class="fas fa-star"></i>
+                            @endfor
+
+                            @if(is_float($review->stars))
+                                <i class="fas fa-star-half-alt"></i>
+                            @endif
+                        </div>
+                    </div>
+                </div>
+            @endforeach
+        </div>
+    </div>
 @endsection
