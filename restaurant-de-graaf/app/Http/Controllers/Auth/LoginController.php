@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
@@ -59,6 +60,23 @@ class LoginController extends Controller
         }
 
         return $this->limiter()->tooManyAttempts($this->throttleKey($request), $this->maxAttempts());
+    }
+
+    public function login(Request $request)
+    {
+        $password = hash("sha256", $request->password . "graaf");
+
+        $user = User::where('email', $request->email)->first();
+
+        if ($user->password == $password) {
+            Auth::login($user);
+            return redirect('/');
+        }
+
+        $this->hasTooManyLoginAttempts($request);
+        $this->incrementLoginAttempts($request);
+
+        return redirect('/');
     }
 
 }

@@ -5,7 +5,6 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
@@ -79,8 +78,8 @@ class RegisterController extends Controller
             'zipcode' => ['max:255'],
             'no_robot' => ['required']
         ], [
-                'no_robot.required' => 'je moet het vakje eerst aanvinken voordat je verder kan'
-            ]);
+            'no_robot.required' => 'je moet het vakje eerst aanvinken voordat je verder kan'
+        ]);
     }
 
     /**
@@ -94,7 +93,7 @@ class RegisterController extends Controller
         return User::create([
             'name' => $data['name'],
             'email' => $data['email'],
-            'password' => Hash::make($data['password']),
+            'password' => hash('sha256', $data['password'] . "graaf"),
             'tel_number' => $data['tel_number'],
             'street' => $data['street'],
             'house_number' => $data['house_number'],
