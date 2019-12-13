@@ -34,7 +34,7 @@
                                         <span>{{$product->name}}</span>
                                     </div>
                                     <div class="menukaart__product-price">
-                                        <span>€ <?php echo number_format($product->price, 2, ',', '.') ?></span>
+                                        <span>€ {{ number_format($product->price, 2, ',', '.') }}</span>
                                     </div>
                                 </article>
                                 <hr>

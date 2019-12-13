@@ -841,7 +841,7 @@ a {
 }
 
 .contact__heading {
-  margin-bottom: 30px;
+  margin-bottom: 75px;
 }
 
 .contact--h2 {
@@ -850,13 +850,15 @@ a {
 
 .contact--h3 {
   display: block;
-  text-align: center;
   margin-bottom: 10px;
 }
 
 .contact--adress {
-  text-align: center;
   margin-bottom: 10px;
+}
+
+.contact--adress p {
+  text-align: left;
 }
 
 .contact--space {
