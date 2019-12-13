@@ -518,6 +518,13 @@
   display: none;
 }
 
+.menukaart__print {
+  position: fixed;
+  right: 50px;
+  bottom: 50px;
+  z-index: 999;
+}
+
 .login {
   padding: 100px 15px;
 }

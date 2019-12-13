@@ -1,6 +1,7 @@
 $row-width: 700px;
 
 .menu {
+
     padding: 100px 15px;
     background: lighten($color-main, 65%);
 
@@ -73,6 +74,13 @@ $row-width: 700px;
                     }
                 }
             }
+        }
+
+        &__print {
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            z-index: 999;
         }
     }
 }

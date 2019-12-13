@@ -45,5 +45,9 @@
                 @endforeach
             @endforeach
         </div>
+
+        <div class="menukaart__print">
+            <a href="/menu.pdf" target="_blank" class="button button--primary"><i class="fas fa-print"></i> Afdrukken</a>
+        </div>
     </div>
 @endsection
