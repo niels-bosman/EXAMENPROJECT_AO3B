@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use App\Subtype;
 use App\User;
 use App\Type;
+use Illuminate\Mail\Mailable;
 use Illuminate\Support\Facades\Auth;
 use App\Product;
+use Illuminate\Support\Facades\Mail;
 
 class PagesController extends Controller
 {
@@ -68,6 +70,8 @@ class PagesController extends Controller
     public function contact()
     {
         $check = User::check_privileges();
+
+        //Mail::to('restaurantdegraaf@gmail.nl')->send();
 
         return view('/home/contact', compact('check'));
     }

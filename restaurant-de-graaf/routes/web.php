@@ -1,10 +1,19 @@
 <?php
 
+use App\Mail\ContactMail;
+use Illuminate\Http\Request;
+
 Route::get('/', 'PagesController@home');
 Route::get('/menu', 'PagesController@menu');
 Route::get('/reserveren', 'PagesController@reservation');
 Route::post('/reserveren', 'ReserveringController@post');
 Route::get('/contact', 'PagesController@contact');
+
+Route::post('/contact', function (Request $request) {
+    Mail::send(new ContactMail($request));
+    return redirect('/');
+});
+
 Route::get('/review', 'ReviewController@index');
 Route::post('/review', 'ReviewController@post');
 Route::get('/faq', 'PagesController@faq');

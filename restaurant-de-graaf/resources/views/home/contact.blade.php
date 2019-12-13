@@ -26,7 +26,7 @@
                     <div class="form-group row" style="max-width: 800px">
                         <div class="col-md-12">
                             <label for="form-content">Uw bericht</label>
-                            <textarea id="form-content" rows="10" cols="30" class="form-control" required placeholder="Geachte heer/mevrouw van restaurant de graaf,"></textarea>
+                            <textarea id="form-content" name="content" rows="10" cols="30" class="form-control" required placeholder="Geachte heer/mevrouw van restaurant de graaf,"></textarea>
                         </div>
                     </div>
                     <div class="form-group row mb-0">
