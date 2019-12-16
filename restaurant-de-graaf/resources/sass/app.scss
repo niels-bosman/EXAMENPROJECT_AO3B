@@ -44,6 +44,16 @@ p, span, label, .btn-link, input, td, select, option, textarea {
     background: rgba($color-main, .4);
 }
 
+@media screen and (max-width: 678px) {
+    h1 {
+        font-size: 34px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+}
+
 .card-content-admin {
     display: flex;
     align-items: center;

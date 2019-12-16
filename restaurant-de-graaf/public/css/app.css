@@ -1076,6 +1076,16 @@ textarea {
   background: rgba(22, 147, 166, 0.4);
 }
 
+@media screen and (max-width: 678px) {
+  h1 {
+    font-size: 34px;
+  }
+
+  h2 {
+    font-size: 24px;
+  }
+}
+
 .card-content-admin {
   display: -webkit-box;
   display: flex;

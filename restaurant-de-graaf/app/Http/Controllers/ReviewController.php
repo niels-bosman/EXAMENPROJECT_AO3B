@@ -16,8 +16,25 @@ class ReviewController extends Controller
 
     public function post(Request $request, Review $review)
     {
+        $this->validate($request, [
+            'title' => [
+                'required',
+                'string',
+                'max:255'
+            ],
+            'text' => [
+                'required',
+                'string',
+            ],
+            'stars' => [
+                'required',
+                'min:1',
+                'max:10',
+            ],
+        ]);
+
         $review->title = \request('title');
-        $review->text = \request('title');
+        $review->text = \request('text');
         $review->stars = \request('stars') / 2;
         $review->user_id = Auth::user()->id;
 

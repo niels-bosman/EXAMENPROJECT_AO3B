@@ -23,27 +23,31 @@
             </div>
         </div>
     </div>
-    <div class="content container">
-        <h1 class="content__heading">Reviews</h1>
-        <div class="row">
-            @foreach(\App\Review::where('approved', 1)->take(2)->get() as $review)
-                <div class="col-md-6">
-                    <div class="card profiel__card profiel__card--nocenter">
-                        <h2>{{$review->title}}</h2>
-                        <p><i>"{{$review->text}}"</i></p>
+    <?php $review = \App\Review::where('approved', 1)->get(); ?>
 
-                        <div class="stars">
-                            @for($i = 0; $i <= $review->stars -1; $i++)
-                                <i class="fas fa-star"></i>
-                            @endfor
+    @if(count($review) > 0)
+        <div class="content container">
+            <h1 class="content__heading">Reviews</h1>
+            <div class="row">
+                @foreach(\App\Review::where('approved', 1)->take(2)->get() as $review)
+                    <div class="col-md-6">
+                        <div class="card profiel__card profiel__card--nocenter">
+                            <h2>{{$review->title}}</h2>
+                            <p><i>"{{$review->text}}"</i></p>
 
-                            @if(is_float($review->stars))
-                                <i class="fas fa-star-half-alt"></i>
-                            @endif
+                            <div class="stars">
+                                @for($i = 0; $i <= $review->stars -1; $i++)
+                                    <i class="fas fa-star"></i>
+                                @endfor
+
+                                @if(is_float($review->stars))
+                                    <i class="fas fa-star-half-alt"></i>
+                                @endif
+                            </div>
                         </div>
                     </div>
-                </div>
-            @endforeach
+                @endforeach
+            </div>
         </div>
-    </div>
+    @endif
 @endsection
